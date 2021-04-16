@@ -1,0 +1,16 @@
+
+.title {
+    font-size: $font-size-h1;
+    margin: 4px;
+}
+
+.p-card {
+    font-size: $font-size-p;
+}
+
+.form-error {
+    font-size: calc(#{$font-size-p} - 0.35em);
+    color: $warn-color;
+    margin: 5px 0 0 15px;
+    padding: 0;
+}
