@@ -1,0 +1,26 @@
+<main class = "main-flex">
+  <div class="card-md">
+    <div class="card-header">
+      <h1 class="title">Sign In</h1>
+    </div>
+    <div class="card-body">
+      <form action="#" class="form-two-cols" [formGroup] = "signInForm">
+        <div class="styled-input">
+          <input id="username" name="username" type="text" alt="input for username" formControlName="username" required>
+          <label for="username">Username</label>
+          <span></span>
+          <p class="form-error" *ngIf="!signInForm.controls['username'].valid && !signInForm.controls['username'].pristine">Field required</p>
+        </div>
+        <div class="styled-input">
+          <input id="password" name="password" type="password" alt="input for password" formControlName="password" required>
+          <label for="password">Password</label>
+          <span></span>
+          <p class="form-error" *ngIf="!signInForm.controls['password'].valid && !signInForm.controls['password'].pristine">Field required</p>
+        </div>
+      </form>
+    </div>
+    <div class="card-actions">
+      <button [class]="signInForm.valid ? 'button':'button-disabled' " [disabled]="!signInForm.valid" (click)="signIn()">Sign In</button>
+    </div>
+  </div>
+</main>

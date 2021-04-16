@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+// Variables
+@import 'assets/SCSS/abstracts/variables';
+
+/*
+* Base
+*/
+@import 'assets/SCSS/base/reset';
+@import 'assets/SCSS/base/typography';
+
+/*
+* Abstracts
+*/
+@import 'assets/SCSS/abstracts/functions';
+@import 'assets/SCSS/abstracts/mixins';
+
+/*
+* Components Import
+*/
+@import 'assets/SCSS/components/buttons';
+@import 'assets/SCSS/components/cards';
+@import 'assets/SCSS/components/inputs';
+@import 'assets/SCSS/layout/form';
+@import 'assets/SCSS/components/sidenav';
+/*
+* Layouts Imports
+*/
+@import 'assets/SCSS/layout/header';
+@import 'assets/SCSS/layout/navbar';
+@import 'assets/SCSS/layout/main';
+
+/*
+* Pages
+*/
+@import 'assets/SCSS/pages/home';
+
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: $background-color;
+}

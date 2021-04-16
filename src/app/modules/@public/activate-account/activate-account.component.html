@@ -1,0 +1,20 @@
+<main class = "main-flex">
+  <div class="card-xl">
+    <div class="card-header">
+      <h1 class="title">Activate Account</h1>
+    </div>
+    <div class="card-body">
+      <form action="#" class="form-two-cols" [formGroup] = "activateAccountForm">
+        <div class="styled-input">
+          <input id="token" name="token" type="text" alt="input for token" formControlName="token" required>
+          <label for="token">Insert Token</label>
+          <span></span>
+          <p class="form-error" *ngIf="!activateAccountForm.controls['token'].valid && !activateAccountForm.controls['token'].pristine">Token not valid</p>
+        </div>
+      </form>
+    </div>
+    <div class="card-actions">
+      <button [class]="activateAccountForm.valid ? 'button':'button-disabled' " [disabled]="!activateAccountForm.valid" (click)="activateAccount()">Validate Account</button>
+    </div>
+  </div>
+</main>

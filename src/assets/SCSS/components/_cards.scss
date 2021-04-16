@@ -1,0 +1,16 @@
+
+.card-xl {
+    @include card;
+    width: 80%;
+    height: fit-content;
+    border: $border-size;
+    border-radius: $border-radius;
+}
+
+.card-md {
+    @include card;
+    width: 40%;
+    height: fit-content;
+    border: $border-size;
+    border-radius: $border-radius;
+}

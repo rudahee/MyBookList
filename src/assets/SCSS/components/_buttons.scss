@@ -1,0 +1,25 @@
+.button {
+    @include button;
+
+    background-color: $accent-color;
+
+    width: 30%;
+    padding: 1vh;
+    border: $border-size;
+
+    &:hover{
+        background-color: $accent-color-hover;
+    }
+}
+
+.button-disabled{
+    @extend .button;
+
+    background-color: $label-color;
+
+    cursor: not-allowed;
+
+    &:hover {
+        background-color: $label-color;
+    }
+}
