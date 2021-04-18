@@ -1,11 +1,26 @@
 
 .title {
-    font-size: $font-size-h1;
+    font-size: $font-size-h3;
     margin: 4px;
+    color: $text-color;
+}
+
+.subtitle {
+    font-size: $font-size-h4;
+    margin: 2px;
 }
 
 .p-card {
     font-size: $font-size-p;
+}
+
+.p-card-white {
+    @extend .p-card;
+    color: white;
+}
+
+.p-card-small {
+    font-size: calc(#{$font-size-p} - 0.25em) ;
 }
 
 .form-error {

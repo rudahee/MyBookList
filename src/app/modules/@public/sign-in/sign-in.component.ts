@@ -1,5 +1,9 @@
+import { Router, RouterModule } from '@angular/router';
+import { UserService } from './../../../services/user/user.service';
+import { ILoginData } from './../../../interfaces/IUser';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { JwtHandlerService } from 'src/app/services/jwt-token/jwt-handler.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,7 +14,10 @@ export class SignInComponent implements OnInit {
 
   signInForm: FormGroup;
 
-  constructor(private build: FormBuilder) { }
+  loginData: ILoginData;
+
+  constructor(private build: FormBuilder, private userService: UserService, private JWTHandler: JwtHandlerService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.signInForm = this.build.group({
@@ -20,6 +27,14 @@ export class SignInComponent implements OnInit {
   }
 
   signIn(): void {
-    console.log("do nothing")
+    this.loginData = this.signInForm.value;
+
+    this.userService.signIn(this.loginData).subscribe(
+      resp => {
+        if (resp !== undefined && resp != null) {
+          this.JWTHandler.saveJWT(resp.headers.get('Authorization').split(' ')[1].trim());
+          this.router.navigate(['/book']);
+        }
+    });
   }
 }

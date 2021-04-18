@@ -2,21 +2,21 @@
 /*
 * Colors
 */
-$primary-color: #29b6f6;
-$primary-color-hover:  #039be5;
+$primary-color: #1565c0;
+$primary-color-hover:  #1359aa;
 
-$secondary-color: #90caf9;
-$secondary-color-hover: #64b5f6;
+$secondary-color: #42a5f5;
+$secondary-color-hover: #388bd0;
 
-$accent-color: #ffa726;
-$accent-color-hover: #ff9800;
+$accent-color: #ff8f00;
+$accent-color-hover: rgb(211, 127, 2);
 
 $warn-color: #b61827;
 $warn-color-hover: #ba000d;
 
 $background-color: rgba(211, 211, 211, 0.494);
 
-$text-color: #000;
+$text-color: #fff;
 
 $label-color: #b8b8b8;
 
@@ -38,7 +38,7 @@ $font-size-p: calc(0.75em + 1vmin);
 $font-size-h1: calc(2.5em + 2vmin);
 $font-size-h2: calc(2em + 2vmin);
 $font-size-h3: calc(1.7em + 1vmin);
-$font-size-h1: calc(1.3em + 1vmin);
+$font-size-h4: calc(1.3em + 1vmin);
 
 /*
 * Box shadow

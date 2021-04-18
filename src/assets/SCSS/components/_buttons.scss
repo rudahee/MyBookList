@@ -6,13 +6,21 @@
     width: 30%;
     padding: 1vh;
     border: $border-size;
+    color: white;
 
     &:hover{
         background-color: $accent-color-hover;
     }
 }
 
-.button-disabled{
+.button-w-full {
+    @extend .button;
+
+    width: 90%;
+    margin-bottom: 5%;
+}
+
+.button-disabled {
     @extend .button;
 
     background-color: $label-color;
@@ -21,5 +29,21 @@
 
     &:hover {
         background-color: $label-color;
+    }
+}
+
+.button-invisible {
+    @include button;
+
+    background-color: rgba(255, 255, 255, 0.1);
+
+    width: 150px;
+    height: 60%;
+    padding: 1vh;
+    border: $border-size;
+    color: white;
+    margin-right: 5%;
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.15);
     }
 }

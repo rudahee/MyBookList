@@ -14,3 +14,9 @@
     border: $border-size;
     border-radius: $border-radius;
 }
+
+.card-w-full {
+    @extend .card-xl;
+    width: 94%;
+    margin-bottom: 5%;
+}

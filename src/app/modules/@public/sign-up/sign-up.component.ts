@@ -1,6 +1,9 @@
+import { IUser } from './../../../interfaces/IUser';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 
 
@@ -11,10 +14,10 @@ import { Validators } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-
+  user: IUser;
   signUpForm: FormGroup;
 
-  constructor(private build: FormBuilder) { }
+  constructor(private build: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.signUpForm = this.build.group({
@@ -52,6 +55,12 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp(): void {
-    console.log("do nothing")
+    this.user = this.signUpForm.value;
+
+    this.userService.signUp(this.user).subscribe(
+      response => {
+        console.log("nice register");
+      }
+    );
   }
 }

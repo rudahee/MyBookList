@@ -6,6 +6,7 @@
 */
 @import 'assets/SCSS/base/reset';
 @import 'assets/SCSS/base/typography';
+@import 'assets/SCSS/abstracts/utils';
 
 /*
 * Abstracts
@@ -21,12 +22,14 @@
 @import 'assets/SCSS/components/inputs';
 @import 'assets/SCSS/layout/form';
 @import 'assets/SCSS/components/sidenav';
+@import 'assets/SCSS/components/images';
 /*
 * Layouts Imports
 */
 @import 'assets/SCSS/layout/header';
 @import 'assets/SCSS/layout/navbar';
 @import 'assets/SCSS/layout/main';
+@import 'assets/SCSS/layout/flex';
 
 /*
 * Pages
@@ -38,5 +41,5 @@ html, body { height: 100%; }
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: $background-color;
+    background-color: #5c5c5c21;
 }

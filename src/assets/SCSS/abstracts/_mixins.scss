@@ -1,11 +1,12 @@
 @mixin main {
+    
     height: calc(99vh - #{$header-height});
 }
 
 @mixin card {
 
     background-color: $background-card;
-    box-shadow: $box-shadow-card;
+    //box-shadow: $box-shadow-card;
 
     .card-header {
         background-color: $secondary-color;

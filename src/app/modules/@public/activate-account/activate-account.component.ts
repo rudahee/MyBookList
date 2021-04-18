@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -10,7 +11,7 @@ import { Validators } from '@angular/forms';
 })
 export class ActivateAccountComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private build: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private build: FormBuilder, private userService: UserService) { }
 
   id: string;
   token: string;
@@ -21,7 +22,7 @@ export class ActivateAccountComponent implements OnInit {
     this.token = this.route.snapshot.paramMap.get('token');
 
     if ((this.id !== '' && this.id !== undefined) && (this.token !== '' && this.token !== undefined)) {
-      console.log(this.id + ' ' + this.token);
+      this.userService.activateAccount(this.token, this.id);
     }
 
     this.activateAccountForm = this.build.group({
@@ -32,6 +33,6 @@ export class ActivateAccountComponent implements OnInit {
 
   activateAccount(): void {
     const tokenForm: string = this.activateAccountForm.controls.token.value;
-    console.log(tokenForm.substring(0, 8) + ' ' + tokenForm.substring(9, 10));
+    this.userService.activateAccount(tokenForm.substring(0, 8), tokenForm.substring(9, 10));
   }
 }

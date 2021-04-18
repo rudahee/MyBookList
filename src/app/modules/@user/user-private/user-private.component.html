@@ -1,0 +1,47 @@
+<main class = "main-with-widgets">
+
+  <article class="side main-flex">
+    <section class="card-w-full">
+      <div class="card-header">
+        <h1 class="p-card-white">Friend List</h1>
+      </div>
+      <div>
+        <ul>
+          <li>User 1</li>
+          <li>User 2</li>
+          <li>User 3</li>
+          <li>User 4</li>
+        </ul>
+      </div>
+    </section>
+  </article>
+
+  <article class="article main-flex">
+    <div class="card-w-full">
+      <div class="card-header">
+        <h1 class="title">Profile data</h1>
+      </div>
+      <div class="card-body flex-col">
+        <h2 class="subtitle">My data</h2>
+        <hr>
+        <ul class="w-full flex-start">
+          <li>User ID: {{user.id}}</li>
+          <li>Name: {{user.name + ' ' + user.surname}}</li>
+          <li>Age: {{user.age}}</li>
+          <li>Username: {{user.username}}</li>
+          <li>Email: {{user.email}}</li>
+          <li>Create Time: {{user.createTime}}</li>
+          <li>Last update: {{user.updateTime}}</li>
+          <li>Last password change: {{user.lastPasswordChange }}</li>
+          <li>Account Type: {{user.roles}}</li>
+        </ul>
+      </div>
+      <hr>
+      <div class="card-actions">
+        <button class="button">Go to List</button>
+        <button class="button">Edit profile</button>
+        <button class="button">Delete me account</button>
+      </div>
+    </div>
+  </article>
+</main>

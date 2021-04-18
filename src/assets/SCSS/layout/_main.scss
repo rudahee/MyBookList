@@ -2,20 +2,23 @@
     @include main;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-flow: column nowrap;
 }
 
-.main-grid {
+.main-with-widgets {
     @include main;
-    display: grid;
-    grid-template-areas: "sidebar article article";
+    display: flex;
+    margin-top: 3vh;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-flow: row nowrap;
 
     .side {
-        grid-area: sidebar;
+        width: 20%;
+        margin-left: 1%;
     }
 
     .article {
-        grid-area: article;
+        width: 80%;
     }
 }

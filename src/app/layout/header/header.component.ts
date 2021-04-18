@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() { }
+  public sideNav: boolean;
+
+  constructor() {
+    this.sideNav = false;
+   }
 
 }
