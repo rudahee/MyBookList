@@ -1,0 +1,69 @@
+<main class="main-with-widgets main-start">
+
+  <form action="#" class="main-with-widgets main-start w-full" [formGroup]="bookForm">
+  <article class="side-xl">
+    <app-search-author *ngIf="!authorId"></app-search-author>
+    <app-search-saga></app-search-saga>
+  </article>
+
+  <article class="article-md">
+    <div class="card-w-full">
+      <div class="card-header">
+        <h1 class="title">Add Book</h1>
+      </div>
+      <div class="card-body form-two-cols">
+          <div class="col-left">
+            <div class="styled-input">
+              <input id="name" name="name" type="text" alt="input for name" formControlName="name" required>
+              <label for="name">Name</label>
+              <span></span>
+              <p class="form-error" *ngIf="!bookForm.controls['name'].valid && !bookForm.controls['name'].pristine">Field required</p>
+            </div>
+            <div class="styled-input">
+              <input id="pages" name="pages" type="number" alt="input for pages" formControlName="pages" required>
+              <label for="pages">Pages</label>
+              <span></span>
+              <p class="form-error" *ngIf="!bookForm.controls['pages'].valid && !bookForm.controls['pages'].pristine">Field required</p>
+            </div>
+            <div class="styled-input">
+              <input id="publisher" name="publisher" type="string" alt="input for publisher" formControlName="publisher" required>
+              <label for="publisher">Publisher</label>
+              <span></span>
+              <p class="form-error" *ngIf="!bookForm.controls['publisher'].valid && !bookForm.controls['publisher'].pristine">Field required</p>
+            </div>
+            <div class="styled-input">
+              <input id="publishDate" name="publishDate" (click)="changeDateInput()" [type]="dateSwitch ? 'text': 'date'" alt="input for publishDate" formControlName="publishDate" required>
+              <label for="publishDate">Publish Date</label>
+              <span></span>
+              <p class="form-error" *ngIf="!bookForm.controls['publishDate'].valid && !bookForm.controls['publishDate'].pristine">Field required</p>
+            </div>
+          </div>
+          <div class="col-right">
+            <div class="styled-input">
+              <input id="isbn" name="isbn" type="string" alt="input for isbn" formControlName="isbn" required>
+              <label for="isbn">ISBN</label>
+              <span></span>
+              <p class="form-error" *ngIf="!bookForm.controls['publisher'].valid && !bookForm.controls['publisher'].pristine">Field required</p>
+            </div>
+            <div class="styled-input">
+              <input id="imageUrl" name="imageUrl" type="string" alt="input for imageUrl" formControlName="imageUrl" required>
+              <label for="imageUrl">Image URL</label>
+              <span></span>
+              <p class="form-error" *ngIf="!bookForm.controls['publisher'].valid && !bookForm.controls['publisher'].pristine">Field required</p>
+            </div>
+            <div class="styled-input">
+              <textarea id="description" rows="6" formControlName="description" name="description" alt="textarea for description book" formControlName="description" required>
+              </textarea>
+              <label for="surname">Synopsis</label>
+              <span></span>
+              <p class="form-error" *ngIf="!bookForm.controls['description'].valid && !bookForm.controls['description'].pristine">Field required</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button (click)= "saveBook()" [class]="bookForm.valid ? 'button':'button-disabled' " [disabled]="!bookForm.valid">Sign Up</button>
+        </div>
+      </div>
+    </article>
+  </form>
+</main>

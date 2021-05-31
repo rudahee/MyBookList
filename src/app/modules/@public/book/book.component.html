@@ -1,93 +1,104 @@
 <main class="main-with-widgets">
 
   <article class="side main-flex">
-    <section class="card-w-full">
+
+    <section class="card-w-full" *ngIf="authors.length > 0">
       <div class="card-header">
-        <h1 class="p-card-white">Author</h1>
+        <h1 class="p-card-white">Author{{ (authors.length>1) ? 's' : '' }}</h1>
       </div>
-      <div class="card-body flex-col">
-        <img class="author-image" src="https://images.gr-assets.com/authors/1394044556p8/38550.jpg" alt="image of book">
-        <h2 class="p-card">Brandon Sanderson</h2>
-        <button class="button-w-full">See More...</button>
+      <div class="card-body flex-col padding-05em" *ngFor="let author of authors">
+        <img *ngIf="author.imageUrl != ''" class="author-image" [src]="author.imageUrl" alt="image of author">
+        <img *ngIf="author.imageUrl == ''" class="author-image" src="assets/image/user-profile-without-image.jpg" alt="image of book">
+        <h2 class="p-card">{{ author.completeName }}</h2>
+        <button mat-raised-button color="primary" [routerLink]="'/author/page/' + author.id">
+          <p class="p-card flex-center">See more <mat-icon>navigate_next</mat-icon></p>
+        </button>
       </div>
     </section>
-    <section class="card-w-full">
+
+
+    <section class="card-w-full" *ngIf="slidesForSaga.length > 0 && slidesForSaga != undefined">
       <div class="card-header">
         <h1 class="p-card-white">Other books from saga</h1>
       </div>
-      <div class="card-body flex-col">
-        <img class="author-image" src="https://images.gr-assets.com/authors/1394044556p8/38550.jpg" alt="image of book">
-        <h2 class="p-card">Brandon Sanderson</h2>
-        <button class="button-w-full">See More...</button>
+      <div class="card-body flex-col padding-05em">
+        <owl-carousel-o [options]="customOptions" class="w-full flex-center">
+          <ng-template carouselSlide *ngFor="let slide of slidesForSaga">
+            <div class="slide" [id]="slide.id" style="display: flex; flex-flow: column nowrap; align-items: center; justify-content: center;">
+              <img [src]="slide.img" style="height: 200px; width: auto;">
+              <button mat-button color="primary" style="margin-top: 2%; width: 100%;" [routerLink]="'/book/'+ slide.idBook">
+                <span style="display:flex; align-items: center; justify-content: center;">See More <mat-icon>chevron_right</mat-icon></span>
+              </button>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
       </div>
     </section>
-    <section class="card-w-full">
-      <div class="card-header">
-        <h1 class="p-card-white">More info</h1>
-      </div>
-      <div class="card-body flex-col">
-        <img class="author-image" src="https://images.gr-assets.com/authors/1394044556p8/38550.jpg" alt="image of book">
-        <h2 class="p-card">Brandon Sanderson</h2>
-        <button class="button-w-full">See More...</button>
-      </div>
-    </section>
+
   </article>
 
-
-
-
-  <article class="article main-flex">
+  <article class="article main-flex" *ngIf="book">
     <div class="card-w-full">
       <div class="card-header">
-        <h1 class="title">The Stormlight Archive: The Way Of Kings</h1>
+        <h1 class="title">{{ book?.name }}</h1>
       </div>
       <div class="card-body">
         <div class="flex-row">
           <div class="w-30">
-            <img class="book-image" src="https://images-na.ssl-images-amazon.com/images/I/91KzZWpgmyL.jpg" alt="image of book">
-            <div class="flex-col">
-              <h2 class="subtitle w-full">Rating</h2>
-              <div class="w-full">
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#1565c0"><g><rect fill="none" height="24" width="24" x="0"/><polygon points="14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10"/></g></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#1565c0"><g><rect fill="none" height="24" width="24" x="0"/><polygon points="14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10"/></g></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#1565c0"><g><rect fill="none" height="24" width="24" x="0"/><polygon points="14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10"/></g></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#1565c0"><g><rect fill="none" height="24" width="24" x="0"/><polygon points="14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10"/></g></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#1565c0"><g><rect fill="none" height="24" width="24" x="0"/><polygon points="14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10"/></g></svg>
+            <img class="book-image" [src]="book?.imageUrl" alt="image of book">
+            <br> <hr>
+            <button mat-raised-button color="primary" *ngIf="book.description.length > 750" class="w-full" [routerLink]="'/add-book-list/' + book.id">
+              <p class="p-card flex-center">Add to my list &nbsp;<mat-icon *ngIf="hidden">library_add</mat-icon></p>
+            </button>
+            <br> <hr>
+            <div class="flex-center flex-col" *ngIf="score !== 0">
+              <h2 class="subtitle w-full flex-center">Rating</h2>
+              <div class="w-full flex-col flex-center">
+                <ngx-stars [readonly]="true" [size]="2" [maxStars]="5" [initialStars]="this.score"></ngx-stars>
+                <span class="p-card-small">Rating is {{score}} out of 5</span>
+              </div>
+            </div>
+            <div class="flex-center flex-col" *ngIf="score === 0">
+              <h2 class="subtitle w-full flex-center">Rating</h2>
+              <div class="w-full flex-col flex-center">
+                <ngx-stars [readonly]="true" [size]="2" [maxStars]="5" [initialStars]="0"></ngx-stars>
+                <span class="p-card-small">No one has rated this book yet</span>
               </div>
             </div>
           </div>
           <div class="w-70">
-            <h2 class="subtitle flex-center">Synopsis</h2>
+            <div class="flex-center flex-col">
+              <br>
+              <h2 class="subtitle flex-center">Synopsis</h2>
 
-            <p class="p-card-small">Roshar is a world of stone and storms. Uncanny tempests of incredible power sweep across the rocky terrain so frequently that they have shaped ecology and civilization alike. Animals hide in shells, trees pull in branches, and grass retracts into the soilless ground. Cities are built only where the topography offers shelter.</p>
+              <p class="p-card-small">{{this.synopsis[0]}}...</p>
 
-            <p class="p-card-small">It has been centuries since the fall of the ten consecrated orders known as the Knights Radiant, but their Shardblades and Shardplate remain: mystical swords and suits of armor that transform ordinary men into near-invincible warriors. Men trade kingdoms for Shardblades. Wars were fought for them, and won by them.</p> 
-            <button class=" button w-full flex-center"> Read more...</button>
-            <div class="hide">
+              <div [class]="(hidden) ? 'hide' : 'show'">
+                <p class="p-card-small">{{synopsis[1]}}</p>
+              </div>
 
-              <p class="p-card-small">One such war rages on a ruined landscape called the Shattered Plains. There, Kaladin, who traded his medical apprenticeship for a spear to protect his little brother from him, has been reduced to slavery. In a war that makes no sense, where ten armies fight separately against a single foe, he struggles to save his men from him and to fathom the leaders who consider them expendable.</p>
-
-              <p class="p-card-small">Brightlord Dalinar Kholin commands one of those other armies. Like his brother de él, the late king, he is fascinated by an ancient text called The Way of Kings. Troubled by over-powering visions of ancient times and the Knights Radiant, he has begun to doubt his own sanity of him.</p>
-
-              <p class="p-card-small">Across the ocean, an untried young woman named Shallan seeks to train under an eminent scholar and notorious heretic, Dalinar's niece, Jasnah. Though she genuinely loves learning, Shallan's motives de ella are less than pure. As she plans a daring theft, her research for Jasnah hints at secrets of the Knights Radiant and the true cause of the war.</p>
-
-              <p class="p-card-small">The result of over ten years of planning, writing, and world-building, The Way of Kings is but the opening movement of the Stormlight Archive, a bold masterpiece in the making.</p>
+              <button mat-raised-button color="primary" *ngIf="book.description.length > 750" class="w-full"  (click)="hidden = !hidden">
+                  <p class="p-card flex-center">Read {{(hidden) ? 'more' : 'less'}}
+                    <mat-icon *ngIf="hidden">expand_more</mat-icon>
+                    <mat-icon *ngIf="!hidden">expand_less</mat-icon>
+                  </p>
+              </button>
             </div>
-            <br>
-            <hr>
-            <br>
+            <br> <hr> <br>
+            <div>
               <h2 class="subtitle flex-center">More info</h2>
               <ul>
-                <li class="p-card-small">Pages: 1547</li>
-                <li class="p-card-small">ISBN: 239287292/24</li>
-                <li class="p-card-small">Publisher: TorBooks</li>
-                <li class="p-card-small">Publish Date: 12/10/2011</li>
+                <li class="p-card-small">Pages: {{ book?.pages }}</li>
+                <li class="p-card-small">ISBN: {{ book?.isbn }}</li>
+                <li class="p-card-small">Publisher: {{ book?.publisher }}</li>
+                <li class="p-card-small">Publish Date: {{ book?.publishDate | date: 'fullDate' }}</li>
               </ul>
-            <br>
-            <hr>
-            <br>
+            </div>
+            <br> <hr> <br>
+            <div>
               <h2 class="subtitle flex-center">Comments</h2>
               <p class="p-card-small">comentario :3</p>
+            </div>
           </div>
         </div>
       </div>

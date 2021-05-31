@@ -1,30 +1,68 @@
-import { Component, OnInit } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
-import { IBook } from 'src/app/interfaces/IBook';
+import { Router } from '@angular/router';
+import { BookService } from './../../../services/book/book.service';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { IBook } from 'app/interfaces/IBook';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
-const ELEMENT_DATA: IBook[] = [
-  {position: 1, name: 'Hydrogen', publisher: 'Hydrogen', isbn: 'H'},
-  {position: 2, name: 'Helium', publisher: 'Hydrogen', isbn: 'He'},
-  {position: 3, name: 'Lithium', publisher: 'Hydrogen', isbn: 'Li'},
-  {position: 4, name: 'Beryllium', publisher: 'Hydrogen', isbn: 'Be'},
-  {position: 5, name: 'Boron', publisher: 'Hydrogen', isbn: 'B'},
-  {position: 6, name: 'Carbon', publisher: 'Hydrogen', isbn: 'C'},
-  {position: 7, name: 'Nitrogen', publisher: 'Hydrogen', isbn: 'N'},
-  {position: 8, name: 'Oxygen', publisher: 'Hydrogen', isbn: 'O'},
-  {position: 9, name: 'Fluorine', publisher: 'Hydrogen', isbn: 'F'},
-  {position: 10, name: 'Neon', publisher: 'Hydrogen', isbn: 'Ne'},
-];
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss']
 })
-export class BookListComponent {
+export class BookListComponent implements OnInit {
 
-  constructor() { }
+  public ELEMENT_DATA: IBook[];
+  displayedColumns: string[] = ['imageUrl', 'name', 'description', 'action-list', 'action-see'];
+  dataSource: MatTableDataSource<IBook>;
+  paginator;
+  resultsLength: number;
+  public innerWidth: any;
+  public id: string;
 
-  displayedColumns: string[] = ['position', 'name', 'publisher', 'isbn'];
-  public dataSource = ELEMENT_DATA;
+
+  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
+    this.dataSource.paginator = mp;
+  }
+  @ViewChild(MatSort) sort: MatSort = new MatSort();
+
+  constructor(private bookService: BookService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.id = localStorage.getItem('user_id');
+    this.innerWidth = window.innerWidth;
+    this.dataSource = new MatTableDataSource<IBook>();
+    
+    if (this.id == undefined) {
+      this.displayedColumns.splice(3, 1);
+    }
+    
+    // tslint:disable-next-line: deprecation
+    this.bookService.getAllBooks().subscribe(
+      res => {
+        this.ELEMENT_DATA = res;
+        this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+        this.resultsLength = this.ELEMENT_DATA.length;
+        this.dataSource.sort = this.sort;
+      }
+    );
+  }
+
+  applyFilter(event: Event): void {
+    console.log((event.target as HTMLInputElement).value)
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event): void {
+    this.innerWidth = window.innerWidth;
+  }
 
 }

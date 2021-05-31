@@ -1,0 +1,75 @@
+<mat-toolbar color="primary" class="flex-between">
+  <div class="header-left flex-row flex-center">
+    <button mat-icon-button color="basic" [matMenuTriggerFor]="main_menu">
+      <mat-icon (click)="this.sideNav = !this.sideNav" src="../../../assets/image/icons/closed_menu.png" alt="icon for menu closed">menu</mat-icon>
+    </button>
+    <span class="p-card-white" routerLink="/" style="cursor: pointer;">MyBookList</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="header-right">
+    <div *ngIf="!id">
+      <button mat-raised-button color="accent">
+        <h1 class="p-card-white">
+          <span routerLink="/sign-up" class="flex-center">
+            <mat-icon>person_add</mat-icon>&nbsp; Register
+          </span>
+        </h1>
+      </button>
+      <span>&nbsp;&nbsp;</span>
+      <button mat-raised-button color="accent">
+        <h1 class="p-card-white">
+          <span routerLink="/sign-in" class="flex-center">
+            <mat-icon>login</mat-icon>&nbsp; Login Now
+          </span>
+        </h1>
+      </button>
+    </div>
+    <div *ngIf="id">
+      <button mat-raised-button color="accent">
+        <h1 class="p-card-white">
+          <span [routerLink]="'/user/'+id+'/list'" class="flex-center">
+            <mat-icon>format_list_bulleted</mat-icon>&nbsp; See MyBookList
+          </span>
+        </h1>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
+
+<mat-menu #main_menu="matMenu">
+  <div>
+    <button mat-menu-item routerLink="/admin/menu">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Admin Control Panel</span>
+    </button>
+    <button mat-menu-item routerLink="/author/menu">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Author Control Panel</span>
+    </button>
+    <button mat-menu-item routerLink="/book-list">
+      <mat-icon>format_list_bulleted</mat-icon>
+      <span>All Book List</span>
+    </button>
+    <button mat-menu-item routerLink="/add-book">
+      <mat-icon>add_circle_outline</mat-icon>
+      <span>Suggest A Book</span>
+    </button>
+  </div>
+  <br>
+  <div class="down">
+    <button mat-menu-item routerLink="/me">
+      <mat-icon>person</mat-icon>
+      <span>My Profile</span>
+    </button>
+    <button mat-menu-item (click)="signOut()">
+      <mat-icon>logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </div>
+</mat-menu>
+
+<button mat-mini-fab color="primary" class="float-button" aria-label="Example icon button with a home icon" (click)="navigateBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

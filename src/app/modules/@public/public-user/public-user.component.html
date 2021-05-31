@@ -1,0 +1,50 @@
+<main class = "main-center">
+  <article class="article main-flex">
+    <div class="card-w-full" *ngIf="user">
+      <div class="card-header">
+        <h1 class="title">{{user.username}}'s Profile</h1>
+      </div>
+      <div class="card-body">
+        <div class="main-start w-30 flex-col">
+          <p class="p-card no-margins"><strong>{{user.name + ' ' + user.surname }}</strong></p>
+          <div class="w-full flex-center">
+            <ng-template [ngIf]="!user.imageProfile" [ngIfElse]="ElseImage">
+              <img class="user-profile-image" src="../../../../assets/image/user-profile-without-image.jpg" alt="image of user profile" #ElseImage>
+            </ng-template>
+            <ng-template #ElseImage>
+              <img class="user-profile-image" [src]="user?.imageProfile" alt="image of user profile">
+            </ng-template>
+          </div>
+          <br>
+          <div class="flex-col">
+            <h2 class="w-full subtitle flex-center border-bottom">Account data</h2>
+            <div>
+              <br>
+              <p class="p-card-small no-margins"><strong>Create Time:</strong> {{user.createTime | date: 'short'}}</p>
+              <p class="p-card-small no-margins"><strong>Last update:</strong> {{user.updateTime | date: 'short'}}</p>
+              <p class="p-card-small no-margins"><strong>Last activity:</strong> {{user.updateTime | date: 'short'}}</p>
+              <p class="p-card-small no-margins"><strong>Email:</strong> {{user.email}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-70 flex-col">
+          <h2 class="subtitle flex-center w-full border-bottom">Public statistics</h2>
+          <br>
+          <div class="flex-col w-full flex-start">
+            <p class="p-card"><strong>Read books:</strong> 392</p>
+            <p class="p-card"><strong>Pages read:</strong> 29940</p>
+            <p class="p-card"><strong>Time read:</strong> 2598h 50m (108,25 days)</p>
+            <p class="p-card"><strong>Mean score:</strong> 6.34/10</p>
+          </div>
+          <br>
+          <div class="w-full border-bottom"></div>
+          <br>
+          <button mat-raised-button color="accent" style="width: 60%; margin: 2%">Go to {{user.username}}'s BookList</button>
+          <button mat-raised-button color="accent" style="width: 60%; margin: 2%" (click)="sendFriendRequest()">Send Friend Request</button>
+        </div>
+      </div>
+
+    </div>
+  </article>
+</main>

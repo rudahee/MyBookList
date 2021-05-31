@@ -1,0 +1,43 @@
+<main class="main-with-widgets flex-start height-none">
+
+  <article class="side-xl">
+    <div class="card-w-full">
+      <div class="card-header">
+        <p class="p-card-white">Example files</p>
+      </div>
+      <div class="card-body flex-col w-full">
+        <h2 class="p-card"> Downloads </h2>
+        <div class="w-full flex-start flex-col">
+          <a class="p-card-smaall margin-05em" href="">JSON File example</a>
+          <a class="p-card-smaall margin-05em" href="">XML File example</a>
+          <a class="p-card-smaall margin-05em" href="">YAML File example</a>
+        </div>
+        <br>
+      </div>
+    </div>
+    <app-search-author *ngIf="!authorId"></app-search-author>
+    <app-search-saga></app-search-saga>
+  </article>
+
+  <article class="article-md">
+    <div class="card-w-full">
+      <div class="card-header">
+        <h2 class="title">Upload file</h2>
+      </div>
+      <div class="card-body flex-col">
+        <ngx-dropzone (change)="onSelect($event)" class="styled-file">
+          <ngx-dropzone-label class="file">
+            <p class="p-card"> Drag your files here or click in this area. </p>
+          </ngx-dropzone-label>
+          <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-preview>
+        </ngx-dropzone>
+      </div>
+      <div class="card-actions">
+        <button mat-raised-button color="primary" type="submit" (click)="UploadFiles()" style="width:70%;">Upload</button>
+      </div>
+    </div>
+  </article>
+
+</main>

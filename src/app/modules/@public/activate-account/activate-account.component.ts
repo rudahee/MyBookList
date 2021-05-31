@@ -1,8 +1,9 @@
-import { UserService } from 'src/app/services/user/user.service';
+import { UserService } from 'app/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-activate-account',
@@ -11,7 +12,8 @@ import { Validators } from '@angular/forms';
 })
 export class ActivateAccountComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private build: FormBuilder, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private build: FormBuilder, private userService: UserService,
+              private snackBar: MatSnackBar) { }
 
   id: string;
   token: string;
@@ -26,13 +28,25 @@ export class ActivateAccountComponent implements OnInit {
     }
 
     this.activateAccountForm = this.build.group({
-      token: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern('[A-Za-z0-9]+/+\\d')]]
+      token: ['', [Validators.required, Validators.maxLength(18), Validators.minLength(10), Validators.pattern('[A-Za-z0-9]+/+[0-9]*')]]
     });
   }
 
 
   activateAccount(): void {
     const tokenForm: string = this.activateAccountForm.controls.token.value;
-    this.userService.activateAccount(tokenForm.substring(0, 8), tokenForm.substring(9, 10));
+    // tslint:disable-next-line: deprecation
+    this.userService.activateAccount(tokenForm.substring(0, 8), tokenForm.substring(9)).subscribe(
+      () => {
+        this.snackBar.open('Account activated successfully', 'Close', { duration: 5000, panelClass: 'snackbar'});
+
+        setTimeout(() => {
+          this.router.navigate(['/sign-in']);
+        }, 1000);
+
+      }, err => {
+        this.snackBar.open(err.error.message, 'Close', { duration: 5000, panelClass: 'snackbar'});
+      }
+    );
   }
 }

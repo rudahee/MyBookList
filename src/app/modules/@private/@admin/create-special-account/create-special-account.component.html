@@ -1,0 +1,82 @@
+<main class = "main-center main-flex">
+  <div class="card-xl">
+    <div class="card-header">
+      <h1 class="title">Create a new special account</h1>
+    </div>
+    <div class="card-body">
+      <form action="#" class="form-two-cols" [formGroup] = "signUpForm">
+        <div class="col-left">
+          <div class="styled-input">
+            <input id="name" name="name" type="text" alt="input for name" formControlName="name" required>
+            <label for="name">Name</label>
+            <span></span>
+            <p class="form-error" *ngIf="!signUpForm.controls['name'].valid && !signUpForm.controls['name'].pristine">Field required</p>
+          </div>
+          <div class="styled-input">
+            <input id="surname" name="surname" type="text" alt="input for surname" formControlName="surname" required>
+            <label for="surname">Surname</label>
+            <span></span>
+            <p class="form-error" *ngIf="!signUpForm.controls['surname'].valid && !signUpForm.controls['surname'].pristine">Field required</p>
+          </div>
+          <div class="styled-input">
+            <input id="age" name="age" type="number" alt="input for age" formControlName="age" required>
+            <label for="age">Age</label>
+            <span></span>
+            <p class="form-error" *ngIf="!signUpForm.controls['age'].valid && !signUpForm.controls['age'].pristine">Field required</p>
+          </div>
+          <div class="styled-select">
+            <select id="gender" name="gender" formControlName="gender"
+              alt="input for gender" required>
+              <option disabled selected value></option>
+              <option value="FEMALE">Female</option>
+              <option value="MALE">Male</option>
+              <option value="NONE">Prefer not to say</option>
+            </select>
+            <label for="gender">Gender</label>
+            <span></span>
+            <p class="form-error" *ngIf="!signUpForm.controls['gender'].valid && !signUpForm.controls['gender'].pristine">Field required</p>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="styled-input">
+            <input id="email" name="email" type="email" alt="input for email" formControlName="email" required>
+            <label for="email" >Email</label>
+            <span></span>
+            <p class="form-error" *ngIf="!signUpForm.controls['email'].valid && !signUpForm.controls['email'].pristine">Field required</p>
+          </div>
+          <div class="styled-input">
+            <input id="username" name="username" type="text" alt="input for username" formControlName="username" required>
+            <label for="username">Username</label>
+            <span></span>
+            <p class="form-error" *ngIf="!signUpForm.controls['username'].valid && !signUpForm.controls['username'].pristine">Field required</p>
+          </div>
+          <div class="styled-select">
+            <select id="auto-password" name="auto_password" formControlName="auto_password"
+              alt="input for auto-password" required>
+              <option disabled selected value></option>
+              <option [ngValue]="true">Yes, please</option>
+              <option [ngValue]="false">No</option>
+            </select>
+            <label for="gender">Generate password automatically?</label>
+            <span></span>
+            <p class="form-error" *ngIf="!signUpForm.controls['gender'].valid && !signUpForm.controls['gender'].pristine">Field required</p>
+          </div>
+          <div class="styled-select">
+            <select id="type-account" name="type_account" formControlName="type_account"
+              alt="input for type-account" required>
+              <option disabled selected value></option>
+              <option [ngValue]="true">This account is for an Administrator</option>
+              <option [ngValue]="false">This account is for an Author</option>
+            </select>
+            <label for="gender">Is Author or Administrator?</label>
+            <span></span>
+            <p class="form-error" *ngIf="!signUpForm.controls['gender'].valid && !signUpForm.controls['gender'].pristine">Field required</p>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-actions">
+      <button [class]="signUpForm.valid ? 'button':'button-disabled' " [disabled]="!signUpForm.valid" (click)="submitAccount()" >Sign Up</button>
+    </div>
+  </div>
+</main>

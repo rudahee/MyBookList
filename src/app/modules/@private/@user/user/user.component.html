@@ -1,0 +1,147 @@
+<main class = "main-with-widgets">
+  <article class="side main-flex">
+
+      <!-- FRIENDS REQUESTS CARD -->
+
+    <section id="friends-requests" class="card-w-full">
+      <div class="card-header">
+        <h1 class="p-card-white">Friend Requests</h1>
+      </div>
+      <div class="card-body flex-col w-full" *ngIf="friendRequests.length != 0">
+        <div *ngFor="let friendReq of friendRequests" class="flex-col w-full">
+          <div class="w-full flex-row flex-between">
+            <div class="flex-row flex-center padding-05em">
+              <img src="../../../../assets/image/user-profile-without-image.jpg" class="user-profile-image-small">
+              <p class="p-card"><strong>{{ friendReq.requesterName }}</strong></p>
+            </div>
+            <div class="flex-row flex-center flex-between padding-05em">
+              <button mat-mini-fab color="primary" style="margin-right: 6%;" (click)="acceptFriendRequest(friendReq.requesterId)">
+                <mat-icon>done</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" style="margin-left: -2%;" (click)="rejectFriendRequest(friendReq.requesterId)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body flex-col w-full" *ngIf="friendRequests.length == 0">
+        <p>You don't have any request :(</p>
+        <button mat-raised-button color="accent" style="margin-bottom: 3%; width: 80%;" [cdkCopyToClipboard]="'http://mybooklist.com/'" (click)="showSnackBarLinkCopied()">
+          <p class="p-card-white flex-center"><mat-icon>share</mat-icon>&nbsp; Invite your friends</p>
+        </button>
+      </div>
+    </section>
+
+        <!-- FRIEND LIST CARD -->
+
+    <section id="friends-lists" class="card-w-full">
+      <div class="card-header">
+        <h1 class="p-card-white">Friend List</h1>
+      </div>
+      <div class="card-body flex-start flex-col w-full">
+        <div class="w-full flex-between" *ngFor="let friend of friends">
+          <div class="flex-center  margin-05em">
+            <img src="../../../../assets/image/user-profile-without-image.jpg" class="user-profile-image-small">
+            <p class="p-card"><strong>{{ friend.requesterName }}</strong></p>
+          </div>
+          <button mat-mini-fab color="primary" style="margin-right: 6%;" [routerLink]="'/user/' + friend.requesterId">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="card-body flex-col w-full" *ngIf="friends.length == 0">
+        <p>You don't have any friend yet :(</p>
+        <button mat-raised-button color="accent" style="margin-bottom: 3%; width: 80%;" [cdkCopyToClipboard]="'http://mybooklist.com/'" (click)="showSnackBarLinkCopied()">
+          <p class="p-card-white flex-center"><mat-icon>share</mat-icon>&nbsp; Invite your friends</p>
+        </button>
+      </div>
+    </section>
+
+      <!-- FOLLOWED AUTHORS CARD -->
+
+    <section id="friends-lists" class="card-w-full">
+      <div class="card-header">
+        <h1 class="p-card-white">Followed Authors</h1>
+      </div>
+      <div class="card-body flex-start flex-col w-full">
+        <div class="w-full flex-between" *ngFor="let author of authors">
+          <div class="flex-center  margin-05em">
+            <img src="../../../../assets/image/user-profile-without-image.jpg" class="user-profile-image-small">
+            <p class="p-card"><strong>{{ author.completeName }}</strong></p>
+          </div>
+          <button mat-mini-fab color="primary" style="margin-right: 6%;" [routerLink]="'/author/page/' + author.id">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="card-body flex-col w-full" *ngIf="authors.length == 0">
+        <p>You don't follow any author yet :(</p>
+      </div>
+    </section>
+  </article>
+
+  <article class="article main-flex">
+    <div class="card-w-full">
+      <div class="card-header">
+        <h1 class="title">My Profile</h1>
+      </div>
+      <div class="card-body">
+        <div class="main-start w-30 flex-col">
+          <p class="p-card no-margins"><strong>{{user.name + ' ' + user.surname }}</strong></p>
+          <div class="w-full flex-center">
+            <img *ngIf="user.imageProfile != undefined && user.imageProfile != '' " class="user-profile-image" [src]="user?.imageProfile" alt="image of user profile">
+            <img *ngIf="user.imageProfile == undefined || user.imageProfile == '' " class="user-profile-image" src="../../../../assets/image/user-profile-without-image.jpg" alt="image of user profile">
+          </div>
+          <br>
+          <div class="flex-col">
+            <h2 class="w-full subtitle flex-center border-bottom">Account data</h2>
+            <div>
+              <br>
+              <p class="p-card-small no-margins"><strong>Create Time:</strong> {{user.createTime | date: 'short'}}</p>
+              <p class="p-card-small no-margins"><strong>Last update:</strong> {{user.updateTime | date: 'short'}}</p>
+              <p class="p-card-small no-margins"><strong>Last activity:</strong> {{user.updateTime | date: 'short'}}</p>
+              <p class="p-card-small no-margins"><strong>Last password change:</strong> {{user.lastPasswordChange | date: 'shortDate' }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-70 flex-col">
+          <h2 class="subtitle flex-center w-full border-bottom">My data</h2>
+          <br>
+          <div class="flex-col w-full flex-start">
+            <p class="p-card "><strong>Username:</strong> {{user.username}}</p>
+            <p class="p-card "><strong>Email:</strong> {{user.email}}</p>
+          </div>
+          <h2 class="subtitle flex-center w-full border-bottom">My statistics</h2>
+          <br>
+          <div class="flex-col w-full flex-start">
+            <p class="p-card"><strong>Read books:</strong> 392</p>
+            <p class="p-card"><strong>Books read (this year):</strong> 24</p>
+            <p class="p-card"><strong>Pages read:</strong> 29940</p>
+            <p class="p-card"><strong>Pages read (this year):</strong> 5900</p>
+            <p class="p-card"><strong>Time read:</strong> 2598h 50m (108,25 days)</p>
+            <p class="p-card"><strong>Favorite genre:</strong> Sci-Fi</p>
+            <p class="p-card"><strong>Favorite author:</strong> Jorge Luis Borges</p>
+            <p class="p-card"><strong>Book more times reread:</strong> Being and Time (19 times)</p>
+            <p class="p-card"><strong>Mean score:</strong> 6.34/10</p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="w-full border-bottom"></div>
+      <br>
+      <div class="card-actions">
+        <button mat-raised-button style="width: 30%" color="accent" [routerLink]="'/user/' + user.id + '/list'">
+          <p class="p-card-white flex-center"><mat-icon>format_list_bulleted</mat-icon>&nbsp; Go to my BookList</p>
+        </button>
+        <button mat-raised-button style="width: 30%" color="accent">
+          <p class="p-card-white flex-center"><mat-icon>manage_accounts</mat-icon>&nbsp; Edit my profile</p>
+        </button>
+        <button mat-raised-button style="width: 20%" color="warn">
+          <p class="p-card-white flex-center"><mat-icon>delete</mat-icon>&nbsp; Delete my account</p>
+        </button>
+      </div>
+    </div>
+  </article>
+</main>

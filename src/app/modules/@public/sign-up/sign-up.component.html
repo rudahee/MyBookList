@@ -5,64 +5,67 @@
     </div>
     <div class="card-body">
       <form action="#" class="form-two-cols" [formGroup] = "signUpForm">
-        <div class="styled-input">
-          <input id="name" name="name" type="text" alt="input for name" formControlName="name" required>
-          <label for="name">Name</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signUpForm.controls['name'].valid && !signUpForm.controls['name'].pristine">Field required</p>
+        <div class="col-left">
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="name">Name</mat-label>
+            <input matInput id="name" name="name" type="text" alt="input for name" formControlName="name" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="surname">Surname</mat-label>
+            <input matInput id="surname" name="surname" type="text" alt="input for surname" formControlName="surname" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="age">Age</mat-label>
+            <input matInput id="age" name="age" type="number" alt="input for age" formControlName="age" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="gender">Gender</mat-label>
+            <mat-select id="gender" name="gender" alt="select for gender" formControlName="gender" required>
+              <mat-option></mat-option>
+              <mat-option value="FEMALE">Female</mat-option>
+              <mat-option value="MALE">Male</mat-option>
+              <mat-option value="NONE">Prefer not to say</mat-option>
+            </mat-select>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
         </div>
-        <div class="styled-input">
-          <input id="surname" name="surname" type="text" alt="input for surname" formControlName="surname" required>
-          <label for="surname">Surname</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signUpForm.controls['surname'].valid && !signUpForm.controls['surname'].pristine">Field required</p>
-        </div>
-        <div class="styled-input">
-          <input id="age" name="age" type="number" alt="input for age" formControlName="age" required>
-          <label for="age">Age</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signUpForm.controls['age'].valid && !signUpForm.controls['age'].pristine">Field required</p>
-        </div>
-        <div class="styled-select">
-          <select id="gender" name="gender"
-            alt="input for gender" required>
-            <option disabled selected value></option>
-            <option value="FEMALE">Female</option>
-            <option value="MALE">Male</option>
-            <option value="NONE">Prefer not to say</option>
-          </select>
-          <label for="gender">Gender</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signUpForm.controls['gender'].valid && !signUpForm.controls['gender'].pristine">Field required</p>
-        </div>
-        <div class="styled-input">
-          <input id="email" name="email" type="email" alt="input for email" formControlName="email" required>
-          <label for="email" >Email</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signUpForm.controls['email'].valid && !signUpForm.controls['email'].pristine">Field required</p>
-        </div>
-        <div class="styled-input">
-          <input id="username" name="username" type="text" alt="input for username" formControlName="username" required>
-          <label for="username">Username</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signUpForm.controls['username'].valid && !signUpForm.controls['username'].pristine">Field required</p>
-        </div>
-        <div class="styled-input">
-          <input id="password" name="password" type="password" alt="input for password" formControlName="password" required>
-          <label for="password">Password</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signUpForm.controls['password'].valid && !signUpForm.controls['password'].pristine">Field required</p>
-        </div>
-        <div class="styled-input">
-          <input id="confirm_password" name="confirm_password" type="password" alt="input for confirm_password" formControlName="confirm_password" required>
-          <label for="confirm_password">Confirm Password</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signUpForm.controls['confirm_password'].valid && !signUpForm.controls['confirm_password'].pristine">passwords must match</p>
+        <div class="col-right">
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="email">Email</mat-label>
+            <input matInput id="email" name="email" type="email" alt="input for email" formControlName="email" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="username">Username</mat-label>
+            <input matInput id="username" name="username" type="text" alt="input for username" formControlName="username" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="password">Password</mat-label>
+            <input matInput id="password" name="password" [type]="(visibilityPassword) ? 'text': 'password'" alt="input for password" formControlName="password" required>
+            <button matSuffix mat-icon-button (click)="visibilityPassword=!visibilityPassword">
+              <mat-icon>{{(visibilityPassword) ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="confirm_password">Confirm Password</mat-label>
+            <input matInput id="confirm_password" name="confirm_password" [type]="(visibilityRepeatPassword) ? 'text': 'password'" alt="input for repeat password" formControlName="confirm_password" required>
+            <button matSuffix mat-icon-button (click)="visibilityRepeatPassword=!visibilityRepeatPassword">
+              <mat-icon>{{(visibilityRepeatPassword) ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
         </div>
       </form>
     </div>
     <div class="card-actions">
-      <button [class]="signUpForm.valid ? 'button':'button-disabled' " [disabled]="!signUpForm.valid" (click)="signUp()">Sign Up</button>
+      <button mat-raised-button style="width: 50%" [disabled]="!signUpForm.valid" (click)="signUp()" color="accent">
+        <p class="p-card-white">Sign Up!</p>
+      </button>
     </div>
   </div>
 </main>

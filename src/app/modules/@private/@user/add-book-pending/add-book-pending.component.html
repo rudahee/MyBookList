@@ -1,0 +1,86 @@
+<main class="main-with-widgets main-start">
+
+  <form action="#" class="main-with-widgets main-start w-full" [formGroup]="bookForm">
+  <article class="article">
+    <div class="card-w-full">
+      <div class="card-header">
+        <h1 class="title">Add Book</h1>
+      </div>
+      <div class="card-body form-two-cols">
+          <div class="col-left">
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="name">Name</mat-label>
+              <input matInput id="name" name="name" type="text" alt="input for name" formControlName="name" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="pages">Pages</mat-label>
+              <input matInput id="pages" name="pages" type="number" alt="input for pages" formControlName="pages" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="publisher">Publisher</mat-label>
+              <input matInput id="publisher" name="publisher" type="text" alt="input for publisher" formControlName="publisher" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="example-form-field" style="width: 90%;">
+              <mat-label for="publishDate">Publish Date</mat-label>
+              <input matInput [matDatepicker]="datepicker" id="publishDate" name="publishDate" alt="input for publishDate" formControlName="publishDate" required>
+              <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+              <mat-datepicker #datepicker>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancel</button>
+                  <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="authorName">Author ame</mat-label>
+              <input matInput id="authorName" name="authorName" type="text" alt="input for authorName" formControlName="authorName" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="references1">Links to references (Line 1)</mat-label>
+              <input matInput id="references1" name="references1" type="text" alt="input for references1" formControlName="references1" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="references2">Links to references (Line 2)</mat-label>
+              <input matInput id="references2" name="references2" type="text" alt="input for references2" formControlName="references2" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-right">
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="isbn">ISBN</mat-label>
+              <input matInput id="isbn" name="isbn" type="text" alt="input for isbn" formControlName="isbn" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="imageUrl">Image Url</mat-label>
+              <input matInput id="imageUrl" name="imageUrl" type="url" alt="input for imageUrl" formControlName="imageUrl" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="sagaName">Saga Name</mat-label>
+              <input matInput id="sagaName" name="sagaName" type="url" alt="input for sagaName" formControlName="sagaName">
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label>Synopsis</mat-label>
+              <textarea rows=6 matInput id="description" name="description" lt="input for description" formControlName="description"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label>Leave a note...</mat-label>
+              <textarea rows=6 matInput id="notes" name="notes" lt="input for notes" formControlName="notes"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button (click)= "saveBook()" [class]="bookForm.valid ? 'button':'button-disabled' " [disabled]="!bookForm.valid">Add Book</button>
+        </div>
+      </div>
+    </article>
+  </form>
+</main>

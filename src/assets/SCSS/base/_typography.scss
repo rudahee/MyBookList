@@ -12,6 +12,8 @@
 
 .p-card {
     font-size: $font-size-p;
+    margin: .3rem;
+    padding: 0;
 }
 
 .p-card-white {
@@ -20,7 +22,8 @@
 }
 
 .p-card-small {
-    font-size: calc(#{$font-size-p} - 0.25em) ;
+    font-size: calc(#{$font-size-p} - 0.25em);
+
 }
 
 .form-error {

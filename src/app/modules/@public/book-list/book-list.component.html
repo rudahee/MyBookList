@@ -1,32 +1,57 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<main class="main-flex main-start">
+  <div class="card-w-full margin-05em">
+    <div class="card-header">
+      <p class="title">Book List</p>
+    </div>
+    <div class="card-body flex-col">
+      <div class="table-input">
+        <input id="filter" name="filter" type="text" alt="input for filter"  placeholder="Write here to filter books" (keyup)="applyFilter($event)">
+        <span></span>
+      </div>
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="imageUrl">
+          <th mat-header-cell *matHeaderCellDef width=7% > Image </th>
+          <td mat-cell *matCellDef="let element"><img class="book-image-sm margin-05em" [src]="element.imageUrl" alt="image from book"></td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header width=15%> Name </th>
+          <td mat-cell *matCellDef="let element"><strong>{{element.name}}</strong></td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef width=50%> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description | slice:0:innerWidth / 8}}... </td>
+        </ng-container>
+        <ng-container matColumnDef="action-list" *ngIf="id">
+          <th mat-header-cell *matHeaderCellDef width=13%> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-stroked-button color="primary" [routerLink]="'/add-book-list/' + element.id">
+              <p class="p-card-small no-margins flex-center">
+                <strong>Add To My List &nbsp;</strong>
+                <mat-icon>library_add</mat-icon>
+              </p>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action-see">
+          <th mat-header-cell *matHeaderCellDef width=8%> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-stroked-button color = "primary" [routerLink]="'/book/' + element.id">
+              <p class="p-card-small no-margins flex-center">
+                <strong>See More &nbsp;</strong>
+                <mat-icon>navigate_next</mat-icon>
+              </p>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{this.dataSource.filter}}"</td>
+        </tr>
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="publisher">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.publisher}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="isbn">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+      </table>
+      <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 20, 30]"></mat-paginator>
+    </div>
+  </div>
+  <div>&nbsp;</div>
+</main>

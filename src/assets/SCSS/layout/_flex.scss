@@ -2,10 +2,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
-    justify-content: space-around;
-    width: 100%;
     align-items: center;
-    justify-content: center;
 }
 
 .flex-row {
@@ -16,12 +13,20 @@
 }
 
 .flex-center {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.flex-2-cols {
+.flex-start {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
 
+.flex-between {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
 }

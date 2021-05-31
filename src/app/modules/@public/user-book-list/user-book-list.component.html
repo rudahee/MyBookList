@@ -1,0 +1,26 @@
+<main class="main-flex main-start">
+  <div class="card-w-full margin-05em">
+    <div class="card-header">
+      <p class="title">Book Lists</p>
+    </div>
+    <div class="card-body flex-col flex-start w-full">
+      <mat-tab-group mat-align-tabs="start" class="w-full" animationDuration="500ms">
+        <mat-tab label="Completed" *ngIf="listCompleted.length != 0">
+          <app-table-book-list [bookList]="listCompleted" [displayedColumns]="listCompletedDisplayedColumns"></app-table-book-list>
+        </mat-tab>
+        <mat-tab label="Dropped" *ngIf="listDropped.length != 0">
+          <app-table-book-list [bookList]="listDropped" [displayedColumns]="listDroppedDisplayedColumns"></app-table-book-list>
+        </mat-tab>
+        <mat-tab label="On Hold" *ngIf="listOnHold.length != 0">
+          <app-table-book-list [bookList]="listOnHold" [displayedColumns]="listOnHoldDisplayedColumns"></app-table-book-list>
+        </mat-tab>
+        <mat-tab label="Reading" *ngIf="listReading.length != 0">
+          <app-table-book-list [bookList]="listReading" [displayedColumns]="listReadingDisplayedColumns"></app-table-book-list>
+        </mat-tab>
+        <mat-tab label="Plan To Read" *ngIf="listPlanToRead.length != 0">
+          <app-table-book-list [bookList]="listPlanToRead" [displayedColumns]="listPlanToReadDisplayedColumns"></app-table-book-list>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</main>

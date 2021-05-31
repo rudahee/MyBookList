@@ -3,7 +3,8 @@ import { UserService } from './../../../services/user/user.service';
 import { ILoginData } from './../../../interfaces/IUser';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { JwtHandlerService } from 'src/app/services/jwt-token/jwt-handler.service';
+import { JwtHandlerService } from 'app/services/jwt-token/jwt-handler.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +18,7 @@ export class SignInComponent implements OnInit {
   loginData: ILoginData;
 
   constructor(private build: FormBuilder, private userService: UserService, private JWTHandler: JwtHandlerService,
-              private router: Router) { }
+              private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.signInForm = this.build.group({
@@ -29,12 +30,18 @@ export class SignInComponent implements OnInit {
   signIn(): void {
     this.loginData = this.signInForm.value;
 
+    // tslint:disable-next-line: deprecation
     this.userService.signIn(this.loginData).subscribe(
       resp => {
         if (resp !== undefined && resp != null) {
+          this.snackBar.open('Sign In successful', 'Close', { duration: 5000, panelClass: 'snackbar'});
+
           this.JWTHandler.saveJWT(resp.headers.get('Authorization').split(' ')[1].trim());
-          this.router.navigate(['/book']);
+          this.router.navigate(['/']);
         }
-    });
+      }, err => {
+        this.snackBar.open('Username or password invalid', 'Close', { duration: 5000, panelClass: 'snackbar'});
+      }
+    );
   }
 }

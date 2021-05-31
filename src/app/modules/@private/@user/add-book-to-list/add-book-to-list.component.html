@@ -1,0 +1,63 @@
+<main class="main-start">
+  <article class="article main-flex">
+    <div class="card-xl" *ngIf="book">
+      <div class="card-header">
+        <h1 class="title"> Add book to list </h1>
+      </div>
+      <div class="card-body padding-05em">
+        <div class="main-start w-30 flex-col">
+          <div class="w-full flex-col flex-center">
+            <h2 class="p-card">{{book.name}}</h2>
+            <img class="book-image" [src]="book?.imageUrl" alt="image of book" style="height: 300px; width: auto;">
+          </div>
+        </div>
+        <div class="w-70 flex-col">
+          <div class="flex-col w-full">
+            <form action="#" class="form w-full flex-col flex-center padding-05em" [formGroup] = "addBookForm">
+              <mat-form-field appearance="outline" style="width: 70%;">
+                <mat-label for="status">Status</mat-label>
+                <mat-select id="status" name="status" alt="select for status" formControlName="status" required>
+                  <mat-option value="COMPLETED">Completed</mat-option>
+                  <mat-option value="READING">Reading</mat-option>
+                  <mat-option value="ONHOLD">On Hold</mat-option>
+                  <mat-option value="PLANTOREAD">Plan To Read</mat-option>
+                  <mat-option value="DROPPED">Dropped</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="width: 70%;"
+                            *ngIf="addBookForm.controls.status.value != 'PLANTOREAD'
+                                  && addBookForm.controls.status.value != 'COMPLETED'
+                                  && addBookForm.controls.status.value != ''">
+                <mat-label>Pages Readed</mat-label>
+                <input matInput [placeholder]="'???? / '+ book.pages" id="pages_read" type="number" name="pages_read" lt="input for pages_read" formControlName="pages_read">
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="width: 70%;" *ngIf="addBookForm.controls.status.value != 'PLANTOREAD'
+                                                                        && addBookForm.controls.status.value != ''">
+                <mat-label>Leave your comments</mat-label>
+                <textarea rows=4 matInput id="comment" name="comment" lt="input for comment" formControlName="comment"></textarea>
+              </mat-form-field>
+            </form>
+            <div class="w-full"
+                *ngIf="addBookForm.controls.status.value != 'PLANTOREAD'
+                    && addBookForm.controls.status.value != 'READING'
+                    && addBookForm.controls.status.value != 'ONHOLD'
+                    && addBookForm.controls.status.value != ''">
+
+              <h2 class="p-card w-full flex-center">Rating</h2>
+              <div class="w-full flex-col flex-center">
+                <ngx-stars [readonly]="false" [size]="2" [maxStars]="5" [initialStars]="0" (ratingOutput)="onRatingSet($event)"></ngx-stars>
+                <span class="p-card-small" *ngIf="ratingDisplay">Selected rating {{ratingDisplay}} is out of 5</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="w-full border-bottom"></div>
+          <br>
+          <button mat-raised-button style="width: 50%; margin-bottom: 2em;" [disabled]="!addBookForm.valid" color="accent" (click)="addToList()">
+            <p class="p-card-white">Add to my list</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>

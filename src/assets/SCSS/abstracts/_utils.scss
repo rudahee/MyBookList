@@ -8,6 +8,10 @@
     padding: 0 2%;
 }
 
+.w-full {
+    width: 100%;
+}
+
 .hide {
     display: none;
 }
@@ -22,4 +26,27 @@
 
 .main-start {
     justify-content: flex-start;
+}
+
+.padding-05em{
+    margin: 0;
+    padding: 0.5em;
+}
+
+.height-none {
+    height: fit-content;
+}
+
+.margin-05em {
+    margin: 1em;
+    padding: 0;
+}
+
+.no-margins {
+    margin: 0.25em;
+    padding: 0;
+}
+
+.border-bottom {
+    border-bottom: $border-size;
 }
