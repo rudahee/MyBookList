@@ -1,11 +1,73 @@
 <main class="main-with-widgets">
   <article class="side-xl">
-    <app-search-book></app-search-book>
-    <app-search-author></app-search-author>
+    <app-search-book class="w-full flex-center"></app-search-book>
+    <app-search-author class="w-full flex-center"></app-search-author>
   </article>
 
 
-  <article class="article-md">
-    Espacio en blanco todavia
+  <article class="article-md flex-center">
+    <div class="card-w-full">
+      <div class="card-header">
+        <h2 class="title">MybookList</h2>
+      </div>
+      <div class="card-body flex-col w-full" *ngIf="false">
+        <h2 class="w-full subtitle flex-center">See our recommendations</h2>
+        <hr class="w-full" style="margin-bottom: 2%;">
+        <div class="flex-col w-full" *ngFor="let recommendation of recommendations">
+          <h3>{{recommendation.sentence}}</h3>
+          <owl-carousel-o [options]="customOptions" class="w-full flex-center">
+            <ng-template carouselSlide *ngFor="let book of recommendation.books">
+              <div class="slide" [id]="book.id" style="display: flex; flex-flow: column nowrap; align-items: center; justify-content: center;">
+                <img [src]="book.imageUrl" style="height: 200px; width: auto;">
+                <p class="text-ellipsis">{{book.name}}</p>
+                <button mat-button color="primary" style="margin-top: 2%; width: 100%;" [routerLink]="'/book/'+ book.id">
+                  <span style="display:flex; align-items: center; justify-content: center;">See More <mat-icon>chevron_right</mat-icon></span>
+                </button>
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+      <div class="card-body flex-col w-full" *ngIf="true">
+        <br>
+        <h2 class="w-full subtitle flex-center">Welcome to MyBookList!</h2>
+        <hr class="w-full">
+        <div style="margin: 0 1em">
+          <p>MyBookList will allow you to manage your book collection and your readings in a comfortable way. It also allows you to consult information about books or authors, with a clean and simple user interface. </p>
+          <p>Add your friends! Follow your favorite authors! With each of your interactions we will make better and better recommendations. </p>
+
+          <h3><strong>Deciding what to read next?</strong></h3>
+          <p class="margin-05em">You’re in the right place. Tell us what titles or genres you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
+
+          <h3><strong>What are your friends reading?</strong></h3>
+          <p class="margin-05em">Chances are your friends are discussing their favorite (and least favorite) books on MyBookList!</p>
+
+          <h3><strong>Do you want to be up to date with the news?</strong></h3>
+          <p class="margin-05em">We will send you an email each time one of your authors publishes a new book.</p>
+
+          &nbsp;
+
+          <p>If you like everything we can offer you, you can join our community by <strong>registering now!</strong></p>
+        </div>
+      </div>
+      <hr class="w-full">
+      <div class="card-actions">
+        <button style="width: 40%" mat-raised-button color="accent">
+          <h1 class="p-card-white">
+            <span routerLink="/sign-up" class="flex-center">
+              <mat-icon>person_add</mat-icon>&nbsp; Sign Up Now!
+            </span>
+          </h1>
+        </button>
+        <span>&nbsp;&nbsp;</span>
+        <button style="width: 40%" mat-raised-button color="primary">
+          <h1 class="p-card-white">
+            <span routerLink="/sign-in" class="flex-center">
+              <mat-icon>login</mat-icon>&nbsp; Sign In!
+            </span>
+          </h1>
+        </button>
+      </div>
+    </div>
   </article>
 </main>

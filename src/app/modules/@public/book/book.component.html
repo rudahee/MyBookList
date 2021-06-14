@@ -26,7 +26,7 @@
           <ng-template carouselSlide *ngFor="let slide of slidesForSaga">
             <div class="slide" [id]="slide.id" style="display: flex; flex-flow: column nowrap; align-items: center; justify-content: center;">
               <img [src]="slide.img" style="height: 200px; width: auto;">
-              <button mat-button color="primary" style="margin-top: 2%; width: 100%;" [routerLink]="'/book/'+ slide.idBook">
+              <button mat-button color="primary" style="margin-top: 2%; width: auto;" (click)="navigateToBook(slide.idBook)">
                 <span style="display:flex; align-items: center; justify-content: center;">See More <mat-icon>chevron_right</mat-icon></span>
               </button>
             </div>
@@ -47,8 +47,8 @@
           <div class="w-30">
             <img class="book-image" [src]="book?.imageUrl" alt="image of book">
             <br> <hr>
-            <button mat-raised-button color="primary" *ngIf="book.description.length > 750" class="w-full" [routerLink]="'/add-book-list/' + book.id">
-              <p class="p-card flex-center">Add to my list &nbsp;<mat-icon *ngIf="hidden">library_add</mat-icon></p>
+            <button mat-raised-button color="primary" class="w-full" [routerLink]="'/add-book-list/' + book.id">
+              <p class="p-card flex-center">Add to my list &nbsp;<mat-icon>library_add</mat-icon></p>
             </button>
             <br> <hr>
             <div class="flex-center flex-col" *ngIf="score !== 0">
@@ -71,7 +71,7 @@
               <br>
               <h2 class="subtitle flex-center">Synopsis</h2>
 
-              <p class="p-card-small">{{this.synopsis[0]}}...</p>
+              <p class="p-card-small">{{this.synopsis[0]}} <i>(continue reading...)</i></p>
 
               <div [class]="(hidden) ? 'hide' : 'show'">
                 <p class="p-card-small">{{synopsis[1]}}</p>
@@ -94,14 +94,34 @@
                 <li class="p-card-small">Publish Date: {{ book?.publishDate | date: 'fullDate' }}</li>
               </ul>
             </div>
-            <br> <hr> <br>
-            <div>
+            <br> <hr>
+            <div class="w-full flex-center flex-col">
               <h2 class="subtitle flex-center">Comments</h2>
-              <p class="p-card-small">comentario :3</p>
+              <div class="w-full" *ngFor="let comment of comments | paginate: { itemsPerPage: 5, currentPage: pageComment }">
+                <div class="flex-between">
+                  <div class="w-70">
+                    <h3 class="p-card">{{comment.username}} says:</h3>
+                    <cite class="p-card-small margin-05em">{{comment.comment}}</cite>
+                  </div>
+                  <div>
+                    <ngx-stars *ngIf="comment.status != 'READING'" [readonly]="true" [size]="1" [maxStars]="5" [initialStars]="comment.rating"></ngx-stars>
+                    <p *ngIf="comment.status == 'READING'">Reading...</p>
+                  </div>
+                </div>
+                <hr class="w-full">
+              </div>
+              <div class="w-full" *ngIf="comments">
+                <p *ngIf="comments == null || comments.length == 0" class="p-card margin-05em">No one has written a comment yet...</p>
+              </div>
+              <div *ngIf="comments && comments.length != 0" class="w-full flex-center">
+                <pagination-controls *ngIf="comments && !comments.length == 0" class="w-full flex-center" (pageChange)="pageComment = $event"></pagination-controls>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
+    &nbsp;
   </article>
 </main>

@@ -40,6 +40,11 @@ export class PublicAuthorComponent implements OnInit {
   ngOnInit(): void {
     this.publicAuthorId = this.route.snapshot.paramMap.get('id');
 
+
+    if (window.innerWidth < 700) {
+      this.customOptions.items = 2;
+    }
+
     this.userService.getPublicAuthorInfo(this.publicAuthorId).subscribe(
       res => {
         if (res.roles[0] !== 'AUTHOR') {

@@ -5,22 +5,28 @@
     </div>
     <div class="card-body">
       <form action="#" class="form-two-cols" [formGroup] = "signInForm">
-        <div class="styled-input">
-          <input id="username" name="username" type="text" alt="input for username" formControlName="username" required>
-          <label for="username">Username</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signInForm.controls['username'].valid && !signInForm.controls['username'].pristine">Field required</p>
-        </div>
-        <div class="styled-input">
-          <input id="password" name="password" type="password" alt="input for password" formControlName="password" required>
-          <label for="password">Password</label>
-          <span></span>
-          <p class="form-error" *ngIf="!signInForm.controls['password'].valid && !signInForm.controls['password'].pristine">Field required</p>
-        </div>
+        <mat-form-field appearance="outline" style="width: 90%;">
+          <mat-label for="username">Username</mat-label>
+          <input matInput id="username" name="username" type="text" alt="input for username" formControlName="username" required>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 90%;">
+          <mat-label for="password">Password</mat-label>
+          <input matInput id="password" name="password" [type]="(visibilityPassword) ? 'text': 'password'" alt="input for password" formControlName="password" required>
+          <button matSuffix mat-icon-button (click)="visibilityPassword=!visibilityPassword">
+            <mat-icon>{{(visibilityPassword) ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
       </form>
     </div>
+    <br class="border-bottom">
     <div class="card-actions">
-      <button [class]="signInForm.valid ? 'button':'button-disabled' " [disabled]="!signInForm.valid" (click)="signIn()">Sign In</button>
+      <button  mat-raised-button style="width: 50%" [disabled]="!signInForm.valid" (click)="signIn()" color="accent">
+        <p class="p-card-white flex-center">
+          <mat-icon>login</mat-icon>&nbsp; Sign In
+        </p>
+      </button>
     </div>
   </div>
 </main>

@@ -1,13 +1,15 @@
+import { IComment } from './../../../interfaces/IBook';
 import { startWith } from 'rxjs/operators';
 import { UserService } from 'app/services/user/user.service';
 import { IAuthorSimple } from 'app/interfaces/IUser';
 import { IBook } from 'app/interfaces/IBook';
 import { BookService } from './../../../services/book/book.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ThemePalette } from '@angular/material/core';
 import { NgxStarsComponent } from 'ngx-stars';
+import { MatPaginator } from '@angular/material/paginator';
 
 type Rating = {
   value: number;
@@ -30,10 +32,14 @@ export class BookComponent implements OnInit {
   public authors: IAuthorSimple[] = [];
   public slidesForSaga: any = [];
 
+  public pageComment = 1;
+
   @ViewChild(NgxStarsComponent)
   starsComponent: NgxStarsComponent;
 
   public score = 0;
+
+  comments: IComment[];
 
   public customOptions: OwlOptions = {
     autoWidth: true,
@@ -51,14 +57,23 @@ export class BookComponent implements OnInit {
     items: 1,
   };
 
+
   public synopsis: string[] = [];
 
   constructor(private router: ActivatedRoute, private bookService: BookService,
-              private userService: UserService) { }
+              private route: Router) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
+    let id: string;
 
-    const id = this.router.snapshot.paramMap.get('id');
+    // Re-charge compononent when you call this component from itself
+    this.route.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+    
+    this.router.params.subscribe(params => {
+      id = params.id;
+    });
 
     this.bookService.getMeanScoreFromBook(id).subscribe(
       res => {
@@ -68,6 +83,12 @@ export class BookComponent implements OnInit {
         } else {
           this.score = 0;
         }
+      }
+    );
+
+    this.bookService.getComments(id).subscribe(
+      res => {
+        this.comments = res;
       }
     );
 
@@ -97,11 +118,6 @@ export class BookComponent implements OnInit {
       res => {
         this.book = res;
 
-        this.book.description = this.book.description + ' ' +  this.book.description + ' '
-                                + this.book.description + ' ' + this.book.description + ' '
-                                + this.book.description + ' ' + this.book.description + ' '
-                                + this.book.description + ' ' + this.book.description ;
-
         if (this.book.description.length < 750) {
           this.synopsis.push(this.book.description);
         } else {
@@ -111,6 +127,10 @@ export class BookComponent implements OnInit {
         }
       }
     );
+  }
+
+  navigateToBook(id: string): void {
+    this.route.navigate(['/book/', id]);
   }
 
 }

@@ -27,16 +27,12 @@ export class AddBookPendingComponent implements OnInit {
   ngOnInit(): void {
 
     const route = this.router.url;
-    console.log(route);
-    console.log(route.includes('author'));
+
     if (route.includes('author')) {
       this.authorId = this.jwtTokenHandler.getUID();
     } else {
       this.authorId = undefined;
     }
-
-    console.log(this.authorId);
-
 
     this.bookForm = this.build.group({
       name: ['', [Validators.required]],

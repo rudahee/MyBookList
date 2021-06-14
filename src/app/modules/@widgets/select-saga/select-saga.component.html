@@ -1,0 +1,25 @@
+<div class="card-w-full" style="width: 100%;">
+  <div class="card-header">
+    <p class="p-card-white">Select a Saga</p>
+  </div>
+  <div class="flex-center">
+    <mat-form-field class="material-input" style="width: 90%; margin-top: 5%;" appearance="outline">
+      <mat-label>Search a Saga</mat-label>
+      <input type="text"
+            [formControl]="sagaControl"
+            matInput
+            class="selectedSaga"
+            [matAutocomplete]="auto">
+            <button *ngIf="sagaControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="removeSaga()">
+              <mat-icon>backspace</mat-icon>
+            </button>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="selectSaga($event)">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option">
+            {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>

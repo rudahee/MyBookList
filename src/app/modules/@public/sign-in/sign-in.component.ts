@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class SignInComponent implements OnInit {
 
   signInForm: FormGroup;
+  visibilityPassword = false;
 
   loginData: ILoginData;
 
@@ -35,7 +36,6 @@ export class SignInComponent implements OnInit {
       resp => {
         if (resp !== undefined && resp != null) {
           this.snackBar.open('Sign In successful', 'Close', { duration: 5000, panelClass: 'snackbar'});
-
           this.JWTHandler.saveJWT(resp.headers.get('Authorization').split(' ')[1].trim());
           this.router.navigate(['/']);
         }

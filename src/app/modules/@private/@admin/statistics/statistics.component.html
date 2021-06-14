@@ -1,0 +1,44 @@
+<main class="main-flex flex-center">
+
+  <div class="card-w-full">
+    <div class="card-header">
+      <h2 class="title">Statistics</h2>
+    </div>
+    <div class="card-body flex-row flex-start" *ngIf="stats">
+      <div class="w-full flex-center flex-col">
+        <h2 class="subtitle no-margins">General</h2>
+        <hr class="w-full">
+        <div>
+          <p class="p-card-small no-margins"><strong>Total people registered:</strong> {{stats.adminRegisters + stats.userRegisters + stats.authorsRegisters}}</p>
+          <p class="p-card-small no-margins"><strong>Total users registered:</strong>
+            {{stats.userRegisters + ' (' +  ((stats.userRegisters / (stats.adminRegisters + stats.userRegisters + stats.authorsRegisters) * 100) | number: '1.0-2') + '%)'}}</p>
+          <p class="p-card-small no-margins"><strong>Total authors registered:</strong>
+            {{stats.authorsRegisters + ' (' +  ((stats.authorsRegisters / (stats.adminRegisters + stats.userRegisters + stats.authorsRegisters) * 100) | number: '1.0-2') + '%)'}}</p>
+          <p class="p-card-small no-margins"><strong>Total admin registered:</strong> {{stats.adminRegisters + ' (' + ((stats.adminRegisters / (stats.adminRegisters + stats.userRegisters + stats.authorsRegisters) * 100) | number: '1.0-2') + '%)'}}</p>
+          <p class="p-card-small no-margins"><strong>Total books written:</strong> {{stats.booksWritten}}</p>
+          <p class="p-card-small no-margins"><strong>Most read genre:</strong> {{stats.mostReadGenre.genre}}</p>
+        </div>
+      </div>
+      <div class="w-full flex-center flex-col">
+        <h2 class="subtitle no-margins">Users</h2>
+        <hr class="w-full">
+        <div>
+          <p class="p-card-small no-margins"><strong>New users registered (This month):</strong> {{stats.newUsersRegistersThisMonth + ' (' +  stats.newUsersRegistersThisMonth / (stats.userRegisters) * 100 + '%)'}}</p>
+          <p class="p-card-small no-margins"><strong>Male users:</strong>
+             {{stats.qtyMaleUsersRegisters + ' (' +  stats.qtyMaleUsersRegisters / (stats.userRegisters) * 100 + '%)'}}
+          </p>
+          <p class="p-card-small no-margins"><strong>Female users:</strong>
+             {{ stats.qtyFemaleUsersRegisters + ' (' +  stats.qtyFemaleUsersRegisters / (stats.userRegisters) * 100 + '%)' }}
+          </p>
+          <p class="p-card-small no-margins"><strong>Gender not specified users:</strong>
+            {{
+              ((stats.qtyFemaleUsersRegisters + stats.qtyMaleUsersRegisters) - stats.userRegisters) + ' (' + ((stats.qtyFemaleUsersRegisters + stats.qtyMaleUsersRegisters) - stats.userRegisters) / stats.userRegisters * 100  + '%)'
+            }}
+          </p>
+          <p class="p-card-small no-margins"><strong>Mean age:</strong> {{stats.meanAgeFromUserRegisters}}</p>
+        </div>
+      </div>
+    </div>
+    <div>&nbsp;</div>
+  </div>
+</main>

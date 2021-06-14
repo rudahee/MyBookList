@@ -1,45 +1,39 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+
 // Variables
-@import 'assets/SCSS/abstracts/variables';
+@import 'SCSS/abstracts/variables';
 
 /*
 * Base
 */
-@import 'assets/SCSS/base/reset';
-@import 'assets/SCSS/base/typography';
-@import 'assets/SCSS/abstracts/utils';
+@import 'SCSS/base/reset';
+@import 'SCSS/base/typography';
 
 /*
 * Abstracts
 */
-@import 'assets/SCSS/abstracts/functions';
-@import 'assets/SCSS/abstracts/mixins';
+@import 'SCSS/abstracts/utils';
+@import 'SCSS/abstracts/mixins';
 
 /*
 * Components Import
 */
-@import 'assets/SCSS/components/buttons';
-@import 'assets/SCSS/components/cards';
-@import 'assets/SCSS/components/inputs';
-@import 'assets/SCSS/layout/form';
-@import 'assets/SCSS/components/sidenav';
-@import 'assets/SCSS/components/images';
-@import 'assets/SCSS/components/table';
-@import 'assets/SCSS/components/snackbar';
+@import 'SCSS/components/buttons';
+@import 'SCSS/components/cards';
+@import 'SCSS/components/inputs';
+@import 'SCSS/components/images';
+@import 'SCSS/components/table';
+@import 'SCSS/components/snackbar';
 /*
 * Layouts Imports
 */
-@import 'assets/SCSS/layout/header';
-@import 'assets/SCSS/layout/navbar';
-@import 'assets/SCSS/layout/main';
-@import 'assets/SCSS/layout/flex';
-
-/*
-* Pages
-*/
-@import 'assets/SCSS/pages/home';
+@import 'SCSS/layout/form';
+@import 'SCSS/layout/header';
+@import 'SCSS/layout/main';
+@import 'SCSS/layout/flex';
 
 
 html, body { height: 100%; }

@@ -36,7 +36,7 @@
               <mat-hint>Hint</mat-hint>
             </mat-form-field>
             <mat-form-field appearance="outline" style="width: 90%;">
-              <mat-label for="authorName">Author ame</mat-label>
+              <mat-label for="authorName">Author Name</mat-label>
               <input matInput id="authorName" name="authorName" type="text" alt="input for authorName" formControlName="authorName" required>
               <mat-hint>Hint</mat-hint>
             </mat-form-field>
@@ -78,7 +78,9 @@
           </div>
         </div>
         <div class="card-actions">
-          <button (click)= "saveBook()" [class]="bookForm.valid ? 'button':'button-disabled' " [disabled]="!bookForm.valid">Add Book</button>
+          <button mat-raised-button style="width: 40%" [disabled]="!bookForm.valid" (click)= "saveBook()" color="accent">
+            <p class="p-card-white flex-center"><mat-icon>add_circle_outline</mat-icon>&nbsp; Suggest This Book</p>
+          </button>
         </div>
       </div>
     </article>

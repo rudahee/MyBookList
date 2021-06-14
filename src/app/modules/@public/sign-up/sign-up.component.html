@@ -9,17 +9,17 @@
           <mat-form-field appearance="outline" style="width: 90%;">
             <mat-label for="name">Name</mat-label>
             <input matInput id="name" name="name" type="text" alt="input for name" formControlName="name" required>
-            <mat-hint>Hint</mat-hint>
+            <mat-hint>Name is required, 2 characters minimum</mat-hint>
           </mat-form-field>
           <mat-form-field appearance="outline" style="width: 90%;">
             <mat-label for="surname">Surname</mat-label>
             <input matInput id="surname" name="surname" type="text" alt="input for surname" formControlName="surname" required>
-            <mat-hint>Hint</mat-hint>
+            <mat-hint>Surname is required, 2 characters minimum</mat-hint>
           </mat-form-field>
           <mat-form-field appearance="outline" style="width: 90%;">
             <mat-label for="age">Age</mat-label>
             <input matInput id="age" name="age" type="number" alt="input for age" formControlName="age" required>
-            <mat-hint>Hint</mat-hint>
+            <mat-error>Must be a number, with digits</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" style="width: 90%;">
             <mat-label for="gender">Gender</mat-label>
@@ -29,19 +29,19 @@
               <mat-option value="MALE">Male</mat-option>
               <mat-option value="NONE">Prefer not to say</mat-option>
             </mat-select>
-            <mat-hint>Hint</mat-hint>
+            <mat-hint>Gender is required</mat-hint>
           </mat-form-field>
         </div>
         <div class="col-right">
           <mat-form-field appearance="outline" style="width: 90%;">
             <mat-label for="email">Email</mat-label>
             <input matInput id="email" name="email" type="email" alt="input for email" formControlName="email" required>
-            <mat-hint>Hint</mat-hint>
+            <mat-hint>Email is required, must be in email format, with at sign</mat-hint>
           </mat-form-field>
           <mat-form-field appearance="outline" style="width: 90%;">
             <mat-label for="username">Username</mat-label>
             <input matInput id="username" name="username" type="text" alt="input for username" formControlName="username" required>
-            <mat-hint>Hint</mat-hint>
+            <mat-hint>Username is required, 5 characters minimum</mat-hint>
           </mat-form-field>
           <mat-form-field appearance="outline" style="width: 90%;">
             <mat-label for="password">Password</mat-label>
@@ -49,7 +49,7 @@
             <button matSuffix mat-icon-button (click)="visibilityPassword=!visibilityPassword">
               <mat-icon>{{(visibilityPassword) ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-hint>Hint</mat-hint>
+            <mat-hint>Password is required, 8 characters minimum</mat-hint>
           </mat-form-field>
           <mat-form-field appearance="outline" style="width: 90%;">
             <mat-label for="confirm_password">Confirm Password</mat-label>
@@ -57,14 +57,17 @@
             <button matSuffix mat-icon-button (click)="visibilityRepeatPassword=!visibilityRepeatPassword">
               <mat-icon>{{(visibilityRepeatPassword) ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-hint>Hint</mat-hint>
+            <mat-hint>Password Confirm is required, must match the password field</mat-hint>
           </mat-form-field>
         </div>
       </form>
     </div>
+    <br class="border-bottom">
     <div class="card-actions">
       <button mat-raised-button style="width: 50%" [disabled]="!signUpForm.valid" (click)="signUp()" color="accent">
-        <p class="p-card-white">Sign Up!</p>
+        <p class="p-card-white flex-center">
+          <mat-icon>person_add</mat-icon>&nbsp; Sign Up
+        </p>
       </button>
     </div>
   </div>

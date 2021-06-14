@@ -6,77 +6,63 @@
     <div class="card-body">
       <form action="#" class="form-two-cols" [formGroup] = "signUpForm">
         <div class="col-left">
-          <div class="styled-input">
-            <input id="name" name="name" type="text" alt="input for name" formControlName="name" required>
-            <label for="name">Name</label>
-            <span></span>
-            <p class="form-error" *ngIf="!signUpForm.controls['name'].valid && !signUpForm.controls['name'].pristine">Field required</p>
-          </div>
-          <div class="styled-input">
-            <input id="surname" name="surname" type="text" alt="input for surname" formControlName="surname" required>
-            <label for="surname">Surname</label>
-            <span></span>
-            <p class="form-error" *ngIf="!signUpForm.controls['surname'].valid && !signUpForm.controls['surname'].pristine">Field required</p>
-          </div>
-          <div class="styled-input">
-            <input id="age" name="age" type="number" alt="input for age" formControlName="age" required>
-            <label for="age">Age</label>
-            <span></span>
-            <p class="form-error" *ngIf="!signUpForm.controls['age'].valid && !signUpForm.controls['age'].pristine">Field required</p>
-          </div>
-          <div class="styled-select">
-            <select id="gender" name="gender" formControlName="gender"
-              alt="input for gender" required>
-              <option disabled selected value></option>
-              <option value="FEMALE">Female</option>
-              <option value="MALE">Male</option>
-              <option value="NONE">Prefer not to say</option>
-            </select>
-            <label for="gender">Gender</label>
-            <span></span>
-            <p class="form-error" *ngIf="!signUpForm.controls['gender'].valid && !signUpForm.controls['gender'].pristine">Field required</p>
-          </div>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="name">name</mat-label>
+            <input matInput id="name" name="name" type="text" alt="input for name" formControlName="name" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="surname">Surname</mat-label>
+            <input matInput id="surname" name="surname" type="text" alt="input for surname" formControlName="surname" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="age">Age</mat-label>
+            <input matInput id="age" name="age" type="number" alt="input for age" formControlName="age" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="gender">Gender</mat-label>
+            <mat-select id="gender" name="gender" alt="select for gender" formControlName="gender" required>
+              <mat-option></mat-option>
+              <mat-option value="FEMALE">Female</mat-option>
+              <mat-option value="MALE">Male</mat-option>
+              <mat-option value="NONE">Prefer not to say</mat-option>
+            </mat-select>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
         </div>
         <div class="col-right">
-          <div class="styled-input">
-            <input id="email" name="email" type="email" alt="input for email" formControlName="email" required>
-            <label for="email" >Email</label>
-            <span></span>
-            <p class="form-error" *ngIf="!signUpForm.controls['email'].valid && !signUpForm.controls['email'].pristine">Field required</p>
-          </div>
-          <div class="styled-input">
-            <input id="username" name="username" type="text" alt="input for username" formControlName="username" required>
-            <label for="username">Username</label>
-            <span></span>
-            <p class="form-error" *ngIf="!signUpForm.controls['username'].valid && !signUpForm.controls['username'].pristine">Field required</p>
-          </div>
-          <div class="styled-select">
-            <select id="auto-password" name="auto_password" formControlName="auto_password"
-              alt="input for auto-password" required>
-              <option disabled selected value></option>
-              <option [ngValue]="true">Yes, please</option>
-              <option [ngValue]="false">No</option>
-            </select>
-            <label for="gender">Generate password automatically?</label>
-            <span></span>
-            <p class="form-error" *ngIf="!signUpForm.controls['gender'].valid && !signUpForm.controls['gender'].pristine">Field required</p>
-          </div>
-          <div class="styled-select">
-            <select id="type-account" name="type_account" formControlName="type_account"
-              alt="input for type-account" required>
-              <option disabled selected value></option>
-              <option [ngValue]="true">This account is for an Administrator</option>
-              <option [ngValue]="false">This account is for an Author</option>
-            </select>
-            <label for="gender">Is Author or Administrator?</label>
-            <span></span>
-            <p class="form-error" *ngIf="!signUpForm.controls['gender'].valid && !signUpForm.controls['gender'].pristine">Field required</p>
-          </div>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="email">email</mat-label>
+            <input matInput id="email" name="email" type="email" alt="input for email" formControlName="email" required>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="enableAccount">Enable Account?</mat-label>
+            <mat-select id="enableAccount" name="enableAccount" alt="select for enableAccount" formControlName="enable_account" required>
+              <mat-option value="true">Yes</mat-option>
+              <mat-option value="false">No</mat-option>
+            </mat-select>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label for="enableAccount">Account Type</mat-label>
+            <mat-select id="enableAccount" name="enableAccount" alt="select for enableAccount" formControlName="type_account" required>
+              <mat-option value="true">This account is for an Administrator</mat-option>
+              <mat-option value="false">This account is for an Author</mat-option>
+            </mat-select>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
         </div>
       </form>
     </div>
     <div class="card-actions">
-      <button [class]="signUpForm.valid ? 'button':'button-disabled' " [disabled]="!signUpForm.valid" (click)="submitAccount()" >Sign Up</button>
+      <button mat-raised-button style="width: 50%" [disabled]="!signUpForm.valid" (click)="submitAccount()" color="accent">
+        <p class="p-card-white flex-center">
+          <mat-icon>person_add</mat-icon>&nbsp; Sign Up
+        </p>
+      </button>
     </div>
   </div>
 </main>

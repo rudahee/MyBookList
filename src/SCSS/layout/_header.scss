@@ -1,0 +1,30 @@
+.header {
+
+    .header-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%;
+
+        font-size: $font-size-h3;
+    }
+
+    .spacer {
+        flex-grow: 1;
+    }
+
+    .header-right {
+
+        display: none;
+
+        @media only screen and (min-width: 600px) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 100%;
+            margin-right: 2%;
+            font-size: $font-size-p;
+          }
+    }
+}

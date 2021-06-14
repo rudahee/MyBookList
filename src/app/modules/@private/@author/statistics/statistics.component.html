@@ -1,0 +1,70 @@
+<main class="main-flex flex-center">
+
+  <div class="card-w-full">
+    <div class="card-header">
+      <h2 class="title">Statistics</h2>
+    </div>
+    <div class="card-body flex-row flex-start" *ngIf="stats">
+      <div class="w-full flex-center flex-col">
+        <h2 class="subtitle no-margins">General</h2>
+        <hr class="w-full">
+        <div>
+          <p class="p-card-small no-margins"><strong>Total readed books</strong> {{stats.qtyUserReadBooks}}</p>
+          <p class="p-card-small no-margins"><strong>Total dropped books:</strong> {{stats.qtyUserDroppedBooks}}</p>
+          <p class="p-card-small no-margins"><strong>Mean rating:</strong> {{stats.meanScore+'/5'}}</p>
+          <p class="p-card-small no-margins"><strong>Followers:</strong> {{stats.qtyFollowers}}</p>
+          <p class="p-card-small no-margins"><strong>Female followers:</strong>
+            {{stats.femaleFollowers}}{{(stats.femaleFollowers / stats.qtyFollowers * 100) == 0 ? ' (0%)' : ' (' + (stats.femaleFollowers / stats.qtyFollowers * 100) | number: '1.0-2' + '%)'}}
+          </p>
+          <p class="p-card-small no-margins"><strong>Male followers:</strong>
+            {{stats.maleFollowers}}{{(stats.maleFollowers / stats.qtyFollowers * 100) == 0 ? ' (0%)' : ' (' + (stats.maleFollowers / stats.qtyFollowers * 100 | number: '1.0-2') + '%)'}}
+          </p>
+          <p class="p-card-small no-margins"><strong>Mean age follower:</strong> {{stats.meanAgeFollowers}}</p>
+        </div>
+      </div>
+      <div class="w-full flex-center flex-col">
+        <h2 class="subtitle no-margins">Last Book</h2>
+        <hr class="w-full">
+        <div>
+          <p class="p-card-small no-margins"><strong>Last book name:</strong> {{stats.lastBook}}</p>
+          <p class="p-card-small no-margins"><strong>Last book readed:</strong>
+            {{stats.qtyUserReadLastBook + ' ('}}{{(stats.qtyUserReadLastBook / stats.qtyUserReadBooks * 100) | number: '1.0-2'}}%)
+          </p>
+          <p class="p-card-small no-margins"><strong>Last book dropped:</strong>
+            {{stats.qtyUserDroppedLastBook + ' ('}}{{(stats.qtyUserDroppedLastBook / stats.qtyUserDroppedBooks * 100) | number: '1.0-2'}}%)
+          </p>
+          <p class="p-card-small no-margins"><strong>Last book mean score:</strong> {{stats.meanScoreLastBook+'/5'}}</p>
+        </div>
+      </div>
+      <div class="w-full flex-center flex-col">
+        <h2 class="subtitle no-margins">Most Read Book</h2>
+        <hr class="w-full">
+        <div>
+          <p class="p-card-small no-margins"><strong>Most read book name:</strong> {{stats.mostReadBook}}</p>
+          <p class="p-card-small no-margins"><strong>Most read book readed:</strong>
+            {{stats.qtyUserReadMostReadBook + ' ('}}{{(stats.qtyUserReadMostReadBook / stats.qtyUserReadBooks * 100) | number: '1.0-2'}}%)
+          </p>
+          <p class="p-card-small no-margins"><strong>Most read book dropped:</strong>
+            {{stats.qtyUserDroppedMostReadBook + ' ('}}{{(stats.qtyUserDroppedMostReadBook / stats.qtyUserDroppedBooks * 100) | number: '1.0-2'}}%)
+          </p>
+          <p class="p-card-small no-margins"><strong>Most read book mean score:</strong> {{stats.meanScoreMostReadBook+'/5'}}</p>
+        </div>
+      </div>
+      <div class="w-full flex-center flex-col">
+        <h2 class="subtitle no-margins">Most Rated Book</h2>
+        <hr class="w-full">
+        <div>
+          <p class="p-card-small no-margins"><strong>Most rated book name:</strong> {{stats.mostRatedBook}}</p>
+          <p class="p-card-small no-margins"><strong>Most rated book readed:</strong>
+            {{stats.qtyUserReadMostRatedBook + ' ('}}{{(stats.qtyUserReadMostRatedBook / stats.qtyUserReadBooks * 100) | number: '1.0-2'}}%)
+          </p>
+          <p class="p-card-small no-margins"><strong>Most rated book dropped:</strong> 
+            {{stats.qtyUserDroppedMostRatedBook + ' ('}}{{(stats.qtyUserDroppedMostRatedBook / stats.qtyUserDroppedBooks * 100) | number: '1.0-2'}}%)
+          </p>
+          <p class="p-card-small no-margins"><strong>Most rated book mean score:</strong> {{stats.meanScoreMostRatedBook+'/5'}}</p>
+        </div>
+      </div>
+    </div>
+    <div>&nbsp;</div>
+  </div>
+</main>

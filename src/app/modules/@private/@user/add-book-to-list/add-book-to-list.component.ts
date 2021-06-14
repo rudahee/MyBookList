@@ -62,7 +62,6 @@ export class AddBookToListComponent implements OnInit {
     };
 
 
-    console.log(data);
 
     this.bookService.addBookToList(data).subscribe(
       () => {
@@ -70,6 +69,5 @@ export class AddBookToListComponent implements OnInit {
         this.snackBar.open('Successfully added to your list', 'Close', { duration: 5000, panelClass: 'snackbar' });
       }
     );
-
   }
 }

@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { PrivateModule } from './modules/@private/private.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { IsUserGuard } from './services/guard/user-guard/user.guard';
 
 
 const matModules = [MatExpansionModule, MatIconModule, MatCardModule, MatButtonModule, MatToolbarModule,
@@ -49,6 +50,6 @@ const matModules = [MatExpansionModule, MatIconModule, MatCardModule, MatButtonM
   exports: [
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, IsUserGuard]
 })
 export class AppModule { }

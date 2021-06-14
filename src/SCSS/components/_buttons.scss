@@ -1,0 +1,15 @@
+.list-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    margin: 1em 0;
+}
+
+.button-30 {
+    width: 100%;
+
+    @media only screen and (min-width: 750px) {
+        width: 30%;
+    }
+}

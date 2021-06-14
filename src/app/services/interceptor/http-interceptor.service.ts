@@ -8,7 +8,11 @@ import { finalize, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HttpInterceptorService implements HttpInterceptor {
+  // DEV
   urlBack = 'http://localhost:8080';
+  // PROD
+  //urlBack = 'http://mybooklist.site:8080';
+
 
   constructor(private jwtHandler: JwtHandlerService) { }
 
@@ -23,7 +27,9 @@ export class HttpInterceptorService implements HttpInterceptor {
       request = request.clone({ headers: request.headers.set('Access-Control-Expose-Headers', 'Authorization')});
     }
 
+    // Always will communicate with 'application/json' type.
     request = request.clone({headers: request.headers.set('Accept', 'application/json')});
+
 
     const url = {url: this.urlBack + request.url};
     request = Object.assign(request, url);

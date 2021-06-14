@@ -2,8 +2,9 @@
 
   <form action="#" class="main-with-widgets main-start w-full" [formGroup]="bookForm">
   <article class="side-xl">
-    <app-search-author *ngIf="!authorId"></app-search-author>
-    <app-search-saga></app-search-saga>
+    <app-select-author *ngIf="!authorId" style="width: 96%;"></app-select-author>
+    <app-select-genre style="width: 96%;"></app-select-genre>
+    <app-select-saga style="width: 96%;"></app-select-saga>
   </article>
 
   <article class="article-md">
@@ -13,55 +14,55 @@
       </div>
       <div class="card-body form-two-cols">
           <div class="col-left">
-            <div class="styled-input">
-              <input id="name" name="name" type="text" alt="input for name" formControlName="name" required>
-              <label for="name">Name</label>
-              <span></span>
-              <p class="form-error" *ngIf="!bookForm.controls['name'].valid && !bookForm.controls['name'].pristine">Field required</p>
-            </div>
-            <div class="styled-input">
-              <input id="pages" name="pages" type="number" alt="input for pages" formControlName="pages" required>
-              <label for="pages">Pages</label>
-              <span></span>
-              <p class="form-error" *ngIf="!bookForm.controls['pages'].valid && !bookForm.controls['pages'].pristine">Field required</p>
-            </div>
-            <div class="styled-input">
-              <input id="publisher" name="publisher" type="string" alt="input for publisher" formControlName="publisher" required>
-              <label for="publisher">Publisher</label>
-              <span></span>
-              <p class="form-error" *ngIf="!bookForm.controls['publisher'].valid && !bookForm.controls['publisher'].pristine">Field required</p>
-            </div>
-            <div class="styled-input">
-              <input id="publishDate" name="publishDate" (click)="changeDateInput()" [type]="dateSwitch ? 'text': 'date'" alt="input for publishDate" formControlName="publishDate" required>
-              <label for="publishDate">Publish Date</label>
-              <span></span>
-              <p class="form-error" *ngIf="!bookForm.controls['publishDate'].valid && !bookForm.controls['publishDate'].pristine">Field required</p>
-            </div>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="name">name</mat-label>
+              <input matInput id="name" name="name" type="text" alt="input for name" formControlName="name" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="pages">Pages</mat-label>
+              <input matInput id="pages" name="pages" type="number" alt="input for pages" formControlName="pages" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="publisher">Publisher</mat-label>
+              <input matInput id="publisher" name="publisher" type="text" alt="input for publisher" formControlName="publisher" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="example-form-field" style="width: 90%;">
+              <mat-label for="publishDate">Publish Date</mat-label>
+              <input matInput [matDatepicker]="datepicker" id="publishDate" name="publishDate" alt="input for publishDate" formControlName="publishDate" required>
+              <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+              <mat-datepicker #datepicker>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancel</button>
+                  <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
           </div>
           <div class="col-right">
-            <div class="styled-input">
-              <input id="isbn" name="isbn" type="string" alt="input for isbn" formControlName="isbn" required>
-              <label for="isbn">ISBN</label>
-              <span></span>
-              <p class="form-error" *ngIf="!bookForm.controls['publisher'].valid && !bookForm.controls['publisher'].pristine">Field required</p>
-            </div>
-            <div class="styled-input">
-              <input id="imageUrl" name="imageUrl" type="string" alt="input for imageUrl" formControlName="imageUrl" required>
-              <label for="imageUrl">Image URL</label>
-              <span></span>
-              <p class="form-error" *ngIf="!bookForm.controls['publisher'].valid && !bookForm.controls['publisher'].pristine">Field required</p>
-            </div>
-            <div class="styled-input">
-              <textarea id="description" rows="6" formControlName="description" name="description" alt="textarea for description book" formControlName="description" required>
-              </textarea>
-              <label for="surname">Synopsis</label>
-              <span></span>
-              <p class="form-error" *ngIf="!bookForm.controls['description'].valid && !bookForm.controls['description'].pristine">Field required</p>
-            </div>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="isbn">ISBN</mat-label>
+              <input matInput id="isbn" name="isbn" type="text" alt="input for isbn" formControlName="isbn" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label for="imageUrl">Image URL</mat-label>
+              <input matInput id="imageUrl" name="imageUrl" type="text" alt="input for imageUrl" formControlName="imageUrl" required>
+              <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 90%;">
+              <mat-label>Synopsis</mat-label>
+              <textarea rows=6 matInput id="description" name="description" lt="input for description" formControlName="description"></textarea>
+            </mat-form-field>
           </div>
         </div>
         <div class="card-actions">
-          <button (click)= "saveBook()" [class]="bookForm.valid ? 'button':'button-disabled' " [disabled]="!bookForm.valid">Sign Up</button>
+          <button mat-raised-button style="width: 40%" [disabled]="!bookForm.valid" color="accent" (click)="saveBook()">
+            <p class="p-card-white flex-center"><mat-icon>add_circle_outline</mat-icon>&nbsp; Add Book</p>
+          </button>
         </div>
       </div>
     </article>

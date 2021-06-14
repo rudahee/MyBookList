@@ -26,6 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxStarsModule } from 'ngx-stars';
 import { MatTabsModule } from '@angular/material/tabs';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CdkColumnDef } from '@angular/cdk/table';
 
 @NgModule({
   imports: [
@@ -44,7 +46,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatIconModule,
     CarouselModule,
     NgxStarsModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxPaginationModule
   ],
   declarations: [
     PublicComponent,
@@ -58,6 +61,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     PublicUserComponent,
     PublicAuthorComponent,
     UserBookListComponent
+  ],
+  providers: [
+    CdkColumnDef
   ]
 })
 export class PublicModule { }

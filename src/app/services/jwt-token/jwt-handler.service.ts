@@ -13,7 +13,7 @@ export class JwtHandlerService {
     localStorage.setItem('jwt', token);
     const tokenDecode: IJwt = jwt_decode(token);
     localStorage.setItem('user_id', tokenDecode.jti);
-
+    localStorage.setItem('rol', tokenDecode.roles[0]);
   }
 
   getJWT(): string {
@@ -27,6 +27,7 @@ export class JwtHandlerService {
   deleteJWT(): void {
     localStorage.removeItem('user_id');
     localStorage.removeItem('jwt');
+    localStorage.removeItem('rol')
     location.href = '/';
   }
 }

@@ -1,3 +1,5 @@
+import { IAuthorSimple } from './../../../interfaces/IUser';
+import { WidgetEmitterService } from './../../../services/widget-emitter/widget-emitter.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,7 +15,6 @@ import { JwtHandlerService } from 'app/services/jwt-token/jwt-handler.service';
 })
 export class AddBookComponent implements OnInit {
 
-
   public dateSwitch = true;
 
   book: IBook;
@@ -21,7 +22,8 @@ export class AddBookComponent implements OnInit {
   authorId: string;
 
   constructor(private build: FormBuilder, private jwtTokenHandler: JwtHandlerService,
-              private bookService: BookService, private router: Router, private snackbar: MatSnackBar) { }
+              private bookService: BookService, private router: Router,
+              private snackbar: MatSnackBar, private widgetService: WidgetEmitterService) { }
 
   ngOnInit(): void {
 
@@ -51,8 +53,28 @@ export class AddBookComponent implements OnInit {
   public saveBook(): void {
     this.book = this.bookForm.value;
     this.book.publishDate = new Date(this.bookForm.controls.publishDate.value);
+
+    if (!this.widgetService.authorsSelected) {
+      this.snackbar.open('You need to add at least one author!', 'Close', { duration: 5000, panelClass: 'snackbar'});
+      return;
+    }
+
+    if (!this.widgetService.genresSelected) {
+      this.snackbar.open('You need to add at least one genre!', 'Close', { duration: 5000, panelClass: 'snackbar'});
+      return;
+    }
+
+
+    this.book.genres = this.widgetService.genresSelected;
+
+    const authorsId = this.widgetService.authorsSelected.map(author => author.id);
+
     // tslint:disable-next-line: deprecation
-    this.bookService.postBook(this.book).subscribe(
+    this.bookService.postBook(
+        this.book,
+       (this.widgetService.sagaSelected) ? this.widgetService.sagaSelected.id.toString() : undefined,
+       authorsId)
+       .subscribe(
       res => {
         this.bookForm.reset();
         this.snackbar.open('Successfully Added', 'Close', { duration: 5000, panelClass: 'snackbar'});

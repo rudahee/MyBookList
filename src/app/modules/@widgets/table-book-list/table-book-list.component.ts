@@ -32,10 +32,22 @@ export class TableBookListComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.innerWidth = window.innerWidth;
+
+    if (this.innerWidth < 650) {
+      this.displayedColumns.splice(1, 1);
+      if (this.displayedColumns.indexOf('comment') !== -1) {
+        this.displayedColumns.splice(this.displayedColumns.indexOf('comment') , 1);
+      }
+    }
+
     this.dataSource = new MatTableDataSource<IBookToPublicList>();
     // tslint:disable-next-line: deprecation
 
     this.ELEMENT_DATA = this.bookList;
+
+    console.log(this.bookList)
     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
     this.resultsLength = this.ELEMENT_DATA.length;
     this.dataSource.sort = this.sort;

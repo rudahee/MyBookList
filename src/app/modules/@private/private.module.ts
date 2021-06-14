@@ -1,3 +1,10 @@
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SagaListComponent } from './saga-list/saga-list.component';
+import { AddSagaComponent } from './add-saga/add-saga.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminModule } from './@admin/admin.module';
 import { AuthorModule } from './@author/author.module';
@@ -11,6 +18,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { WidgetsModule } from '../@widgets/widgets.module';
 import { AddBookComponent } from './add-book/add-book.component';
 import { AddMultipleBooksComponent } from './add-multiple-books/add-multiple-books.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -23,12 +32,21 @@ import { AddMultipleBooksComponent } from './add-multiple-books/add-multiple-boo
     AuthorModule,
     AdminModule,
     WidgetsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   declarations: [
     PrivateComponent,
     AddBookComponent,
-    AddMultipleBooksComponent
+    AddMultipleBooksComponent,
+    AddSagaComponent,
+    SagaListComponent,
   ]
 })
 export class PrivateModule { }

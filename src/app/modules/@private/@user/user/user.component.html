@@ -1,5 +1,5 @@
 <main class = "main-with-widgets">
-  <article class="side main-flex">
+  <article class="side-xl main-flex">
 
       <!-- FRIENDS REQUESTS CARD -->
 
@@ -39,7 +39,7 @@
       <div class="card-header">
         <h1 class="p-card-white">Friend List</h1>
       </div>
-      <div class="card-body flex-start flex-col w-full">
+      <div class="card-body flex-start w-full">
         <div class="w-full flex-between" *ngFor="let friend of friends">
           <div class="flex-center  margin-05em">
             <img src="../../../../assets/image/user-profile-without-image.jpg" class="user-profile-image-small">
@@ -60,14 +60,19 @@
 
       <!-- FOLLOWED AUTHORS CARD -->
 
-    <section id="friends-lists" class="card-w-full">
+    <section id="friends-lists" class="card-w-full" *ngIf="authors">
       <div class="card-header">
         <h1 class="p-card-white">Followed Authors</h1>
       </div>
       <div class="card-body flex-start flex-col w-full">
         <div class="w-full flex-between" *ngFor="let author of authors">
           <div class="flex-center  margin-05em">
-            <img src="../../../../assets/image/user-profile-without-image.jpg" class="user-profile-image-small">
+            <ng-template [ngIf]="!author.imageUrl" [ngIfElse]="ElseImage">
+              <img src="../../../../assets/image/user-profile-without-image.jpg" class="user-profile-image-small">
+            </ng-template>
+            <ng-template #ElseImage>
+              <img [src]="author.imageUrl" class="user-profile-image-small">
+            </ng-template>
             <p class="p-card"><strong>{{ author.completeName }}</strong></p>
           </div>
           <button mat-mini-fab color="primary" style="margin-right: 6%;" [routerLink]="'/author/page/' + author.id">
@@ -87,44 +92,45 @@
         <h1 class="title">My Profile</h1>
       </div>
       <div class="card-body">
-        <div class="main-start w-30 flex-col">
-          <p class="p-card no-margins"><strong>{{user.name + ' ' + user.surname }}</strong></p>
-          <div class="w-full flex-center">
-            <img *ngIf="user.imageProfile != undefined && user.imageProfile != '' " class="user-profile-image" [src]="user?.imageProfile" alt="image of user profile">
-            <img *ngIf="user.imageProfile == undefined || user.imageProfile == '' " class="user-profile-image" src="../../../../assets/image/user-profile-without-image.jpg" alt="image of user profile">
-          </div>
-          <br>
-          <div class="flex-col">
-            <h2 class="w-full subtitle flex-center border-bottom">Account data</h2>
-            <div>
-              <br>
-              <p class="p-card-small no-margins"><strong>Create Time:</strong> {{user.createTime | date: 'short'}}</p>
-              <p class="p-card-small no-margins"><strong>Last update:</strong> {{user.updateTime | date: 'short'}}</p>
-              <p class="p-card-small no-margins"><strong>Last activity:</strong> {{user.updateTime | date: 'short'}}</p>
-              <p class="p-card-small no-margins"><strong>Last password change:</strong> {{user.lastPasswordChange | date: 'shortDate' }}</p>
+        <div class="flex-row">
+          <div class="main-start w-30 flex-col">
+            <p class="p-card no-margins"><strong>{{user.name + ' ' + user.surname }}</strong></p>
+            <div class="w-full flex-center">
+              <img *ngIf="user.imageProfile != undefined && user.imageProfile != '' " class="user-profile-image" [src]="user?.imageProfile" alt="image of user profile">
+              <img *ngIf="user.imageProfile == undefined || user.imageProfile == '' " class="user-profile-image" src="../../../../assets/image/user-profile-without-image.jpg" alt="image of user profile">
+            </div>
+            <br>
+            <div class="flex-col w-full">
+              <h2 class="w-full subtitle flex-center border-bottom w-full">Account data</h2>
+              <div class="w-full">
+                <br>
+                <p class="p-card-small no-margins"><strong>Create Time:</strong> {{user.createTime | date: 'short'}}</p>
+                <p class="p-card-small no-margins"><strong>Last update:</strong> {{user.updateTime | date: 'short'}}</p>
+                <p class="p-card-small no-margins"><strong>Last activity:</strong> {{user.updateTime | date: 'short'}}</p>
+                <p class="p-card-small no-margins"><strong>Last password change:</strong> {{user.lastPasswordChange | date: 'shortDate' }}</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="w-70 flex-col">
-          <h2 class="subtitle flex-center w-full border-bottom">My data</h2>
-          <br>
-          <div class="flex-col w-full flex-start">
-            <p class="p-card "><strong>Username:</strong> {{user.username}}</p>
-            <p class="p-card "><strong>Email:</strong> {{user.email}}</p>
-          </div>
-          <h2 class="subtitle flex-center w-full border-bottom">My statistics</h2>
-          <br>
-          <div class="flex-col w-full flex-start">
-            <p class="p-card"><strong>Read books:</strong> 392</p>
-            <p class="p-card"><strong>Books read (this year):</strong> 24</p>
-            <p class="p-card"><strong>Pages read:</strong> 29940</p>
-            <p class="p-card"><strong>Pages read (this year):</strong> 5900</p>
-            <p class="p-card"><strong>Time read:</strong> 2598h 50m (108,25 days)</p>
-            <p class="p-card"><strong>Favorite genre:</strong> Sci-Fi</p>
-            <p class="p-card"><strong>Favorite author:</strong> Jorge Luis Borges</p>
-            <p class="p-card"><strong>Book more times reread:</strong> Being and Time (19 times)</p>
-            <p class="p-card"><strong>Mean score:</strong> 6.34/10</p>
+          <div class="w-70 flex-col">
+            <h2 class="subtitle flex-center w-full border-bottom">My data</h2>
+            <br>
+            <div class="flex-col w-full flex-start">
+              <p class="p-card "><strong>Username:</strong> {{user.username}}</p>
+              <p class="p-card "><strong>Email:</strong> {{user.email}}</p>
+            </div>
+            <h2 class="subtitle flex-center w-full border-bottom">My statistics</h2>
+            <br>
+            <div class="flex-col w-full flex-start" *ngIf="userStats">
+              <p class="p-card"><strong>Read books:</strong> {{userStats.totalBooksRead}}</p>
+              <p class="p-card"><strong>Books read (this year):</strong> {{userStats.totalBooksThisYear}}</p>
+              <p class="p-card"><strong>Pages read:</strong> {{userStats.totalPagesRead}}</p>
+              <p class="p-card"><strong>Pages read (this year):</strong> {{userStats.totalPagesThisYear}}</p>
+              <p class="p-card"><strong>Time read:</strong> {{userStats.hoursRead + 'h ' + userStats.minutesRead + 'm '}} ({{userStats.daysRead | number: '1.0-2'}} days)</p>
+              <p class="p-card"><strong>Favorite genre:</strong> {{ (userStats.mostReadGenre) ? userStats.mostReadGenre.genre: 'None'}}</p>
+              <p class="p-card"><strong>Favorite author:</strong> {{(userStats.mostReadAuthor) ? userStats.mostReadAuthor : 'None'}}</p>
+              <p class="p-card"><strong>Mean score:</strong> {{(userStats.meanScore == 0) ? (userStats.meanScore | number: '1.0-2' + '/5') : 'None'}}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -132,13 +138,15 @@
       <div class="w-full border-bottom"></div>
       <br>
       <div class="card-actions">
-        <button mat-raised-button style="width: 30%" color="accent" [routerLink]="'/user/' + user.id + '/list'">
+        <button mat-raised-button class="button-30" color="accent" [routerLink]="'/user/' + user.id + '/list'">
           <p class="p-card-white flex-center"><mat-icon>format_list_bulleted</mat-icon>&nbsp; Go to my BookList</p>
         </button>
-        <button mat-raised-button style="width: 30%" color="accent">
+        <br>
+        <button mat-raised-button class="button-30" color="accent">
           <p class="p-card-white flex-center"><mat-icon>manage_accounts</mat-icon>&nbsp; Edit my profile</p>
         </button>
-        <button mat-raised-button style="width: 20%" color="warn">
+        <br>
+        <button mat-raised-button class="button-30" color="warn">
           <p class="p-card-white flex-center"><mat-icon>delete</mat-icon>&nbsp; Delete my account</p>
         </button>
       </div>

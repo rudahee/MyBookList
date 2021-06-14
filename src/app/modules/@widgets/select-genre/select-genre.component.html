@@ -1,0 +1,28 @@
+<div class="card-w-full" style="width: 100%;">
+  <div class="card-header">
+    <p class="p-card-white">Select Genres</p>
+  </div>
+  <div class="flex-col flex-center">
+    <mat-form-field appearance="outline" style="width: 90%; margin-top: 5%;">
+      <mat-label>Search a Genre</mat-label>
+      <input type="text"
+            [formControl]="genreControl"
+            matInput
+            [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option.genre" (click) ="selectGenre(option.genre)" (selectionChange)="selectGenre(option.genre)">
+            {{ option.genre }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-chip-list #chipList style="margin-bottom: 5%; width: 95%;" class="flex-center">
+      <mat-chip color="primary" class="selectedGenres" style="display: flex; align-items: center; justify-content: space-between;"
+                *ngFor="let gen of selectedGenres; let i = index" [attr.data-index]="i">
+        {{gen.genre}}
+        <mat-icon style="margin-left: 2px; cursor: pointer;" (click)="removeGenre(i)">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>

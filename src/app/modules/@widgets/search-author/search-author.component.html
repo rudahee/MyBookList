@@ -1,32 +1,22 @@
-<div class="card-w-full">
+<div class="card-w-full" style="width: 100%;">
   <div class="card-header">
     <p class="p-card-white">Search an Author</p>
   </div>
-  <div class="flex-col flex-center">
-    <mat-form-field appearance="outline" style="width: 90%; margin-top: 5%;">
-      <mat-label>Search an author</mat-label>
+  <div class="flex-center">
+    <mat-form-field class="material-input" style="width: 90%; margin-top: 5%;" appearance="outline">
+      <mat-label>Search a author</mat-label>
       <input type="text"
+            id ="search-author"
             [formControl]="authorControl"
             matInput
-            [matAutocomplete]="auto">
+            [matAutocomplete]="auto" (keyup.enter)="navigateAlternative()">
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
         <mat-option
           *ngFor="let option of filteredOptions | async"
-          [value]="option">
+          [value]="option.id" (click) ="navigate(option.id)" (selectionChange)="navigate(option.id)">
             {{ option.completeName }}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="material-input" style="margin-bottom: 5%;">Add Author</button>
-    <mat-chip-list #chipList style="margin-bottom: 5%; width: 95%;" class="flex-center">
-      <mat-chip color="primary" style="display: flex; align-items: center; justify-content: space-between;">
-        Brandon Sanderson 
-          <mat-icon style="margin-left: 2px; cursor: pointer;">cancel</mat-icon>
-      </mat-chip>
-      <mat-chip color="primary">
-        George R. Martin
-          <mat-icon style="margin-left: 2px; cursor: pointer;">cancel</mat-icon>
-      </mat-chip>
-    </mat-chip-list>
   </div>
 </div>

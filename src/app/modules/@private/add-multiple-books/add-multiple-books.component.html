@@ -15,8 +15,9 @@
         <br>
       </div>
     </div>
-    <app-search-author *ngIf="!authorId"></app-search-author>
-    <app-search-saga></app-search-saga>
+    <app-select-author *ngIf="!authorId" style="width:96%"></app-select-author>
+    <app-select-genre style="width:96%"></app-select-genre>
+    <app-select-saga style="width:96%"></app-select-saga>
   </article>
 
   <article class="article-md">
@@ -30,12 +31,14 @@
             <p class="p-card"> Drag your files here or click in this area. </p>
           </ngx-dropzone-label>
           <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            <ngx-dropzone-label>{{ f.name }}</ngx-dropzone-label>
           </ngx-dropzone-preview>
         </ngx-dropzone>
       </div>
       <div class="card-actions">
-        <button mat-raised-button color="primary" type="submit" (click)="UploadFiles()" style="width:70%;">Upload</button>
+        <button mat-raised-button style="width: 70%" [disabled]="files.length == 0" color="accent" (click)="UploadFiles()">
+          <p class="p-card-white flex-center"><mat-icon>file_upload</mat-icon>&nbsp; Add Books</p>
+        </button>
       </div>
     </div>
   </article>

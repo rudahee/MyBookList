@@ -8,14 +8,17 @@ export interface IBook {
     pages?: number;
     publishDate?: Date;
     publisher?: string;
+    genres?: IGenre[];
 }
 
 export interface ISaga {
     id?: number;
     name: string;
+    action?: any;
 }
 
 export interface IBookForApproval {
+    id: number;
     name: string;
     description: string;
     pages: number;
@@ -40,4 +43,15 @@ export interface IBookToPublicList {
     status: string;
     pagesReaded: number;
     totalPages: number;
+}
+
+export interface IGenre {
+    genre: string;
+}
+
+export interface IComment {
+    comment: string;
+    username: string;
+    rating: number;
+    status: string;
 }

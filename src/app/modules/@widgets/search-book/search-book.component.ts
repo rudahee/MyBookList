@@ -33,7 +33,6 @@ export class SearchBookComponent implements OnInit {
           map(name => name ? this._filter(name) : this.options.slice())
         );
   });
-
 }
 
   displayFn(book: IBook): string {
@@ -44,5 +43,14 @@ export class SearchBookComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  navigate(id: string): void {
+    this.router.navigate(['/book/' + id]);
+  }
+
+  navigateAlternative(): void {
+
+    this.navigate(this.bookControl.value.toString());
   }
 }

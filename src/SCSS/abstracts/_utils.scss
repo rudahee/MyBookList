@@ -1,0 +1,85 @@
+.w-30 {
+    width: 100%;
+    padding: 1% 2%;
+    @media only screen and (min-width: 700px) {
+        width: 30%;
+        padding: 0 2%;
+    }
+}
+
+.w-70 {
+    width: 100%;
+    padding: 2 2%;
+    @media only screen and (min-width: 700px) {
+        width: 70%;
+        padding: 0 2%;
+    }
+}
+
+.w-full {
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.main-center {
+    justify-content: center;
+}
+
+.main-start {
+    justify-content: flex-start;
+}
+
+.padding-05em{
+    margin: 0;
+    padding: 0.5em;
+}
+
+.height-none {
+    height: fit-content;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.margin-05em {
+    margin: 1em;
+    padding: 0;
+}
+
+.no-margins {
+    margin: 0.25em;
+    padding: 0;
+}
+
+.border-bottom {
+    border-bottom: $border-size;
+}
+
+.text-ellipsis {
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.hide-mobile {
+    display: none;
+    @media only screen and (min-width: 700px) {
+        display: block;
+    }
+}
+
+.hide-desktop {
+    display: block;
+    @media only screen and (min-width: 700px) {
+        display: none;
+    }
+}

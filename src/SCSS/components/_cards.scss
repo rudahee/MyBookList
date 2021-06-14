@@ -1,0 +1,42 @@
+
+.card-xl {
+    @include card;
+    width: 95%;
+
+    @media only screen and (min-width: 750px) {
+        width: 80%;
+        height: fit-content;
+        border: $border-size;
+        border-radius: $border-radius;
+    }
+}
+
+.card-md {
+    @include card;
+
+    width: 80%;
+    top: $header-height;
+    height: auto;
+    border: $border-size;
+    border-radius: $border-radius;
+
+    @media only screen and (min-width: 750px) {
+        width: 50%;
+        height: auto;
+        border: $border-size;
+        border-radius: $border-radius;
+    }
+}
+
+.card-w-full {
+    @extend .card-xl;
+
+    width: 96%;
+    margin-bottom: 3%;
+
+
+    @media only screen and (min-width: 800px) {
+        width: 94%;
+        margin-bottom: 5%;
+    }
+}

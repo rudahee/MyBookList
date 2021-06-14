@@ -1,0 +1,23 @@
+<main class = "main-flex main-center">
+  <div class="card-md">
+    <div class="card-header">
+      <h1 class="title">Add Saga</h1>
+    </div>
+    <div class="card-body">
+      <form action="#" class="form-two-cols" [formGroup] = "addSagaForm">
+        <mat-form-field appearance="outline" style="width: 90%;">
+          <mat-label for="name">name</mat-label>
+          <input matInput id="name" name="name" type="text" alt="input for name" formControlName="name" required>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="card-actions">
+      <button  mat-raised-button style="width: 50%" [disabled]="!addSagaForm.valid" (click)="addSaga()" color="accent">
+        <p class="p-card-white flex-center">
+          <mat-icon>add_box</mat-icon>&nbsp; Add New Saga
+        </p>
+      </button>
+    </div>
+  </div>
+</main>

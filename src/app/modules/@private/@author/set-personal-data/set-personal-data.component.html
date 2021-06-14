@@ -1,0 +1,44 @@
+<main class="main-flex flex-center">
+  <div class="card-xl" *ngIf="authorPublic">
+    <div class="card-header">
+      <h2 class="title">Menu</h2>
+    </div>
+    <div class="card-body w-full flex-center flex-col">
+      <div class="w-full flex-center flex-col">
+        <div *ngIf="!isSelectedNewImage">
+          <ng-template [ngIf]="authorPublic.urlImage == '' || authorPublic.urlImage == undefined" [ngIfElse]="ElseImage">
+            <img class="user-profile-image" src="../../../../assets/image/user-profile-without-image.jpg" alt="image of user profile" #ElseImage>
+          </ng-template>
+          <ng-template #ElseImage>
+            <img class="user-profile-image" [src]="authorPublic?.urlImage" alt="image of user profile">
+          </ng-template>
+        </div>
+        <div *ngIf="isSelectedNewImage">
+          <ng-template [ngIf]="urlImage.indexOf('.') != -1" [ngIfElse]="ElseImage">
+            <img class="user-profile-image" [src]="urlImage" alt="image of user profile">
+          </ng-template>
+          <ng-template #ElseImage>
+            <h2 class="subtitle">Image invalid</h2>
+          </ng-template>
+        </div>
+      </div>
+      <br>
+      <mat-form-field appearance="outline" style="width: 90%;"  (change)="updateImage()">
+        <mat-label>Url Image</mat-label>
+        <input matInput id="urlImage" name="urlImage" lt="input for urlImage" [formControl]="urlImageControl">
+        <button *ngIf="urlImageControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="removeImage()">
+          <mat-icon>backspace</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-label>Biography</mat-label>
+        <textarea rows=6 matInput id="biography" name="biography" lt="input for biography" [formControl]="biographyControl"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="card-actions">
+      <button mat-raised-button style="width: 70%" [disabled]="false" color="accent" (click)="sendPersonalInfo()">
+        <p class="p-card-white flex-center"><mat-icon>add_circle_outline</mat-icon>&nbsp; Update Data</p>
+      </button>
+    </div>
+  </div>
+</main>

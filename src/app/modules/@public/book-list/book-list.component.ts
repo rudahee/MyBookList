@@ -34,11 +34,15 @@ export class BookListComponent implements OnInit {
     this.id = localStorage.getItem('user_id');
     this.innerWidth = window.innerWidth;
     this.dataSource = new MatTableDataSource<IBook>();
-    
+
+    // tslint:disable-next-line: triple-equals
     if (this.id == undefined) {
       this.displayedColumns.splice(3, 1);
     }
-    
+    if (window.innerWidth < 600) {
+      this.displayedColumns.splice(2, 1);
+    }
+
     // tslint:disable-next-line: deprecation
     this.bookService.getAllBooks().subscribe(
       res => {
@@ -51,7 +55,6 @@ export class BookListComponent implements OnInit {
   }
 
   applyFilter(event: Event): void {
-    console.log((event.target as HTMLInputElement).value)
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 

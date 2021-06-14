@@ -30,6 +30,7 @@
     "ngx-bar-rating": "^1.1.0",
     "ngx-dropzone": "^3.0.0",
     "ngx-owl-carousel-o": "^5.0.0",
+    "ngx-pagination": "^5.1.0",
     "ngx-stars": "^1.5.1",
     "postcss": "^8.3.0",
     "rxjs": "~6.6.0",

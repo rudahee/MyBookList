@@ -1,20 +1,24 @@
+import { StatisticsService } from './../../../../services/statistics/statistics.service';
+import { IStatisticsUser } from './../../../../interfaces/IStatistics';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IFriendRequest, IUser, IAuthorSimple } from 'app/interfaces/IUser';
 import { UserService } from 'app/services/user/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements AfterViewInit {
 
-  constructor(private userService: UserService, private snackbar: MatSnackBar) { }
+  constructor(private userService: UserService, private snackbar: MatSnackBar, private statisticsService: StatisticsService) { }
 
   friendRequests: IFriendRequest[] = [];
   friends: IFriendRequest[] = [];
   authors: IAuthorSimple[] = [];
+
+  userStats: IStatisticsUser;
 
   user: IUser = {
     id: 0,
@@ -30,7 +34,7 @@ export class UserComponent implements OnInit {
     lastPasswordChange: undefined
   };
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     // tslint:disable-next-line: deprecation
     this.userService.getPrivateUserInfo().subscribe(
       res => {
@@ -38,8 +42,14 @@ export class UserComponent implements OnInit {
       }
     );
 
-    this.getFriends();
+    this.statisticsService.getUserStatistics(localStorage.getItem('user_id')).subscribe(
+      res => {
+        this.userStats = res;
+      }
+    );
+
     this.getAuthors();
+    this.getFriends();
   }
 
   getFriends(): void {

@@ -1,3 +1,6 @@
+import { RouterModule } from '@angular/router';
+import { SelectGenreComponent } from './select-genre/select-genre.component';
+import { SearchAuthorComponent } from './search-author/search-author.component';
 import { MatTableModule } from '@angular/material/table';
 import { TableBookListComponent } from './table-book-list/table-book-list.component';
 import { MatInputModule } from '@angular/material/input';
@@ -11,9 +14,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { SearchAuthorComponent } from './search-author/search-author.component';
+import { SelectAuthorComponent } from './select-author/select-author.component';
 import { SearchBookComponent } from './search-book/search-book.component';
-import { SearchSagaComponent } from './search-saga/search-saga.component';
+import { SelectSagaComponent } from './select-saga/select-saga.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { NgxStarsModule } from 'ngx-stars';
@@ -32,20 +35,25 @@ import { NgxStarsModule } from 'ngx-stars';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    NgxStarsModule
+    NgxStarsModule,
+    RouterModule
   ],
   declarations: [
     WidgetsComponent,
-    SearchAuthorComponent,
+    SelectAuthorComponent,
     SearchBookComponent,
-    SearchSagaComponent,
-    TableBookListComponent
+    SelectSagaComponent,
+    SearchAuthorComponent,
+    TableBookListComponent,
+    SelectGenreComponent
   ],
   exports: [
-    SearchAuthorComponent,
+    SelectAuthorComponent,
     SearchBookComponent,
-    SearchSagaComponent,
-    TableBookListComponent
+    SelectSagaComponent,
+    SearchAuthorComponent,
+    TableBookListComponent,
+    SelectGenreComponent
   ]
 })
 export class WidgetsModule { }

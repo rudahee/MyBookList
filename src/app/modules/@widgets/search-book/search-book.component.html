@@ -1,4 +1,4 @@
-<div class="card-w-full">
+<div class="card-w-full" style="width: 100%;">
   <div class="card-header">
     <p class="p-card-white">Search an Book</p>
   </div>
@@ -6,13 +6,14 @@
     <mat-form-field class="material-input" style="width: 90%; margin-top: 5%;" appearance="outline">
       <mat-label>Search a book</mat-label>
       <input type="text"
+            id ="search-book"
             [formControl]="bookControl"
             matInput
-            [matAutocomplete]="auto">
+            [matAutocomplete]="auto" (keyup.enter)="navigateAlternative()">
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
         <mat-option
           *ngFor="let option of filteredOptions | async"
-          [value]="option">
+          [value]="option.id" (click) ="navigate(option.id)" (selectionChange)="navigate(option.id)">
             {{ option.name }}
         </mat-option>
       </mat-autocomplete>

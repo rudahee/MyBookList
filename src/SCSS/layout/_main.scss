@@ -1,0 +1,49 @@
+.main-flex {
+    @include main;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+.main-with-widgets {
+    @include main;
+    height: auto;
+    display: flex;
+    margin-top: 2vh;
+    flex-flow: column-reverse nowrap;
+    align-items: center;
+
+    .side, .side-xl, .article, .article-md {
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-self: center;
+    }
+
+    @media only screen and (min-width: 800px) {
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-flow: row nowrap;
+
+        .side {
+            width: 20%;
+            margin-left: 1%;
+        }
+
+        .side-xl {
+            width: 30%;
+            margin-left: 1%;
+            padding-left: 1%;
+        }
+
+        .article {
+            width: 80%;
+        }
+
+        .article-md{
+            width: 70%;
+        }
+    }
+}

@@ -15,6 +15,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { AddBookToListComponent } from './add-book-to-list/add-book-to-list.component';
 import { NgxStarsModule } from 'ngx-stars';
 import { MatSelectModule } from '@angular/material/select';
+import { ChangeBookStatusComponent } from './change-book-status/change-book-status.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
   declarations: [
     UserComponent,
     AddBookPendingComponent,
-    AddBookToListComponent
+    AddBookToListComponent,
+    ChangeBookStatusComponent
   ]
 })
 export class UserModule { }

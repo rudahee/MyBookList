@@ -1,3 +1,4 @@
+import { WidgetEmitterService } from './../../../services/widget-emitter/widget-emitter.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { xml2json } from 'xml-js';
@@ -17,7 +18,7 @@ export class AddMultipleBooksComponent implements OnInit {
   authorId: string;
 
   constructor(private bookService: BookService, private jwtTokenHandler: JwtHandlerService,
-              private router: Router, private snackbar: MatSnackBar) { }
+              private router: Router, private snackbar: MatSnackBar, private widgetService: WidgetEmitterService) { }
 
   public title = 'dropzone';
 
@@ -49,7 +50,6 @@ export class AddMultipleBooksComponent implements OnInit {
     this.files.forEach(
       file => {
         const extension = this.getExtension(file.name);
-
         if (extension != null) {
 
           if (extension === '.json') {
@@ -72,7 +72,27 @@ export class AddMultipleBooksComponent implements OnInit {
       this.snackbar.open('Uploading...', 'Close', { duration: 2000, panelClass: 'snackbar'});
 
       // tslint:disable-next-line: deprecation
-      setTimeout(() => this.bookService.postBooks(this.books, '3', '0').subscribe(
+      setTimeout(() => {
+
+        if (!this.widgetService.authorsSelected) {
+          this.snackbar.open('You need to add at least one author!', 'Close', { duration: 5000, panelClass: 'snackbar'});
+          return;
+        }
+
+        if (!this.widgetService.genresSelected) {
+          this.snackbar.open('You need to add at least one genre!', 'Close', { duration: 5000, panelClass: 'snackbar'});
+          return;
+        }
+
+        this.books.forEach(b => {
+          b.genres = this.widgetService.genresSelected;
+        });
+
+        const authorsId = this.widgetService.authorsSelected.map(author => author.id);
+        this.bookService.postBooks(
+          this.books,
+          (this.widgetService.sagaSelected) ? this.widgetService.sagaSelected.id.toString() : undefined,
+          authorsId).subscribe(
         res => {
           this.books = [];
           this.files = [];
@@ -84,8 +104,12 @@ export class AddMultipleBooksComponent implements OnInit {
           } else {
             this.snackbar.open('Unexpected error', 'Close', { duration: 5000, panelClass: 'snackbar'});
           }
-        }
-      ), 1000);
+        });
+      }, 1000);
+
+    }else {
+      this.snackbar.open('Something Failed. Try it later...', 'Close', { duration: 2000, panelClass: 'snackbar'});
+
     }
   }
 

@@ -1,3 +1,4 @@
+import { IRecommendation } from './../../interfaces/IRecommendation';
 import { IActivateAccount, IAuthorSimple, IFriendRequest, IPublicAuthor } from './../../interfaces/IUser';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,19 +13,19 @@ export class UserService {
   constructor(private httpC: HttpClient) { }
 
   signUp(userForRegister: IUser): Observable<IUser> {
-    return this.httpC.post<IUser>('/user/sign-up', userForRegister);
+    return this.httpC.post<IUser>('/auth/sign-up', userForRegister);
   }
 
   signUpAuthor(register: IUser): Observable<IUser> {
-    return this.httpC.post<IUser>('/user/sign-up/author', register);
+    return this.httpC.post<IUser>('/auth/sign-up/author', register);
   }
 
   signUpAdmin(register: IUser): Observable<IUser> {
-    return this.httpC.post<IUser>('/user/sign-up/admin', register);
+    return this.httpC.post<IUser>('/auth/sign-up/admin', register);
   }
 
   signIn(loginData: ILoginData): Observable<HttpResponse<ILoginData>> {
-    return this.httpC.post<ILoginData>('/user/sign-in', loginData, {observe: 'response'});
+    return this.httpC.post<ILoginData>('/auth/sign-in', loginData, {observe: 'response'});
   }
 
   activateAccount(token: string, id: string): Observable<any> {
@@ -33,7 +34,16 @@ export class UserService {
       id: +id
     };
 
-    return this.httpC.put('/user/activate', activation);
+    return this.httpC.put('/auth/activate', activation);
+  }
+
+  sendPersonalDataAuthor(image: string, biographyText: string): Observable<any> {
+    const personalData = {
+      urlImage: image,
+      biography: biographyText
+    };
+
+    return this.httpC.put('/author/change-personal-data', personalData);
   }
 
   friendshipRequest(receiverId: string): Observable<any> {
@@ -74,5 +84,9 @@ export class UserService {
 
   getAllAuthors(): Observable<IUser[]> {
     return this.httpC.get<IUser[]>('/author/all');
+  }
+
+  getRecommendations(): Observable<IRecommendation[]> {
+    return this.httpC.get<IRecommendation[]>('/user/recommendations');
   }
 }

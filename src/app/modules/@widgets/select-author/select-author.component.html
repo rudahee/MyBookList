@@ -1,0 +1,34 @@
+<div class="card-w-full" style="width: 100%;">
+  <div class="card-header">
+    <p class="p-card-white">Select Authors</p>
+  </div>
+  <div class="flex-col flex-center">
+    <mat-form-field appearance="outline" style="width: 90%; margin-top: 5%;">
+      <mat-label>Search an Author</mat-label>
+      <input type="text"
+            [formControl]="authorControl"
+            matInput
+            [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="selectAuthor($event)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option.completeName }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-chip-list #authorChipList style="margin-bottom: 5%; width: 95%;" class="flex-center">
+
+      <mat-chip color="primary"
+                class="selectedAuthor"
+                style="display: flex; align-items: center; justify-content: space-between;"
+                *ngFor="let author of selectedAuthors; let i = index"
+                [attr.data-index]="i">
+
+        <p>{{author.completeName}}</p>
+
+        <mat-icon style="margin-left: 2px; cursor: pointer;" (click)="removeAuthor(i)">cancel</mat-icon>
+
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>
