@@ -13,7 +13,7 @@
       <button mat-raised-button color="accent">
         <h1 class="p-card-white">
           <span routerLink="/sign-up" class="flex-center">
-            <mat-icon>person_add</mat-icon>&nbsp; Register
+            <mat-icon>person_add</mat-icon>&nbsp; Sign Up
           </span>
         </h1>
       </button>
@@ -21,7 +21,7 @@
       <button mat-raised-button color="accent">
         <h1 class="p-card-white">
           <span routerLink="/sign-in" class="flex-center">
-            <mat-icon>login</mat-icon>&nbsp; Login Now
+            <mat-icon>login</mat-icon>&nbsp; Sign In Now
           </span>
         </h1>
       </button>
@@ -40,14 +40,6 @@
 
 <mat-menu #main_menu="matMenu">
   <div>
-    <button mat-menu-item routerLink="/admin/menu">
-      <mat-icon>admin_panel_settings</mat-icon>
-      <span>Admin Control Panel</span>
-    </button>
-    <button mat-menu-item routerLink="/author/menu">
-      <mat-icon>admin_panel_settings</mat-icon>
-      <span>Author Control Panel</span>
-    </button>
     <button mat-menu-item routerLink="/book-list">
       <mat-icon>format_list_bulleted</mat-icon>
       <span>All Book List</span>
@@ -57,13 +49,37 @@
       <span>Suggest A Book</span>
     </button>
   </div>
-  <br>
-  <div class="down">
-    <button mat-menu-item routerLink="/me">
+  <div class="down" *ngIf="id">
+    <br>
+    <button mat-menu-item routerLink="/me" *ngIf="role === 'USER'">
       <mat-icon>person</mat-icon>
       <span>My Profile</span>
     </button>
-    <button mat-menu-item (click)="signOut()">
+    <button mat-menu-item routerLink="/admin/menu" *ngIf="role === 'ADMIN'">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Control Panel</span>
+    </button>
+    <button mat-menu-item routerLink="/author/menu" *ngIf="role === 'AUTHOR'">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Control Panel</span>
+    </button>
+    <button mat-raised-button color="accent" [routerLink]="'/user/'+id+'/list'" *ngIf="role === 'USER'">
+      <mat-icon>format_list_bulleted</mat-icon>
+      <span>See MyBookList</span>
+    </button>
+    <button mat-raised-button color="accent" [routerLink]="'/author/page/'+id" *ngIf="role === 'AUTHOR'">
+      <mat-icon>contact_page</mat-icon>
+      <span>See My Public Page</span>
+    </button>
+    <button mat-menu-item routerLink="/sign-up" *ngIf="!id">
+      <mat-icon>person_add</mat-icon>
+      <span>Sign Up</span>
+    </button>
+    <button mat-menu-item routerLink="/sign-in" *ngIf="!id">
+      <mat-icon>login</mat-icon>
+      <span>Sign In</span>
+    </button>
+    <button mat-menu-item (click)="signOut()" *ngIf="id">
       <mat-icon>logout</mat-icon>
       <span>Sign Out</span>
     </button>

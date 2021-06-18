@@ -12,10 +12,12 @@ export class HeaderComponent {
   public sideNav: boolean;
 
   public id: string;
+  public role: string;
 
   constructor(private location: Location, private jwtService: JwtHandlerService) {
     this.sideNav = false;
     this.id = localStorage.getItem('user_id');
+    this.role = localStorage.getItem('roles');
    }
 
   navigateBack(): void {
