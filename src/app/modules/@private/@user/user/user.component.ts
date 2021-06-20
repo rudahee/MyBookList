@@ -12,14 +12,13 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class UserComponent implements AfterViewInit {
 
-  constructor(private userService: UserService, private snackbar: MatSnackBar, private statisticsService: StatisticsService) { }
-
+  
   friendRequests: IFriendRequest[] = [];
   friends: IFriendRequest[] = [];
   authors: IAuthorSimple[] = [];
-
+  
   userStats: IStatisticsUser;
-
+  
   user: IUser = {
     id: 0,
     name: '',
@@ -33,7 +32,25 @@ export class UserComponent implements AfterViewInit {
     updateTime: undefined,
     lastPasswordChange: undefined
   };
-
+  
+  /**
+   * Creates an instance of UserComponent.
+   * @param {UserService} userService
+   * @param {MatSnackBar} snackbar
+   * @param {StatisticsService} statisticsService
+   * @memberof UserComponent
+   * 
+   * @author J. Rubén Daza
+   */
+  constructor(private userService: UserService, private snackbar: MatSnackBar, private statisticsService: StatisticsService) { }
+  
+  /**
+   * Initialize user info
+   *
+   * @memberof UserComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngAfterViewInit(): void {
     // tslint:disable-next-line: deprecation
     this.userService.getPrivateUserInfo().subscribe(
@@ -52,6 +69,13 @@ export class UserComponent implements AfterViewInit {
     this.getFriends();
   }
 
+  /**
+   * Get friend and friend requests from request
+   *
+   * @memberof UserComponent
+   * 
+   * @author J. Rubén Daza
+   */
   getFriends(): void {
     this.friendRequests = [];
     this.friends = [];
@@ -70,6 +94,13 @@ export class UserComponent implements AfterViewInit {
     );
   }
 
+  /**
+   * Get authors followers from request
+   *
+   * @memberof UserComponent
+   * 
+   * @author J. Rubén Daza
+   */
   getAuthors(): void {
     this.userService.getFollowedAuthor().subscribe(
       res => {
@@ -78,10 +109,25 @@ export class UserComponent implements AfterViewInit {
     );
   }
 
+  /**
+   * snackbar show if you copied the url of website.
+   *
+   * @memberof UserComponent
+   *
+   * @author J. Rubén Daza
+   */
   showSnackBarLinkCopied(): void {
     this.snackbar.open('Link copied!', 'Close', { duration: 1000, panelClass: 'snackbar'});
   }
 
+  /**
+   * Accept a user friend request, do a request to backend. Update list of friends
+   *
+   * @param {string} id
+   * @memberof UserComponent
+   *
+   * @author J. Rubén Daza
+   */
   acceptFriendRequest(id: string): void {
     this.userService.acceptFriendship(id).subscribe(
       () => {
@@ -94,6 +140,14 @@ export class UserComponent implements AfterViewInit {
     );
   }
 
+  /**
+   * Decline a user friend request, do a request to backend. Update list of friends
+   *
+   * @param {string} id
+   * @memberof UserComponent
+   *
+   * @author J. Rubén Daza
+   */
   rejectFriendRequest(id: string): void {
     this.userService.rejectFriendship(id).subscribe(
       () => {

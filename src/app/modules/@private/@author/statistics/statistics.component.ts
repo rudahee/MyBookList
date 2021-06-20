@@ -12,7 +12,14 @@ export class StatisticsComponent implements OnInit {
   stats: IStatisticsAuthor;
 
   constructor(private statsService: StatisticsService) { }
-
+  
+  /**
+   * Get data from service.
+   *
+   * @memberof StatisticsComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.statsService.getAuthorStatistics(localStorage.getItem('user_id')).subscribe(
       res => {

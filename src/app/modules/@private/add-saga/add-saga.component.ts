@@ -18,14 +18,36 @@ export class AddSagaComponent implements OnInit {
   addSagaForm: FormGroup;
   saga: ISaga;
 
+  /**
+   * Creates an instance of AddSagaComponent.
+   * @param {FormBuilder} build
+   * @param {BookService} bookService
+   * @param {MatSnackBar} snackBar
+   * @memberof AddSagaComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private build: FormBuilder, private bookService: BookService, private snackBar: MatSnackBar) { }
 
+  /**
+   * Initialize data.
+   *
+   * @memberof AddSagaComponent
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.addSagaForm = this.build.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
 
+  /**
+   * Send data to backend through service
+   *
+   * @memberof AddSagaComponent
+   *
+   * @author J. Rubén Daza
+   */
   addSaga(): void {
     this.saga = this.addSagaForm.value;
 

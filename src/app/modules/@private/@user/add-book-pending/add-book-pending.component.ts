@@ -21,9 +21,28 @@ export class AddBookPendingComponent implements OnInit {
   bookForm: FormGroup;
   authorId: string;
 
+  /**
+   * Creates an instance of AddBookPendingComponent.
+   * @param {FormBuilder} build
+   * @param {JwtHandlerService} jwtTokenHandler
+   * @param {BookService} bookService
+   * @param {Router} router
+   * @param {MatSnackBar} snackBar
+   * @memberof AddBookPendingComponent
+   *
+   * @author J. Rubén Daza
+   */
   constructor(private build: FormBuilder, private jwtTokenHandler: JwtHandlerService,
               private bookService: BookService, private router: Router, private snackBar: MatSnackBar) { }
 
+
+  /**
+   * Initialize form
+   *
+   * @memberof AddBookPendingComponent
+   *
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
 
     const route = this.router.url;
@@ -50,10 +69,24 @@ export class AddBookPendingComponent implements OnInit {
     });
   }
 
+  /**
+   * Method mandatory for date input modal.
+   *
+   * @memberof AddBookPendingComponent
+   *
+   * @author J. Rubén Daza
+   */
   public changeDateInput(): void {
     this.dateSwitch = false;
   }
 
+  /**
+   * Get data from form and send it to service.
+   *
+   * @memberof AddBookPendingComponent
+   *
+   * @author J. Rubén Daza
+   */
   public saveBook(): void {
     this.book = this.bookForm.value;
 

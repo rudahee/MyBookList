@@ -28,17 +28,33 @@ export class HomePageComponent implements OnInit {
 
   public recommendations: IRecommendation[];
 
+  /**
+   * Creates an instance of HomePageComponent.
+   * @param {UserService} userService
+   * @memberof HomePageComponent
+   *
+   * @author J. Rubén Daza
+   */
   constructor(private userService: UserService) { }
 
+  /**
+   * If you are logged and you are a USER, get recommendations.
+   *
+   * @memberof HomePageComponent
+   *
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
 
-    this.userService.getRecommendations().subscribe(
-      res => {
-        this.recommendations = res;
+    if (localStorage.getItem('roles') === 'USER') {
+      this.userService.getRecommendations().subscribe(
+        res => {
+          this.recommendations = res;
 
-        console.log(this.recommendations);
-      }
-    );
+          console.log(this.recommendations);
+        }
+      );
+    }
   }
 
 }

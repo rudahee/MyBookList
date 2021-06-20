@@ -31,6 +31,13 @@ export class TableBookListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort = new MatSort();
 
 
+  /**
+   * Initialize data
+   *
+   * @memberof TableBookListComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
 
     this.innerWidth = window.innerWidth;
@@ -53,7 +60,14 @@ export class TableBookListComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-
+  /**
+   * Aux method to calc the percentage of pages reads
+   *
+   * @param {number} pagesReaded
+   * @param {number} totalPages
+   * @return {*}  {string}
+   * @memberof TableBookListComponent
+   */
   getPercentage(pagesReaded: number, totalPages: number): string {
     const percentage = pagesReaded / totalPages * 100;
 

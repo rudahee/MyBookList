@@ -9,7 +9,7 @@
   <span class="spacer"></span>
 
   <div class="header-right">
-    <div *ngIf="!id">
+    <div *ngIf="id != ''">
       <button mat-raised-button color="accent">
         <h1 class="p-card-white">
           <span routerLink="/sign-up" class="flex-center">
@@ -18,7 +18,7 @@
         </h1>
       </button>
       <span>&nbsp;&nbsp;</span>
-      <button mat-raised-button color="accent">
+      <button mat-raised-button color="accent" *ngIf="id != ''">
         <h1 class="p-card-white">
           <span routerLink="/sign-in" class="flex-center">
             <mat-icon>login</mat-icon>&nbsp; Sign In Now
@@ -26,11 +26,25 @@
         </h1>
       </button>
     </div>
-    <div *ngIf="id">
-      <button mat-raised-button color="accent">
+    <div>
+      <button mat-raised-button color="accent" *ngIf="role === 'USER'">
         <h1 class="p-card-white">
           <span [routerLink]="'/user/'+id+'/list'" class="flex-center">
             <mat-icon>format_list_bulleted</mat-icon>&nbsp; See MyBookList
+          </span>
+        </h1>
+      </button>
+      <button mat-raised-button color="accent" routerLink="/author/menu" *ngIf="role === 'AUTHOR'">
+        <h1 class="p-card-white">
+          <span class="flex-center">
+            <mat-icon>admin_panel_setting</mat-icon>&nbsp; Control Panel
+          </span>
+        </h1>
+      </button>
+      <button mat-raised-button color="accent" routerLink="/admin/menu" *ngIf="role === 'ADMIN'">
+        <h1 class="p-card-white">
+          <span class="flex-center">
+            <mat-icon>admin_panel_settings</mat-icon>&nbsp; Control Panel
           </span>
         </h1>
       </button>
@@ -44,12 +58,12 @@
       <mat-icon>format_list_bulleted</mat-icon>
       <span>All Book List</span>
     </button>
-    <button mat-menu-item routerLink="/add-book">
+    <button mat-menu-item routerLink="/add-book" *ngIf="role !== ''">
       <mat-icon>add_circle_outline</mat-icon>
       <span>Suggest A Book</span>
     </button>
   </div>
-  <div class="down" *ngIf="id">
+  <div class="down">
     <br>
     <button mat-menu-item routerLink="/me" *ngIf="role === 'USER'">
       <mat-icon>person</mat-icon>
@@ -63,19 +77,19 @@
       <mat-icon>admin_panel_settings</mat-icon>
       <span>Control Panel</span>
     </button>
-    <button mat-raised-button color="accent" [routerLink]="'/user/'+id+'/list'" *ngIf="role === 'USER'">
+    <button mat-menu-item routerLink="'/user/'+id+'/list'" *ngIf="role === 'USER'">
       <mat-icon>format_list_bulleted</mat-icon>
       <span>See MyBookList</span>
     </button>
-    <button mat-raised-button color="accent" [routerLink]="'/author/page/'+id" *ngIf="role === 'AUTHOR'">
+    <button mat-menu-item routerLink="'/author/page/'+id" *ngIf="role === 'AUTHOR'">
       <mat-icon>contact_page</mat-icon>
       <span>See My Public Page</span>
     </button>
-    <button mat-menu-item routerLink="/sign-up" *ngIf="!id">
+    <button mat-menu-item routerLink="/sign-up" *ngIf="role == ''">
       <mat-icon>person_add</mat-icon>
       <span>Sign Up</span>
     </button>
-    <button mat-menu-item routerLink="/sign-in" *ngIf="!id">
+    <button mat-menu-item routerLink="/sign-in" *ngIf="role == ''">
       <mat-icon>login</mat-icon>
       <span>Sign In</span>
     </button>

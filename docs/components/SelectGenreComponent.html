@@ -1,0 +1,1024 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>my-book-list documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">my-book-list documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SelectGenreComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/@widgets/select-genre/select-genre.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-select-genre</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./select-genre.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./select-genre.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filteredOptions">filteredOptions</a>
+                            </li>
+                            <li>
+                                <a href="#genreControl">genreControl</a>
+                            </li>
+                            <li>
+                                <a href="#options">options</a>
+                            </li>
+                            <li>
+                                <a href="#selectedGenres">selectedGenres</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_filter">_filter</a>
+                            </li>
+                            <li>
+                                <a href="#displayFn">displayFn</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#removeGenre">removeGenre</a>
+                            </li>
+                            <li>
+                                <a href="#selectGenre">selectGenre</a>
+                            </li>
+                            <li>
+                                <a href="#selectGenreFromInput">selectGenreFromInput</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(bookService: <a href="../injectables/BookService.html">BookService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, snackBar: MatSnackBar, widgetService: <a href="../injectables/WidgetEmitterService.html">WidgetEmitterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of SelectGenreComponent.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>bookService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BookService.html" target="_self" >BookService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>widgetService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WidgetEmitterService.html" target="_self" >WidgetEmitterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_filter"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            _filter
+                        </b>
+                        <a href="#_filter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_filter(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:108</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IGenre.html" target="_self" >IGenre[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayFn"></a>
+                    <span class="name">
+                        <b>
+                            displayFn
+                        </b>
+                        <a href="#displayFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>displayFn(genre: <a href="../interfaces/IGenre.html">IGenre</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>genre</td>
+                                    <td>
+                                                <code><a href="../interfaces/IGenre.html" target="_self" >IGenre</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initialize data</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeGenre"></a>
+                    <span class="name">
+                        <b>
+                            removeGenre
+                        </b>
+                        <a href="#removeGenre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeGenre(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectGenre"></a>
+                    <span class="name">
+                        <b>
+                            selectGenre
+                        </b>
+                        <a href="#selectGenre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectGenre(genreSelected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>When you clicked in autocomplete, do a tag with genre</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>genreSelected</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>{void}</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectGenreFromInput"></a>
+                    <span class="name">
+                        <b>
+                            selectGenreFromInput
+                        </b>
+                        <a href="#selectGenreFromInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectGenreFromInput()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filteredOptions"></a>
+                        <span class="name">
+                            <b>
+                            filteredOptions</b>
+                            <a href="#filteredOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IGenre.html" target="_self" >Observable&lt;IGenre[]&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="genreControl"></a>
+                        <span class="name">
+                            <b>
+                            genreControl</b>
+                            <a href="#genreControl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new FormControl()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="options"></a>
+                        <span class="name">
+                            <b>
+                            options</b>
+                            <a href="#options"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/IGenre.html" target="_self" >IGenre[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedGenres"></a>
+                        <span class="name">
+                            <b>
+                            selectedGenres</b>
+                            <a href="#selectedGenres"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/modules/@widgets/select-genre/select-genre.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { WidgetEmitterService } from &#x27;./../../../services/widget-emitter/widget-emitter.service&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { IGenre } from &#x27;./../../../interfaces/IBook&#x27;;
+import { BookService } from &#x27;./../../../services/book/book.service&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormControl } from &#x27;@angular/forms&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { map, startWith } from &#x27;rxjs/operators&#x27;;
+
+@Component({
+  selector: &#x27;app-select-genre&#x27;,
+  templateUrl: &#x27;./select-genre.component.html&#x27;,
+  styleUrls: [&#x27;./select-genre.component.scss&#x27;]
+})
+export class SelectGenreComponent implements OnInit {
+
+  genreControl &#x3D; new FormControl();
+  options: IGenre[];
+  selectedGenres &#x3D; [];
+
+  filteredOptions: Observable&lt;IGenre[]&gt;;
+
+  /**
+   * Creates an instance of SelectGenreComponent.
+   * @param {BookService} bookService
+   * @param {Router} router
+   * @param {MatSnackBar} snackBar
+   * @param {WidgetEmitterService} widgetService
+   * @memberof SelectGenreComponent
+   * 
+   * @author J. Rubén Daza
+   */
+  constructor(private  bookService: BookService, private router: Router,
+              private snackBar: MatSnackBar, private widgetService: WidgetEmitterService) { }
+
+  /**
+   * Initialize data
+   *
+   * @memberof SelectAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
+  ngOnInit(): void {
+    this.bookService.getAllGenres().subscribe(
+      res &#x3D;&gt; {
+
+        this.options &#x3D; [];
+
+        for (const genreComplete of res) {
+          const genreSimple: IGenre &#x3D; {
+            genre: genreComplete.genre
+          };
+
+          this.options.push(genreSimple);
+        }
+
+        this.filteredOptions &#x3D; this.genreControl.valueChanges.pipe(
+            startWith(&#x27;&#x27;),
+            map(value &#x3D;&gt; typeof value &#x3D;&#x3D;&#x3D; &#x27;string&#x27; ? value : value.name),
+            map(name &#x3D;&gt; name ? this._filter(name) : this.options.slice())
+          );
+      });
+  }
+
+  /**
+   * When you clicked in autocomplete, do a tag with genre
+   *
+   * @param {MatAutocompleteSelectedEvent} event
+   * @return {*}  {void}
+   * @memberof SelectAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
+  selectGenre(genreSelected: string): void {
+    const genreInterface: IGenre &#x3D; {
+      genre: genreSelected
+    };
+
+    if (this.selectedGenres.findIndex(genre &#x3D;&gt; genre.genre &#x3D;&#x3D;&#x3D; genreSelected) &gt;&#x3D; 0
+        || this.options.findIndex(genre &#x3D;&gt; genre.genre &#x3D;&#x3D;&#x3D; genreSelected) &#x3D;&#x3D;&#x3D; -1) {
+
+          this.snackBar.open(&#x27;The selected genre is invalid.&#x27;, &#x27;Close&#x27;, { duration: 1500, panelClass: &#x27;snackbar&#x27; });
+          this.genreControl.setValue(&#x27;&#x27;);
+          return;
+    }
+
+    this.selectedGenres.push(genreInterface);
+    this.genreControl.setValue(&#x27;&#x27;);
+
+    this.widgetService.setGenresSelected(this.selectedGenres);
+  }
+
+  removeGenre(index: number): void {
+    this.selectedGenres.splice(index, 1);
+    this.widgetService.setGenresSelected(this.selectedGenres);
+  }
+
+  selectGenreFromInput(): void {
+
+    this.selectGenre(this.genreControl.value);
+  }
+
+  displayFn(genre: IGenre): string {
+    return genre &amp;&amp; genre.genre ? genre.genre : &#x27;&#x27;;
+  }
+
+  public _filter(value: string): IGenre[] {
+    const filterValue &#x3D; value.toLowerCase();
+
+    return this.options.filter(option &#x3D;&gt; {
+      return option.genre.toLowerCase().indexOf(filterValue) &#x3D;&#x3D;&#x3D; 0;
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card-w-full&quot; style&#x3D;&quot;width: 100%;&quot;&gt;
+  &lt;div class&#x3D;&quot;card-header&quot;&gt;
+    &lt;p class&#x3D;&quot;p-card-white&quot;&gt;Select Genres&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;flex-col flex-center&quot;&gt;
+    &lt;mat-form-field appearance&#x3D;&quot;outline&quot; style&#x3D;&quot;width: 90%; margin-top: 5%;&quot;&gt;
+      &lt;mat-label&gt;Search a Genre&lt;/mat-label&gt;
+      &lt;input type&#x3D;&quot;text&quot;
+            [formControl]&#x3D;&quot;genreControl&quot;
+            matInput
+            [matAutocomplete]&#x3D;&quot;auto&quot;&gt;
+      &lt;mat-autocomplete #auto&#x3D;&quot;matAutocomplete&quot; [displayWith]&#x3D;&quot;displayFn&quot;&gt;
+        &lt;mat-option
+          *ngFor&#x3D;&quot;let option of filteredOptions | async&quot;
+          [value]&#x3D;&quot;option.genre&quot; (click) &#x3D;&quot;selectGenre(option.genre)&quot; (selectionChange)&#x3D;&quot;selectGenre(option.genre)&quot;&gt;
+            {{ option.genre }}
+        &lt;/mat-option&gt;
+      &lt;/mat-autocomplete&gt;
+    &lt;/mat-form-field&gt;
+    &lt;mat-chip-list #chipList style&#x3D;&quot;margin-bottom: 5%; width: 95%;&quot; class&#x3D;&quot;flex-center&quot;&gt;
+      &lt;mat-chip color&#x3D;&quot;primary&quot; class&#x3D;&quot;selectedGenres&quot; style&#x3D;&quot;display: flex; align-items: center; justify-content: space-between;&quot;
+                *ngFor&#x3D;&quot;let gen of selectedGenres; let i &#x3D; index&quot; [attr.data-index]&#x3D;&quot;i&quot;&gt;
+        {{gen.genre}}
+        &lt;mat-icon style&#x3D;&quot;margin-left: 2px; cursor: pointer;&quot; (click)&#x3D;&quot;removeGenre(i)&quot;&gt;cancel&lt;/mat-icon&gt;
+      &lt;/mat-chip&gt;
+    &lt;/mat-chip-list&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./select-genre.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="card-w-full" style="width: 100%;">  <div class="card-header">    <p class="p-card-white">Select Genres</p>  </div>  <div class="flex-col flex-center">    <mat-form-field appearance="outline" style="width: 90%; margin-top: 5%;">      <mat-label>Search a Genre</mat-label>      <input type="text"            [formControl]="genreControl"            matInput            [matAutocomplete]="auto">      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">        <mat-option          *ngFor="let option of filteredOptions | async"          [value]="option.genre" (click) ="selectGenre(option.genre)" (selectionChange)="selectGenre(option.genre)">            {{ option.genre }}        </mat-option>      </mat-autocomplete>    </mat-form-field>    <mat-chip-list #chipList style="margin-bottom: 5%; width: 95%;" class="flex-center">      <mat-chip color="primary" class="selectedGenres" style="display: flex; align-items: center; justify-content: space-between;"                *ngFor="let gen of selectedGenres; let i = index" [attr.data-index]="i">        {{gen.genre}}        <mat-icon style="margin-left: 2px; cursor: pointer;" (click)="removeGenre(i)">cancel</mat-icon>      </mat-chip>    </mat-chip-list>  </div></div></div>'
+    var COMPONENTS = [{'name': 'ActivateAccountComponent', 'selector': 'app-activate-account'},{'name': 'AddBookComponent', 'selector': 'app-add-book'},{'name': 'AddBookPendingComponent', 'selector': 'app-add-book-pending'},{'name': 'AddBookToListComponent', 'selector': 'app-add-book-to-list'},{'name': 'AddMultipleBooksComponent', 'selector': 'app-add-multiple-books'},{'name': 'AddPendingBookComponent', 'selector': 'app-add-pending-book'},{'name': 'AddSagaComponent', 'selector': 'app-add-saga'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminHomeComponent', 'selector': 'app-admin-home'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorComponent', 'selector': 'app-author'},{'name': 'AuthorHomeComponent', 'selector': 'app-author-home'},{'name': 'BookComponent', 'selector': 'app-book'},{'name': 'BookListComponent', 'selector': 'app-book-list'},{'name': 'ChangeBookStatusComponent', 'selector': 'app-change-book-status'},{'name': 'CreateSpecialAccountComponent', 'selector': 'app-create-special-account'},{'name': 'FinishSignUpComponent', 'selector': 'app-finish-sign-up'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'ListPendingBooksComponent', 'selector': 'app-list-pending-books'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'PublicAuthorComponent', 'selector': 'app-public-author'},{'name': 'PublicComponent', 'selector': 'app-public'},{'name': 'PublicUserComponent', 'selector': 'app-public-user'},{'name': 'SagaListComponent', 'selector': 'app-saga-list'},{'name': 'SearchAuthorComponent', 'selector': 'app-search-author'},{'name': 'SearchBookComponent', 'selector': 'app-search-book'},{'name': 'SelectAuthorComponent', 'selector': 'app-select-author'},{'name': 'SelectGenreComponent', 'selector': 'app-select-genre'},{'name': 'SelectSagaComponent', 'selector': 'app-select-saga'},{'name': 'SetPersonalDataComponent', 'selector': 'app-set-personal-data'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'TableBookListComponent', 'selector': 'app-table-book-list'},{'name': 'UserBookListComponent', 'selector': 'app-user-book-list'},{'name': 'userComponent', 'selector': 'app-user'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'WidgetsComponent', 'selector': 'app-widgets'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SelectGenreComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SelectGenreComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

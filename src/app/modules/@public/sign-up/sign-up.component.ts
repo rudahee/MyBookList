@@ -20,8 +20,25 @@ export class SignUpComponent implements OnInit {
   visibilityPassword = false;
   visibilityRepeatPassword = false;
 
+  /**
+   * Creates an instance of SignUpComponent.
+   * @param {FormBuilder} build
+   * @param {UserService} userService
+   * @param {Router} router
+   * @param {MatSnackBar} snackBar
+   * @memberof SignUpComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private build: FormBuilder, private userService: UserService, private router: Router, private snackBar: MatSnackBar) { }
 
+  /**
+   * Initialize form
+   *
+   * @memberof SignUpComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     // tslint:disable-next-line: deprecation
     this.signUpForm = this.build.group({
@@ -36,7 +53,17 @@ export class SignUpComponent implements OnInit {
     }, {validator: this.comparePassword('password', 'confirm_password')});
   }
 
-
+  /**
+   * Compare passwords, its for custom validator
+   *
+   * @private
+   * @param {string} control
+   * @param {string} secondControl
+   * @return {*}  {*}
+   * @memberof SignUpComponent
+   * 
+   * @author J. Rubén Daza
+   */
   private comparePassword(control: string, secondControl: string): any {
     return(formGroup: FormGroup) => {
       const password = formGroup.controls[control];
@@ -58,6 +85,13 @@ export class SignUpComponent implements OnInit {
     };
   }
 
+  /**
+   * Register user in backend.
+   *
+   * @memberof SignUpComponent
+   * 
+   * @author J. Rubén Daza
+   */
   signUp(): void {
     this.user = this.signUpForm.value;
     console.log(this.user);

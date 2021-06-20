@@ -28,8 +28,23 @@ export class BookListComponent implements OnInit {
   }
   @ViewChild(MatSort) sort: MatSort = new MatSort();
 
+  /**
+   * Creates an instance of BookListComponent.
+   * @param {BookService} bookService
+   * @param {Router} router
+   * @memberof BookListComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private bookService: BookService, private router: Router) { }
 
+  /**
+   * Initialize all data from list, and charge all data to table.
+   *
+   * @memberof BookListComponent
+   *
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.id = localStorage.getItem('user_id');
     this.innerWidth = window.innerWidth;
@@ -54,6 +69,14 @@ export class BookListComponent implements OnInit {
     );
   }
 
+  /**
+   * Apply search filters in table.
+   *
+   * @param {Event} event
+   * @memberof BookListComponent
+   * 
+   * @author J. Rubén Daza
+   */
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

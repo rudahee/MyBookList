@@ -60,10 +60,26 @@ export class BookComponent implements OnInit {
 
   public synopsis: string[] = [];
 
+  /**
+   * Creates an instance of BookComponent.
+   * @param {ActivatedRoute} router
+   * @param {BookService} bookService
+   * @param {Router} route
+   * @memberof BookComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private router: ActivatedRoute, private bookService: BookService,
               private route: Router) { }
 
-    ngOnInit(): void {
+  /**
+   * Retrieve data for back and initialize all necessary data.
+   *
+   * @memberof BookComponent
+   * 
+   * @author J. Rubén Daza
+   */
+  ngOnInit(): void {
     let id: string;
 
     // Re-charge compononent when you call this component from itself
@@ -129,6 +145,14 @@ export class BookComponent implements OnInit {
     );
   }
 
+  /**
+   * Go to view details of a book.
+   *
+   * @param {string} id
+   * @memberof BookComponent
+   * 
+   * @author J. Rubén Daza
+   */
   navigateToBook(id: string): void {
     this.route.navigate(['/book/', id]);
   }

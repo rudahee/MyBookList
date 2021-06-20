@@ -21,17 +21,21 @@ export class WidgetEmitterService {
   @Output()
   sagaEmitter = new EventEmitter<ISaga>();
 
+  /*
+  * Emit changes in author
+  */
+  private emitAuthors(): void {
+    this.authorsEmitter.emit(this.authorsSelected);
+  }
+
   public setAuthorSelected(authorsSelected: IAuthorSimple[]): void {
     this.authorsSelected = authorsSelected;
     this.emitAuthors();
   }
 
-  // Emitimos los cambio de this.persona.
-  private emitAuthors(): void {
-    this.authorsEmitter.emit(this.authorsSelected);
-  }
-
-
+  /*
+  * Emit changes in genres
+  */
   public setGenresSelected(genresSelected: IGenre[]): void {
     this.genresSelected = genresSelected;
     this.emitGenres();
@@ -41,7 +45,9 @@ export class WidgetEmitterService {
     this.genresEmitter.emit(this.genresSelected);
   }
 
-
+  /*
+  * Emit changes in saga
+  */
   public setSagaSelected(sagaSelected: ISaga): void {
     this.sagaSelected = sagaSelected;
     this.emitSaga();

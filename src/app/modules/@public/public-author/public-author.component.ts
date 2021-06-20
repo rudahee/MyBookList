@@ -34,9 +34,27 @@ export class PublicAuthorComponent implements OnInit {
   };
 
 
+  /**
+   * Creates an instance of PublicAuthorComponent.
+   * @param {ActivatedRoute} route
+   * @param {Router} router
+   * @param {UserService} userService
+   * @param {MatSnackBar} snackBar
+   * @param {Location} location
+   * @memberof PublicAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService,
               private snackBar: MatSnackBar, private location: Location) { }
 
+  /**
+   * Retrieve data from author. only public data.
+   *
+   * @memberof PublicAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.publicAuthorId = this.route.snapshot.paramMap.get('id');
 
@@ -75,6 +93,13 @@ export class PublicAuthorComponent implements OnInit {
     );
   }
 
+  /**
+   * Take action to follow author
+   *
+   * @memberof PublicAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   followAuthor(): void {
     this.userService.followAuthor(this.publicAuthorId).subscribe(
       () => {

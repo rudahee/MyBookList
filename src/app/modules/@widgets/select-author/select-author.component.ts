@@ -24,8 +24,24 @@ export class SelectAuthorComponent implements OnInit {
 
   filteredOptions: Observable<IAuthorSimple[]>;
 
+  /**
+   * Creates an instance of SelectAuthorComponent.
+   * @param {UserService} userService
+   * @param {WidgetEmitterService} widgetService
+   * @param {MatSnackBar} snackBar
+   * @memberof SelectAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private userService: UserService, private widgetService: WidgetEmitterService, private snackBar: MatSnackBar) { }
 
+  /**
+   * Initialize data
+   *
+   * @memberof SelectAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
 
     // tslint:disable-next-line: deprecation
@@ -56,6 +72,15 @@ export class SelectAuthorComponent implements OnInit {
     this.selectAuthor(this.authorControl.value);
   }
 
+  /**
+   * When you clicked in autocomplete, do a tag with author name
+   *
+   * @param {MatAutocompleteSelectedEvent} event
+   * @return {*}  {void}
+   * @memberof SelectAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   selectAuthor(event: MatAutocompleteSelectedEvent): void {
 
     if (this.selectedAuthors.findIndex(author => author.completeName === event.option.value.completeName) >= 0

@@ -20,9 +20,28 @@ export class AddPendingBookComponent implements OnInit {
   bookForm: FormGroup;
   public dateSwitch = true;
 
+
+  /**
+   * Creates an instance of AddPendingBookComponent.
+   * @param {BookService} bookService
+   * @param {Location} location
+   * @param {ActivatedRoute} router
+   * @param {FormBuilder} build
+   * @param {WidgetEmitterService} widgetService
+   * @param {MatSnackBar} snackbar
+   * @memberof AddPendingBookComponent
+   */
   constructor(private bookService: BookService, private location: Location, private router: ActivatedRoute,
               private build: FormBuilder, private widgetService: WidgetEmitterService, private snackbar: MatSnackBar) { }
 
+
+  /**
+   * Initialize forms, ids, and other variables.
+   *
+   * @memberof AddPendingBookComponent
+   *
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.id = this.router.snapshot.paramMap.get('id');
 
@@ -48,17 +67,32 @@ export class AddPendingBookComponent implements OnInit {
         this.bookForm.controls.isbn.setValue(res.isbn);
       }
     );
-
   }
 
+  /**
+   * Needed to dateInput in html.
+   *
+   * @memberof AddPendingBookComponent
+   * 
+   * @author J. Rubén Daza
+   */
   public changeDateInput(): void {
-    this.dateSwitch = false;
-  }
+      this.dateSwitch = false;
+    }
 
+  /**
+   * This method get data by form and send to service.
+   *
+   * @return {*}  {void}
+   * @memberof AddPendingBookComponent
+   *
+   * @author J. Rubén Daza
+   */
   public saveBook(): void {
     this.book = this.bookForm.value;
     this.book.publishDate = new Date(this.bookForm.controls.publishDate.value);
 
+    // Control widgets inputs with autocomplete and tags.
     if (!this.widgetService.authorsSelected) {
       this.snackbar.open('You need to add at least one author!', 'Close', { duration: 5000, panelClass: 'snackbar'});
       return;
@@ -72,6 +106,8 @@ export class AddPendingBookComponent implements OnInit {
     this.book.genres = this.widgetService.genresSelected;
 
     const authorsId = this.widgetService.authorsSelected.map(author => author.id);
+
+    // Get data by form
 
     // tslint:disable-next-line: deprecation
     this.bookService.postBook(

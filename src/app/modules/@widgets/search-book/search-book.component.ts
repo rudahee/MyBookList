@@ -18,8 +18,23 @@ export class SearchBookComponent implements OnInit {
   bookControl = new FormControl();
   filteredOptions: Observable<IBook[]>;
 
+  /**
+   * Creates an instance of SearchBookComponent.
+   * @param {BookService} bookService
+   * @param {Router} router
+   * @memberof SearchBookComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private bookService: BookService, private router: Router) { }
 
+  /**
+   * Initialize data
+   *
+   * @memberof SearchBookComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
 
     // tslint:disable-next-line: deprecation
@@ -39,6 +54,15 @@ export class SearchBookComponent implements OnInit {
     return book && book.name ? book.name : '';
   }
 
+  /**
+   * Filter to autocomplete
+   *
+   * @param {string} value
+   * @return {*}  {IBook[]}
+   * @memberof SearchBookComponent
+   * 
+   * @author J. Rubén Daza
+   */
   public _filter(value: string): IBook[] {
     const filterValue = value.toLowerCase();
 

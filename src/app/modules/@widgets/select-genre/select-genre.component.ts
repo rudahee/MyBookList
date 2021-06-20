@@ -21,9 +21,26 @@ export class SelectGenreComponent implements OnInit {
 
   filteredOptions: Observable<IGenre[]>;
 
+  /**
+   * Creates an instance of SelectGenreComponent.
+   * @param {BookService} bookService
+   * @param {Router} router
+   * @param {MatSnackBar} snackBar
+   * @param {WidgetEmitterService} widgetService
+   * @memberof SelectGenreComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private  bookService: BookService, private router: Router,
               private snackBar: MatSnackBar, private widgetService: WidgetEmitterService) { }
 
+  /**
+   * Initialize data
+   *
+   * @memberof SelectAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.bookService.getAllGenres().subscribe(
       res => {
@@ -46,6 +63,15 @@ export class SelectGenreComponent implements OnInit {
       });
   }
 
+  /**
+   * When you clicked in autocomplete, do a tag with genre
+   *
+   * @param {MatAutocompleteSelectedEvent} event
+   * @return {*}  {void}
+   * @memberof SelectAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   selectGenre(genreSelected: string): void {
     const genreInterface: IGenre = {
       genre: genreSelected

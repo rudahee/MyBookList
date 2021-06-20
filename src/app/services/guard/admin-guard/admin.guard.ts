@@ -14,7 +14,7 @@ export class IsAdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      if (localStorage.getItem('roles') === 'USER') {
+      if (localStorage.getItem('roles') === 'ADMIN') {
         return true;
       } else {
         this.snackbar.open('You can\'t access this page', 'Close', { duration: 5000, panelClass: 'snackbar' });

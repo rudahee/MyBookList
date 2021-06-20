@@ -18,9 +18,28 @@ export class SignInComponent implements OnInit {
 
   loginData: ILoginData;
 
+  /**
+   * Creates an instance of SignInComponent.
+   * @param {FormBuilder} build
+   * @param {UserService} userService
+   * @param {JwtHandlerService} JWTHandler
+   * @param {Router} router
+   * @param {MatSnackBar} snackBar
+   * @memberof SignInComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private build: FormBuilder, private userService: UserService, private JWTHandler: JwtHandlerService,
               private router: Router, private snackBar: MatSnackBar) { }
 
+
+  /**
+   * Initialize form
+   *
+   * @memberof SignInComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.signInForm = this.build.group({
       username: ['', [Validators.required, Validators.minLength(2)]],
@@ -28,6 +47,13 @@ export class SignInComponent implements OnInit {
     });
   }
 
+  /**
+   * Send data to backend, if its valid, save data in localstorage
+   *
+   * @memberof SignInComponent
+   * 
+   * @author J. Rubén Daza
+   */
   signIn(): void {
     this.loginData = this.signInForm.value;
 

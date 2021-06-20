@@ -1,4 +1,4 @@
-export interface IBook {
+export interface IBook { //General book
     id?: number;
     position?: number;
     name: string;
@@ -11,13 +11,13 @@ export interface IBook {
     genres?: IGenre[];
 }
 
-export interface ISaga {
+export interface ISaga { // General saga
     id?: number;
     name: string;
     action?: any;
 }
 
-export interface IBookForApproval {
+export interface IBookForApproval { // Book data for approval
     id: number;
     name: string;
     description: string;
@@ -33,7 +33,7 @@ export interface IBookForApproval {
     authorName: string;
 }
 
-export interface IBookToPublicList {
+export interface IBookToPublicList { // Book data to user list
     id: number;
     name: string;
     imageUrl: string;
@@ -45,11 +45,11 @@ export interface IBookToPublicList {
     totalPages: number;
 }
 
-export interface IGenre {
+export interface IGenre { // General genre
     genre: string;
 }
 
-export interface IComment {
+export interface IComment { // General comment
     comment: string;
     username: string;
     rating: number;

@@ -28,9 +28,27 @@ export class SagaListComponent implements OnInit {
   }
   @ViewChild(MatSort) sort: MatSort = new MatSort();
 
+  /**
+   * Creates an instance of SagaListComponent.
+   * @param {JwtHandlerService} jwtTokenHandler
+   * @param {BookService} bookService
+   * @param {Router} router
+   * @param {MatSnackBar} snackbar
+   * @memberof SagaListComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private jwtTokenHandler: JwtHandlerService, private bookService: BookService,
               private router: Router, private snackbar: MatSnackBar) { }
 
+
+  /**
+   * Initialize all data for table, it requested to backend.
+   *
+   * @memberof SagaListComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     const route = this.router.url;
     this.dataSource = new MatTableDataSource<ISaga>();
@@ -56,6 +74,14 @@ export class SagaListComponent implements OnInit {
     }
   }
 
+  /**
+   * Apply filters to search from input bar
+   *
+   * @param {Event} event
+   * @memberof SagaListComponent
+   * 
+   * @author J. Rubén Daza
+   */
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -65,6 +91,14 @@ export class SagaListComponent implements OnInit {
     }
   }
 
+  /**
+   * Action to saga, you can remove saga 
+   *
+   * @param {string} id
+   * @memberof SagaListComponent
+   *
+   * @author J. Rubén Daza
+   */
   removeSaga(id: string): void {
 
     this.bookService.removeSaga(id).subscribe(

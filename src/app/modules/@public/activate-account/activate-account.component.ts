@@ -12,6 +12,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ActivateAccountComponent implements OnInit {
 
+  /**
+   * Creates an instance of ActivateAccountComponent.
+   * @param {ActivatedRoute} route
+   * @param {Router} router
+   * @param {FormBuilder} build
+   * @param {UserService} userService
+   * @param {MatSnackBar} snackBar
+   * @memberof ActivateAccountComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private route: ActivatedRoute, private router: Router, private build: FormBuilder, private userService: UserService,
               private snackBar: MatSnackBar) { }
 
@@ -19,6 +30,13 @@ export class ActivateAccountComponent implements OnInit {
   token: string;
   activateAccountForm: FormGroup;
 
+  /**
+   * Initialize data and form
+   *
+   * @memberof ActivateAccountComponent
+   *
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.token = this.route.snapshot.paramMap.get('token');
@@ -32,7 +50,11 @@ export class ActivateAccountComponent implements OnInit {
     });
   }
 
-
+  /**
+   * Send token to back, it is correct you will be redirect to sign in page, otherwise show error.
+   *
+   * @memberof ActivateAccountComponent
+   */
   activateAccount(): void {
     const tokenForm: string = this.activateAccountForm.controls.token.value;
     // tslint:disable-next-line: deprecation

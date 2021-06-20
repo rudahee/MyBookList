@@ -15,9 +15,28 @@ export class PublicUserComponent implements OnInit {
   public publicUserId: string;
   public user: IUser;
 
+  /**
+   * Creates an instance of PublicUserComponent.
+   * @param {ActivatedRoute} route
+   * @param {Router} router
+   * @param {UserService} userService
+   * @param {MatSnackBar} snackBar
+   * @param {Location} location
+   * @memberof PublicUserComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService,
               private snackBar: MatSnackBar, private location: Location) { }
 
+
+  /**
+   * Initialize data to show a public user
+   *
+   * @memberof PublicUserComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.publicUserId = this.route.snapshot.paramMap.get('id');
 

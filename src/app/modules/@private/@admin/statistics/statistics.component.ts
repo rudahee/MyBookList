@@ -13,6 +13,13 @@ export class StatisticsComponent implements OnInit {
 
   constructor(private statsService: StatisticsService) { }
 
+  /**
+   * Getting data from service.
+   *
+   * @memberof StatisticsComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.statsService.getAdminStatistics().subscribe(
       res => {

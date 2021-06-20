@@ -9,21 +9,53 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent {
 
-  public sideNav: boolean;
+  public sideNav: boolean; //used to open left sandwich menu.
 
-  public id: string;
-  public role: string;
+  public id = '';
+  public role = '';
 
+  /**
+   * Creates an instance of HeaderComponent.
+   *
+   * @constructor
+   *
+   * @param {Location} location
+   * @param {JwtHandlerService} jwtService
+   * @memberof HeaderComponent
+   *
+   * @author J. Rubén Daza
+   */
   constructor(private location: Location, private jwtService: JwtHandlerService) {
     this.sideNav = false;
-    this.id = localStorage.getItem('user_id');
-    this.role = localStorage.getItem('roles');
+
+    if (localStorage.getItem('user_id')) {
+      this.id = localStorage.getItem('user_id');
+    }
+
+    if (localStorage.getItem('roles')) {
+      this.role = localStorage.getItem('roles');
+    }
    }
 
+
+  /**
+   * Allows you to return to the previous location.
+   *
+   * @memberof HeaderComponent
+   *
+   * @author J. Rubén Daza
+   */
   navigateBack(): void {
     this.location.back();
   }
 
+  /**
+   * Allows you to close your session in app
+   *
+   * @memberof HeaderComponent
+   * 
+   * @author J. Rubén Daza
+   */
   public signOut(): void {
     this.jwtService.deleteJWT();
   }

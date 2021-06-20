@@ -1,0 +1,883 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>my-book-list documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">my-book-list documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>TableBookListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/@widgets/table-book-list/table-book-list.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-table-book-list</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./table-book-list.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./table-book-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ELEMENT_DATA">ELEMENT_DATA</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#innerWidth">innerWidth</a>
+                            </li>
+                            <li>
+                                <a href="#paginator">paginator</a>
+                            </li>
+                            <li>
+                                <a href="#resultsLength">resultsLength</a>
+                            </li>
+                            <li>
+                                <a href="#sort">sort</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getPercentage">getPercentage</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bookList">bookList</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#matPaginator">matPaginator</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="bookList"></a>
+                        <b>bookList</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IBookToPublicList[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedColumns"></a>
+                        <b>displayedColumns</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPercentage"></a>
+                    <span class="name">
+                        <b>
+                            getPercentage
+                        </b>
+                        <a href="#getPercentage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPercentage(pagesReaded: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, totalPages: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Aux method to calc the percentage of pages reads</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>pagesReaded</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>totalPages</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>{string}</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Initialize data</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSource"></a>
+                        <span class="name">
+                            <b>
+                            dataSource</b>
+                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatTableDataSource&lt;IBookToPublicList&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ELEMENT_DATA"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            ELEMENT_DATA</b>
+                            <a href="#ELEMENT_DATA"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>IBookToPublicList[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="innerWidth"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            innerWidth</b>
+                            <a href="#innerWidth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paginator"></a>
+                        <span class="name">
+                            <b>
+                            paginator</b>
+                            <a href="#paginator"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsLength"></a>
+                        <span class="name">
+                            <b>
+                            resultsLength</b>
+                            <a href="#resultsLength"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sort"></a>
+                        <span class="name">
+                            <b>
+                            sort</b>
+                            <a href="#sort"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatSort</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new MatSort()</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(MatSort)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="matPaginator"></a>
+                        <span class="name"><b>matPaginator</b><a href="#matPaginator"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>matPaginator(mp)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/modules/@widgets/table-book-list/table-book-list.component.ts:28</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>mp</td>
+                                                    
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IBookToPublicList } from &#x27;./../../../interfaces/IBook&#x27;;
+import { Component, Input, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { MatTableDataSource } from &#x27;@angular/material/table&#x27;;
+import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
+import { MatSort } from &#x27;@angular/material/sort&#x27;;
+
+@Component({
+  selector: &#x27;app-table-book-list&#x27;,
+  templateUrl: &#x27;./table-book-list.component.html&#x27;,
+  styleUrls: [&#x27;./table-book-list.component.scss&#x27;]
+})
+export class TableBookListComponent implements OnInit {
+
+  constructor() { }
+
+  @Input()
+  displayedColumns: string[];
+
+  @Input()
+  bookList: IBookToPublicList[];
+
+  public ELEMENT_DATA: IBookToPublicList[];
+  dataSource: MatTableDataSource&lt;IBookToPublicList&gt;;
+  paginator;
+  resultsLength: number;
+  public innerWidth: any;
+
+  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
+    this.dataSource.paginator &#x3D; mp;
+  }
+  @ViewChild(MatSort) sort: MatSort &#x3D; new MatSort();
+
+
+  /**
+   * Initialize data
+   *
+   * @memberof TableBookListComponent
+   * 
+   * @author J. Rubén Daza
+   */
+  ngOnInit(): void {
+
+    this.innerWidth &#x3D; window.innerWidth;
+
+    if (this.innerWidth &lt; 650) {
+      this.displayedColumns.splice(1, 1);
+      if (this.displayedColumns.indexOf(&#x27;comment&#x27;) !&#x3D;&#x3D; -1) {
+        this.displayedColumns.splice(this.displayedColumns.indexOf(&#x27;comment&#x27;) , 1);
+      }
+    }
+
+    this.dataSource &#x3D; new MatTableDataSource&lt;IBookToPublicList&gt;();
+    // tslint:disable-next-line: deprecation
+
+    this.ELEMENT_DATA &#x3D; this.bookList;
+
+    console.log(this.bookList)
+    this.dataSource &#x3D; new MatTableDataSource(this.ELEMENT_DATA);
+    this.resultsLength &#x3D; this.ELEMENT_DATA.length;
+    this.dataSource.sort &#x3D; this.sort;
+  }
+
+  /**
+   * Aux method to calc the percentage of pages reads
+   *
+   * @param {number} pagesReaded
+   * @param {number} totalPages
+   * @return {*}  {string}
+   * @memberof TableBookListComponent
+   */
+  getPercentage(pagesReaded: number, totalPages: number): string {
+    const percentage &#x3D; pagesReaded / totalPages * 100;
+
+    const percentageWithOneDecimal &#x3D; Math.round(percentage * 10) / 10;
+
+    return &#x27; (&#x27; + percentageWithOneDecimal + &#x27;%)&#x27;;
+
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;table mat-table [dataSource]&#x3D;&quot;dataSource&quot; matSort class&#x3D;&quot;w-full&quot;&gt;
+  &lt;ng-container  matColumnDef&#x3D;&quot;imageUrl&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef width&#x3D;&quot;10%&quot;&gt; Image &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;&lt;img class&#x3D;&quot;book-image-sm&quot; [src]&#x3D;&quot;element.imageUrl&quot; alt&#x3D;&quot;image from book&quot;&gt;&lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef mat-sort-header  width&#x3D;&quot;25%&quot;&gt; Name &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; &lt;strong&gt;{{(element.sagaName &amp;&amp; this.innerWidth &gt; 850) ? element.sagaName + &#x27;: &#x27; + element.name : &#x27;&#x27;  + element.name}}&lt;/strong&gt; &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;pages readed&quot; *ngIf&#x3D;&quot;this.displayedColumns.indexOf(&#x27;pages readed&#x27;) !&#x3D; -1&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef mat-sort-header class&#x3D;&quot;10%&quot;&gt; Pages Readed &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.pagesReaded + &#x27;/&#x27; + element.totalPages + getPercentage(element.pagesReaded, element.totalPages) }} &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;comment&quot; *ngIf&#x3D;&quot;this.displayedColumns.indexOf(&#x27;comment&#x27;) !&#x3D; -1&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef class&#x3D;&quot;45%&quot;&gt; Comment &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.comment}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;score&quot; *ngIf&#x3D;&quot;this.displayedColumns.indexOf(&#x27;score&#x27;) !&#x3D; -1&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef  width&#x3D;&quot;10%&quot;&gt; Score &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;&amp;nbsp;&amp;nbsp;{{element.score}}/5 &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;action&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef  width&#x3D;&quot;10%&quot;&gt; Actions &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+      &lt;button mat-stroked-button color&#x3D;&quot;primary&quot; [routerLink]&#x3D;&quot;&#x27;/update-book-status/&#x27;+element.id&quot;&gt;
+        &lt;p class&#x3D;&quot;p-card-small no-margins flex-center&quot;&gt;
+          &lt;strong class&#x3D;&quot;hide-mobile&quot;&gt;Edit &amp;nbsp;&lt;/strong&gt;
+          &lt;mat-icon&gt;edit_note&lt;/mat-icon&gt;
+        &lt;/p&gt;
+      &lt;/button&gt;
+    &lt;/td&gt;
+  &lt;/ng-container&gt;
+  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/tr&gt;
+  &lt;tr class&#x3D;&quot;mat-row&quot; *matNoDataRow&gt;
+    &lt;td class&#x3D;&quot;mat-cell&quot; colspan&#x3D;&quot;4&quot;&gt;No data matching the filter &quot;{{this.dataSource.filter}}&quot;&lt;/td&gt;
+  &lt;/tr&gt;
+
+&lt;/table&gt;
+&lt;mat-paginator [length]&#x3D;&quot;resultsLength&quot; [pageSizeOptions]&#x3D;&quot;[10, 20, 30]&quot;&gt;&lt;/mat-paginator&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./table-book-list.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><table mat-table [dataSource]="dataSource" matSort class="w-full">  <ng-container  matColumnDef="imageUrl">    <th mat-header-cell *matHeaderCellDef width="10%"> Image </th>    <td mat-cell *matCellDef="let element"><img class="book-image-sm" [src]="element.imageUrl" alt="image from book"></td>  </ng-container>  <ng-container matColumnDef="name">    <th mat-header-cell *matHeaderCellDef mat-sort-header  width="25%"> Name </th>    <td mat-cell *matCellDef="let element"> <strong>{{(element.sagaName && this.innerWidth > 850) ? element.sagaName + \': \' + element.name : \'\'  + element.name}}</strong> </td>  </ng-container>  <ng-container matColumnDef="pages readed" *ngIf="this.displayedColumns.indexOf(\'pages readed\') != -1">    <th mat-header-cell *matHeaderCellDef mat-sort-header class="10%"> Pages Readed </th>    <td mat-cell *matCellDef="let element">{{element.pagesReaded + \'/\' + element.totalPages + getPercentage(element.pagesReaded, element.totalPages) }} </td>  </ng-container>  <ng-container matColumnDef="comment" *ngIf="this.displayedColumns.indexOf(\'comment\') != -1">    <th mat-header-cell *matHeaderCellDef class="45%"> Comment </th>    <td mat-cell *matCellDef="let element"> {{element.comment}} </td>  </ng-container>  <ng-container matColumnDef="score" *ngIf="this.displayedColumns.indexOf(\'score\') != -1">    <th mat-header-cell *matHeaderCellDef  width="10%"> Score </th>    <td mat-cell *matCellDef="let element">&nbsp;&nbsp;{{element.score}}/5 </td>  </ng-container>  <ng-container matColumnDef="action">    <th mat-header-cell *matHeaderCellDef  width="10%"> Actions </th>    <td mat-cell *matCellDef="let element">      <button mat-stroked-button color="primary" [routerLink]="\'/update-book-status/\'+element.id">        <p class="p-card-small no-margins flex-center">          <strong class="hide-mobile">Edit &nbsp;</strong>          <mat-icon>edit_note</mat-icon>        </p>      </button>    </td>  </ng-container>  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  <tr class="mat-row" *matNoDataRow>    <td class="mat-cell" colspan="4">No data matching the filter "{{this.dataSource.filter}}"</td>  </tr></table><mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 20, 30]"></mat-paginator></div>'
+    var COMPONENTS = [{'name': 'ActivateAccountComponent', 'selector': 'app-activate-account'},{'name': 'AddBookComponent', 'selector': 'app-add-book'},{'name': 'AddBookPendingComponent', 'selector': 'app-add-book-pending'},{'name': 'AddBookToListComponent', 'selector': 'app-add-book-to-list'},{'name': 'AddMultipleBooksComponent', 'selector': 'app-add-multiple-books'},{'name': 'AddPendingBookComponent', 'selector': 'app-add-pending-book'},{'name': 'AddSagaComponent', 'selector': 'app-add-saga'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminHomeComponent', 'selector': 'app-admin-home'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorComponent', 'selector': 'app-author'},{'name': 'AuthorHomeComponent', 'selector': 'app-author-home'},{'name': 'BookComponent', 'selector': 'app-book'},{'name': 'BookListComponent', 'selector': 'app-book-list'},{'name': 'ChangeBookStatusComponent', 'selector': 'app-change-book-status'},{'name': 'CreateSpecialAccountComponent', 'selector': 'app-create-special-account'},{'name': 'FinishSignUpComponent', 'selector': 'app-finish-sign-up'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'ListPendingBooksComponent', 'selector': 'app-list-pending-books'},{'name': 'PrivateComponent', 'selector': 'app-private'},{'name': 'PublicAuthorComponent', 'selector': 'app-public-author'},{'name': 'PublicComponent', 'selector': 'app-public'},{'name': 'PublicUserComponent', 'selector': 'app-public-user'},{'name': 'SagaListComponent', 'selector': 'app-saga-list'},{'name': 'SearchAuthorComponent', 'selector': 'app-search-author'},{'name': 'SearchBookComponent', 'selector': 'app-search-book'},{'name': 'SelectAuthorComponent', 'selector': 'app-select-author'},{'name': 'SelectGenreComponent', 'selector': 'app-select-genre'},{'name': 'SelectSagaComponent', 'selector': 'app-select-saga'},{'name': 'SetPersonalDataComponent', 'selector': 'app-set-personal-data'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'TableBookListComponent', 'selector': 'app-table-book-list'},{'name': 'UserBookListComponent', 'selector': 'app-user-book-list'},{'name': 'userComponent', 'selector': 'app-user'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'WidgetsComponent', 'selector': 'app-widgets'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TableBookListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TableBookListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

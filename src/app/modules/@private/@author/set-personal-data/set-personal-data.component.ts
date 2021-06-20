@@ -18,8 +18,24 @@ export class SetPersonalDataComponent implements OnInit {
   urlImage: string;
   isSelectedNewImage = false;
 
+  /**
+   * Creates an instance of SetPersonalDataComponent.
+   * @param {UserService} userService
+   * @param {MatSnackBar} snackBar
+   * @param {Location} location
+   * @memberof SetPersonalDataComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private userService: UserService, private snackBar: MatSnackBar, private location: Location) { }
 
+  /**
+   * Initialize form, and other data.
+   *
+   * @memberof SetPersonalDataComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.userService.getPublicAuthorInfo(localStorage.getItem('user_id')).subscribe(
       res => {
@@ -47,17 +63,38 @@ export class SetPersonalDataComponent implements OnInit {
     );
   }
 
+  /**
+   * This method is needed to control image visualization.
+   *
+   * @memberof SetPersonalDataComponent
+   * 
+   * @author J. Rubén Daza
+   */
   updateImage(): void {
     this.urlImage = this.urlImageControl.value;
     this.isSelectedNewImage = true;
   }
 
+  /**
+   * This method is needed to control image visualization.
+   *
+   * @memberof SetPersonalDataComponent
+   * 
+   * @author J. Rubén Daza
+   */
   removeImage(): void {
     this.urlImageControl.reset();
     this.urlImage = undefined;
     this.isSelectedNewImage = false;
   }
 
+  /**
+   * Send data from form to service.
+   *
+   * @memberof SetPersonalDataComponent
+   * 
+   * @author J. Rubén Daza
+   */
   sendPersonalInfo(): void {
     this.userService.sendPersonalDataAuthor(this.urlImageControl.value, this.biographyControl.value).subscribe(
       res => {

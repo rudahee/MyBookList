@@ -18,8 +18,23 @@ export class SearchAuthorComponent implements OnInit {
 
   filteredOptions: Observable<IAuthorSimple[]>;
 
+  /**
+   * Creates an instance of SearchAuthorComponent.
+   * @param {UserService} userService
+   * @param {Router} router
+   * @memberof SearchAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   constructor(private userService: UserService, private router: Router) { }
 
+  /**
+   * Initialize all data
+   *
+   * @memberof SearchAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.userService.getAllAuthors().subscribe(
       res => {
@@ -43,10 +58,29 @@ export class SearchAuthorComponent implements OnInit {
       });
   }
 
+  /**
+   * show complete name or void
+   *
+   * @param {IAuthorSimple} author
+   * @return {*}  {string}
+   * @memberof SearchAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   displayFn(author: IAuthorSimple): string {
     return author && author.completeName ? author.completeName : '';
   }
 
+
+  /**
+   * Filter in autocomplete
+   *
+   * @param {string} value
+   * @return {*}  {IAuthorSimple[]}
+   * @memberof SearchAuthorComponent
+   * 
+   * @author J. Rubén Daza
+   */
   public _filter(value: string): IAuthorSimple[] {
     const filterValue = value.toLowerCase();
 
@@ -54,6 +88,8 @@ export class SearchAuthorComponent implements OnInit {
       return option.completeName.toLowerCase().indexOf(filterValue) === 0;
     });
   }
+
+  
   navigate(id: string): void {
     this.router.navigate(['/author/page/' + id]);
   }

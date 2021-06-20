@@ -23,10 +23,28 @@ export class ChangeBookStatusComponent implements OnInit {
   @ViewChild(NgxStarsComponent)
   starsComponent: NgxStarsComponent;
 
+  /**
+   * Creates an instance of ChangeBookStatusComponent.
+   * @param {ActivatedRoute} router
+   * @param {BookService} bookService
+   * @param {FormBuilder} build
+   * @param {Location} location
+   * @param {MatSnackBar} snackBar
+   * @memberof ChangeBookStatusComponent
+   *
+   * @author J. Rubén Daza
+   */
   constructor(private router: ActivatedRoute, private bookService: BookService,
               private build: FormBuilder, private location: Location,
               private snackBar: MatSnackBar) { }
 
+  /**
+   * Initialize form, form data and id
+   *
+   * @memberof ChangeBookStatusComponent
+   *
+   * @author J. Rubén Daza
+   */
   ngOnInit(): void {
     this.addBookForm = this.build.group({
       comment: ['', []],
@@ -53,16 +71,36 @@ export class ChangeBookStatusComponent implements OnInit {
       }
     );
   }
+
+  /**
+   * Get rating from stars. ngxStarRating
+   *
+   * @param {number} rating
+   * @memberof AddBookToListComponent
+   *
+   * @author J. Rubén Daza
+   */
   onRatingSet(rating: number): void {
     this.ratingDisplay = rating;
   }
 
+  /**
+   * Send data from form to service
+   *
+   * @memberof AddBookToListComponent
+   *
+   * @author J. Rubén Daza
+   */
   updateBook(): void {
     const data = {
       bookId: this.id,
       userId: localStorage.getItem('user_id'),
       comment: this.addBookForm.controls.comment.value,
       status: this.addBookForm.controls.status.value,
+
+      // if status is correct get pages readed
+      // for example: If you have finished reading the book, or have not started it yet,
+      // it does not make sense to send the number of pages read.
 
       pagesReaded: (this.addBookForm.controls.status.value !== 'PLANTOREAD'
                     && this.addBookForm.controls.status.value !== 'COMPLETED') ? this.addBookForm.controls.pages_read.value : undefined,
@@ -72,9 +110,7 @@ export class ChangeBookStatusComponent implements OnInit {
               && this.addBookForm.controls.status.value !== 'ONHOLD') ? this.ratingDisplay : undefined
     };
 
-
-    console.log(data);
-
+    // send data
     this.bookService.updateStatusFromBook(data).subscribe(
       () => {
         this.location.back();
