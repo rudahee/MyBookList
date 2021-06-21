@@ -1,27 +1,72 @@
-# MyBookList
+# MyBookList - Backend.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+###  **[> Hey! Frontend Version here](https://github.com/rudahee/MyBookList)**
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<br>
 
-## Code scaffolding
+# Index 📋
+1. Download & Run
+2. Documentation
+3. Changelog
+4. ¡Fork me!
+5. Futures Improvements
+6. Final Notes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## **Download & Run🔧📦**
 
-## Running unit tests
+> **This software its compatible with all Operative System with Web Browser**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### **Download**
+You can download the last Zip version to deploy in Apache2: [Releases Page](https://github.com/rudahee/MyBookList/releases). 
 
-## Running end-to-end tests
+You only need download the last version stable: `MyBookList-v.1.0.zip`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+_If you don't want to go to the releases page every time, there is a shortcut on the right with the latest version available_
 
-## Further help
+### **Execution**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To run the application you must deploy on a Apache2/Nginx or similar server, for this you can have more information about it in the documentation tutorial.
+
+You can see the page in: **[> MyBookList.site](http://mybooklist.site)**
+---
+
+## **Changelog ✒️**
+
+- ## Version 1.0:
+  - **Basic App Creation** 
+
+---
+## **¡Fork me! 🛠️**
+
+I challenge you to continue developing this project on your own.
+
+You need:
+- Node.JS
+- Angular 9+
+- Visual Studio Code and plugins (Go to documentation)
+- Git
+
+To make your own builds follow these steps:
+`` ''
+$ ng build --prod
+`` ''
+
+A files is generated in `/dist/MyBookList`. You need all of these.
+----
+
+## **Futures Improvements :arrow_up:**
+
+- ¡Code refactoring!
+- Eliminate inefficient code due to the presentation of the end of the school year.
+- Need more control in header, do a service to change header dinamically.
+- TESTING, TESTING, TESTING.
+
+---
+## **Final Note**
+
+This is my final project of a studies in web application development. I cannot ensure the continuity of the project as of August 1, 2021.
+
